@@ -1,4 +1,4 @@
-#Team-2-progetto-inedito
+#Team-2-progetto-ToExplore
 
 Il team 2, della classe Fullstack-12 ha deciso di cimentarsi nella creazione di un'app completamente nuova, partendo da 0. Per realizzarla utilizzeranno gli strumenti come React e Tailwind. 
 
