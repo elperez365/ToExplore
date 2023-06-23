@@ -1,14 +1,12 @@
 import React from "react";
+import AddContentPage from "./AddContentPage";
 
-
-class App extends React.Component() {
-  render() {
-    return(
-      <div>
-        
-      </div>
-    )
-  }
+function App() {
+  return (
+    <div>
+      <AddContentPage />
+    </div>
+  );
 }
 
 export default App;
