@@ -1,21 +1,29 @@
+import ButtonPrev from "./ButtonPrev";
+import CountrySelector from "./CountrySelector";
+import UploadAndDisplayImage from "./UploadAndDisplayImage";
+
 function AddContentPage() {
   return (
-    <div>
-      <div>
-        <button>torna indietro</button>
+    <div className="p-4 flex flex-col justify-around bg-green-200 h-screen">
+      <div className="flex">
+        <ButtonPrev />
       </div>
-      <div>
-        <input type="file" />
+      <div className="flex flex-col items-center gap-4">
+        <UploadAndDisplayImage />
       </div>
-      <div>
+      <div className="flex flex-col items-center w-full h-32">
         <label htmlFor="">Descrizione</label>
-        <input type="text" />
+        <textarea className="bg-pink-100 w-full h-40" />
       </div>
-      <div>
+      <div className="flex flex-col items-center">
         <h1>posizione</h1>
-        <img src="/src/Screenshot 2023-06-19 090430.png" alt="" />
+        <CountrySelector />
+        <img
+          src="https://media.istockphoto.com/id/1308342065/it/vettoriale/mappa-della-posizione-piegata-con-marcatore-mappa-della-citt%C3%A0-con-puntatore-a-spillo.jpg?s=1024x1024&w=is&k=20&c=CKgSZB1-ZsfIVP2eESrfqN9MDJyyuGxqj6H_6zxeu_I="
+          alt="noimage"
+        />
       </div>
-      <div>
+      <div className="flex justify-center h-20 bg-green-500 rounded-full">
         <button>PUBBLICA</button>
       </div>
     </div>
