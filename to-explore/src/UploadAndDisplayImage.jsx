@@ -29,7 +29,7 @@ const UploadAndDisplayImage = () => {
         htmlFor="myImage"
       >
         <LiaCloudUploadAltSolid className="w-20 h-20" />
-        Carica la tua immagine
+        Carica la tua Foto
         <TbHandClick className="w-12 h-12" />
       </label>
       <input
