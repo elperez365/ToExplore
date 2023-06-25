@@ -50,11 +50,13 @@ function CountrySelector() {
 
   // useEffect(() => {
   //   if (!regione) {
-  //     provincieRef.current.inputRef.isDisabled = true;
+  //     provincieRef.current.inputRef.disabled = true;
+  //   } else {
+  //     provincieRef.current.inputRef.disabled = false;
   //   }
 
   //   console.log(provincieRef.current);
-  // }, [regione]);
+  // }, [regione, provincieRef]);
 
   const changeRegione = (regione) => {
     setRegione(regione);
@@ -78,22 +80,32 @@ function CountrySelector() {
         value={regione}
         onChange={changeRegione}
       />
-      <h2>la provincia</h2>
-      <Select
-        ref={provincieRef}
-        className="w-full"
-        options={provincieFiltrate}
-        value={provincia}
-        onChange={changeProvincia}
-      />
-      <h2>e il comune</h2>
-      <Select
-        ref={comuniRef}
-        className="w-full"
-        options={comuniFiltrati}
-        value={comune}
-        onChange={changeComune}
-      />
+      {regione && (
+        <div>
+          <h2>la provincia</h2>
+          <Select
+            ref={provincieRef}
+            className="w-full"
+            options={provincieFiltrate}
+            value={provincia}
+            onChange={changeProvincia}
+            isDisabled={!regione ? true : false}
+          />
+        </div>
+      )}
+      {provincia && (
+        <div>
+          <h2>e il comune</h2>
+          <Select
+            ref={comuniRef}
+            className="w-full"
+            options={comuniFiltrati}
+            value={comune}
+            onChange={changeComune}
+            isDisabled={!provincia ? true : false}
+          />
+        </div>
+      )}
     </div>
   );
 }
