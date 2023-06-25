@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import Select from "react-select";
 // import countryList from "react-select-country-list";
 import comuniWithSpec from "./comuni.json";
@@ -47,16 +47,6 @@ function CountrySelector() {
   const comuniFiltrati = comuniItaliani.filter(
     (el) => el.value === provincia.label
   );
-
-  // useEffect(() => {
-  //   if (!regione) {
-  //     provincieRef.current.inputRef.disabled = true;
-  //   } else {
-  //     provincieRef.current.inputRef.disabled = false;
-  //   }
-
-  //   console.log(provincieRef.current);
-  // }, [regione, provincieRef]);
 
   const changeRegione = (regione) => {
     setRegione(regione);
