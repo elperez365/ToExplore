@@ -1,14 +1,7 @@
-import React from "react";
+import { HomePage } from "./Homepage";
 
-
-class App extends React.Component() {
-  render() {
-    return(
-      <div>
-        
-      </div>
-    )
-  }
+export function App() {
+  return <HomePage />;
 }
 
 export default App;
