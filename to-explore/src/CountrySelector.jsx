@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import Select from "react-select";
-import countryList from "react-select-country-list";
+// import countryList from "react-select-country-list";
 import comuniWithSpec from "./comuni.json";
 import regioniWithSpec from "./regioni.json";
 import provinceWithSpec from "./province.json";
@@ -12,7 +12,7 @@ function CountrySelector() {
   const regioniRef = useRef();
   const provincieRef = useRef();
   const comuniRef = useRef();
-  const stati = useMemo(() => countryList().getData(), []);
+  // const stati = useMemo(() => countryList().getData(), []);
 
   const regioniItaliane = useMemo(
     () =>
