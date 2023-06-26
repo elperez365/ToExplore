@@ -1,27 +1,26 @@
 import { FcLike } from "react-icons/fc";
 import { FaComment } from "react-icons/fa";
+import Button from "@mui/material/Button";
 
 export function Card({
   postLocation = "location",
   postDate = "11 Feb",
-  postImg = "https://th.bing.com/th/id/OIP.vupylNDkkgtcj4-zykCWhAHaDt?pid=ImgDet&rs=1",
+  postImg = "https://www.celebritycruises.com/content/dam/celebrity/new-images/port-pages/sicily-palermo-italy/catania-sicily-italy-3-3840x2160.jpg",
   postAvatar,
 }) {
   return (
     <div>
-      <header className="flex justify-between bg-complement w-screen h-6">
+      <header className="flex justify-between bg-complement w-screen h-6 mt-1">
         <h1 className="mx-1">{postLocation}</h1>
         <h1 className="mx-1">{postDate}</h1>
       </header>
       <section
-        className="w-screen h-80 bg-primary flex items-center bg-right bg-cover"
+        className="w-screen h-80 bg-primary flex items-center bg-center bg-cover"
         style={{
           backgroundImage: `url(${postImg})`,
         }}
-      >
-        {/* <img src={postImg} alt="" className="w=full "></img> */}
-      </section>
-      <footer className="flex justify-between w-screen h-14 bg-contrast">
+      ></section>
+      <footer className="flex justify-between w-screen h-14 bg-contrast mb-1">
         <button className="mx-1 w-8">
           <FcLike className="h-full w-full" />
         </button>

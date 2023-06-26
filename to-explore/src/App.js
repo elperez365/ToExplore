@@ -1,7 +1,13 @@
+import { Avatars } from "./Avatars";
 import { HomePage } from "./Homepage";
 
 export function App() {
-  return <HomePage />;
+  return (
+    <div>
+      <HomePage />
+      {/* <Avatars /> */}
+    </div>
+  );
 }
 
 export default App;
