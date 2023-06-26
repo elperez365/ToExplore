@@ -1,10 +1,10 @@
-import { Avatars } from "./Homepage";
+import { Homepage } from "./Homepage";
 
 export function App() {
   return (
     <div>
-      {/* <HomePage /> */}
-      <Avatars />
+      <Homepage />
+      {/* <Avatars /> */}
     </div>
   );
 }

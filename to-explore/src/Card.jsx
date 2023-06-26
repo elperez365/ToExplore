@@ -9,7 +9,7 @@ export function Card({
 }) {
   return (
     <div>
-      <header className="flex justify-between bg-complement w-screen h-6">
+      <header className="flex justify-between bg-complement w-screen h-6 mt-1">
         <h1 className="mx-1">{postLocation}</h1>
         <h1 className="mx-1">{postDate}</h1>
       </header>
@@ -21,7 +21,7 @@ export function Card({
       >
         {/* <img src={postImg} alt="" className="w=full "></img> */}
       </section>
-      <footer className="flex justify-between w-screen h-14 bg-contrast">
+      <footer className="flex justify-between w-screen h-14 bg-center mb-1 bg-contrast">
         <button className="mx-1 w-8">
           <FcLike className="h-full w-full" />
         </button>
@@ -30,7 +30,7 @@ export function Card({
           <FaComment className="h-full w-full" />
         </button>
 
-        <div className="imageContainer bg-primary w-10 h-10 rounded-full mx-1 my-auto">
+        <div className="imageContainer bg-complement w-10 h-10 rounded-full mx-1 my-auto">
           {postAvatar}
         </div>
       </footer>
