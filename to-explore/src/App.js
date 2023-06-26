@@ -1,5 +1,4 @@
-import { Avatars } from "./Avatars";
-import { HomePage } from "./Homepage";
+import { Avatars } from "./Homepage";
 
 export function App() {
   return (
