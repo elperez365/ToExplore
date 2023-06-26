@@ -1,6 +1,5 @@
 import { FcLike } from "react-icons/fc";
 import { FaComment } from "react-icons/fa";
-import Button from "@mui/material/Button";
 
 export function Card({
   postLocation = "location",

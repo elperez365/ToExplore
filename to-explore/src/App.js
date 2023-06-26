@@ -4,8 +4,8 @@ import { HomePage } from "./Homepage";
 export function App() {
   return (
     <div>
-      <HomePage />
-      {/* <Avatars /> */}
+      {/* <HomePage /> */}
+      <Avatars />
     </div>
   );
 }
