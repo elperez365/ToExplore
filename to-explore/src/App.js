@@ -1,14 +1,14 @@
-import React from "react";
+import { Routes, Route } from 'react-router-dom';
+import { Login } from "./Components/Login";
+import { Register } from "./Components/Register";
 
-
-class App extends React.Component() {
-  render() {
-    return(
-      <div>
-        
-      </div>
-    )
-  }
+function App() {
+  return (
+    <Routes>
+      <Route path='' element={<Login />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
+  );
 }
 
 export default App;
