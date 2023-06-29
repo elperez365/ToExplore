@@ -27,7 +27,7 @@ export function Card({
   }
   return (
     <div>
-      <header className="flex justify-between bg-secondary w-screen h-6">
+      <header className="flex glass-effect justify-between bg-secondary w-screen h-6 bg-blur bg-opacity-70">
         <h1 className="mx-1 flex">
           <MdLocationPin />
           {postLocation}
@@ -42,7 +42,7 @@ export function Card({
       >
         {/* <img src={postImg} alt="" className="w=full "></img> */}
       </section>
-      <footer className="flex justify-between w-screen h-14 bg-center bg-primary">
+      <footer className="flex justify-between w-screen h-14 bg-center bg-primary bg-blur bg-opacity-70 rounded-lg glass-effect">
         <button className="mx-1 w-8">
           <FcLike className="h-full w-full" />
         </button>

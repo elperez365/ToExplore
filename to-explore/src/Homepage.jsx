@@ -2,19 +2,19 @@ import { Card } from "./Card";
 import { GrAddCircle } from "react-icons/gr";
 import { Navbar } from "./Navbar";
 import { Link } from "react-router-dom";
+import Travel from "./Components/Travel.png";
 
 export function Homepage() {
   return (
-    <div className="bg-primary">
+    <div>
       <Link to="/add-content">
         {" "}
-        <button className="fixed bottom-20 right-4 bg-gray-700 rounded-full bg-primary">
+        <button className="fixed z-30 glass-effect bg-blur bg-opacity-70 bottom-20 right-4 bg-gray-700 rounded-full bg-primary">
           <GrAddCircle size={50} />
         </button>
       </Link>
-
       <Navbar />
-      <header className="flex justify-between w-screen h-12 bg-primary px-1">
+      <header className="flex glass-effect justify-between w-screen h-12 bg-primary bg-blur bg-opacity-70 px-1">
         <div className="headerLeft flex flex-col">
           <h1>Logo</h1>
           <h1>Username</h1>
