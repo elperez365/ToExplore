@@ -16,7 +16,7 @@ export function Navbar() {
       <Link to="/map" className="flex self-center">
         <BiSolidArchiveIn size={35} />
       </Link>
-      <Link to="/profile" className="flex self-center">
+      <Link to="/profilo" className="flex self-center">
         <BiSolidUserCircle size={35} />
       </Link>
     </nav>
