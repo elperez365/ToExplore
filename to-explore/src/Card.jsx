@@ -1,4 +1,5 @@
 import { FcLike } from "react-icons/fc";
+import { MdLocationPin } from "react-icons/md";
 import { FaComment } from "react-icons/fa";
 import { useCollapse } from "react-collapsed";
 
@@ -27,7 +28,10 @@ export function Card({
   return (
     <div>
       <header className="flex justify-between bg-secondary w-screen h-6">
-        <h1 className="mx-1">{postLocation}</h1>
+        <h1 className="mx-1 flex">
+          <MdLocationPin />
+          {postLocation}
+        </h1>
         <h1 className="mx-1">{postDate}</h1>
       </header>
       <section

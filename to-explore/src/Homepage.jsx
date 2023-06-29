@@ -5,7 +5,7 @@ import { Navbar } from "./Navbar";
 export function Homepage() {
   return (
     <div className="bg-primary">
-      <button className="fixed bottom-20 right-4 bg-gray-700 rounded-full bg-contrast2">
+      <button className="fixed bottom-20 right-4 bg-gray-700 rounded-full bg-primary">
         <GrAddCircle size={50} />
       </button>
       <Navbar />
