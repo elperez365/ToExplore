@@ -26,7 +26,7 @@ export function Card({
   }
   return (
     <div>
-      <header className="flex justify-between bg-complement w-screen h-6">
+      <header className="flex justify-between bg-secondary w-screen h-6">
         <h1 className="mx-1">{postLocation}</h1>
         <h1 className="mx-1">{postDate}</h1>
       </header>
