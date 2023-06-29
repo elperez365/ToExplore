@@ -6,8 +6,6 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/system';
 
 export function Register() {
-    // const [firstName, setFirstName] = useState('');
-    // const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -63,7 +61,8 @@ export function Register() {
 
     const handleNameChange = (event) => {
         const name = event.target.value.trim().substring(0, 2);
-        setAvatarName(name);
+        const uppercaseName = name.toUpperCase();
+        setAvatarName(uppercaseName);
     };
 
     const handleColorChange = (event) => {
@@ -95,13 +94,13 @@ export function Register() {
                 lg:block lg:w-full lg:brightness-90 lg:h-full"/>
                 <h1 class="text-white text-center pt-2 font-bold
                 md:text-[24px] md:font-bold
-                lg:absolute lg:top-[10%] lg:left-[22%] lg:text-[50px] lg:font-extrabold lg:text-green-400 lg:z-10">ToExplore</h1>
+                lg:absolute lg:top-[10%] lg:left-[20.5%] lg:text-[50px] lg:font-extrabold lg:text-green-400 lg:z-10">ToExplore</h1>
                 <h2 class="text-2xl font-extrabold w-52 m-auto mt-[8%] text-center 
                 md:w-full md:m-auto md:text-center md:mt-[3%] md:text-[32px]
-                lg:absolute lg:top-[19%] lg:left-[23.5%] lg:m-auto lg:w-auto lg:text-[25px] lg:text-black lg:z-10">Register here!</h2>
+                lg:absolute lg:top-[19%] lg:left-[22.5%] lg:m-auto lg:w-auto lg:text-[25px] lg:text-black lg:z-10">Register here!</h2>
                 <p class="text-xs w-80 m-auto text-center 
                 md:w-full md:m-auto md:text-center md:text-[16px] md:mt-[1%]
-                lg:absolute lg:top-[22%] lg:left-[23%] lg:m-auto lg:w-auto lg:text-[15px] lg:text-black lg:z-10">Become part of our community</p>
+                lg:absolute lg:top-[22%] lg:left-[21.7%] lg:m-auto lg:w-auto lg:text-[15px] lg:text-black lg:z-10">Become part of our community</p>
                 <div class="bg-white/90 w-80 h-[45%] m-auto mt-[10%] rounded-lg 
                 md:mt-[5%] md:w-[60%] md:h-[47%]
                 lg:absolute lg:top-[0%] lg:left-[12%] lg:w-[30%] lg:h-[70%] lg:rounded-[20%] lg:opacity-95">
@@ -164,7 +163,7 @@ export function Register() {
                     />
                     <p id='notMatchPass' class="text-red-500 text-xs w-64 m-auto mt-1 ml-[5%] hidden 
                     md:absolute md:text-[16px] md:m-auto md:top-[43.5%] md:left-[25%] md:w-[25%]
-                    lg:absolute lg:text-[18px] lg:m-auto lg:top-[64%] lg:left-[8%] lg:w-[80%]">Password does not match</p>
+                    lg:absolute lg:text-[16px] lg:m-auto lg:top-[64%] lg:left-[8%] lg:w-[80%]">Password does not match</p>
                     <div class="flex items-center justify-center w-[90%]">
                         <input
                             class="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800  bg-transparent w-[32%] h-14 flex m-auto pt-5 
@@ -187,7 +186,7 @@ export function Register() {
                         md:absolute md:top-[44.5%] md:right-[29%] md:m-auto 
                         lg:absolute lg:top-[65%] lg:right-[15%] lg:m-auto 
                         ">
-                            <ResponsiveAvatar sx={{bgcolor: [avatarColor]}}>{avatarName}</ResponsiveAvatar>
+                            <ResponsiveAvatar sx={{ bgcolor: [avatarColor] }}>{avatarName}</ResponsiveAvatar>
                         </Stack>
                     </div>
                     <button id="hideSvg2" class="absolute right-[16%] top-[40%] 
