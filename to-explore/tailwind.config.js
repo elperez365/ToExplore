@@ -13,3 +13,8 @@ module.exports = {
   },
   plugins: [],
 };
+// primary = verde acqua
+// secondary = giallo scuro
+// complement = rosa 
+// contrast = blue pastello
+// contrast2 = ciano
