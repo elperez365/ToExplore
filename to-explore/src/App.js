@@ -5,8 +5,8 @@ import RegionSelect from "./RegionSelect";
 function App() {
   return (
     <div>
-      {/* <AddContentPage /> */}
-      <RegionSelect />
+      <AddContentPage />
+      {/* <RegionSelect /> */}
     </div>
   );
 }
