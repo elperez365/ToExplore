@@ -1,5 +1,12 @@
-import "./index.css";
+import { Routes, Route } from "react-router-dom";
+import { Login } from "./Components/Login";
+import { Register } from "./Components/Register";
 
-export function App() {
-  return <div></div>;
+function App() {
+  return (
+    <Routes>
+      <Route path="" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
+  );
 }
