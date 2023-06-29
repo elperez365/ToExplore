@@ -13,18 +13,20 @@ export function Card({
     const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
     return (
       <div className="collapsible">
-        <div className="header" {...getToggleProps()}>
+        <div className="header bg-contrast" {...getToggleProps()}>
           {isExpanded ? "Hide Description" : "Expand Description"}
         </div>
         <div {...getCollapseProps()}>
-          <div className="content flex flex-wrap">{postDescription}</div>
+          <div className="content flex flex-wrap bg-contrast2">
+            {postDescription}
+          </div>
         </div>
       </div>
     );
   }
   return (
     <div>
-      <header className="flex justify-between bg-complement w-screen h-6 mt-1">
+      <header className="flex justify-between bg-complement w-screen h-6">
         <h1 className="mx-1">{postLocation}</h1>
         <h1 className="mx-1">{postDate}</h1>
       </header>
@@ -36,7 +38,7 @@ export function Card({
       >
         {/* <img src={postImg} alt="" className="w=full "></img> */}
       </section>
-      <footer className="flex justify-between w-screen h-14 bg-center bg-contrast">
+      <footer className="flex justify-between w-screen h-14 bg-center bg-primary">
         <button className="mx-1 w-8">
           <FcLike className="h-full w-full" />
         </button>
@@ -49,7 +51,7 @@ export function Card({
           {postAvatar}
         </div>
       </footer>
-      <div className="descriptionArea w-screen mb-1 ">
+      <div className="descriptionArea w-screen ">
         <Collapsible />
       </div>
     </div>
