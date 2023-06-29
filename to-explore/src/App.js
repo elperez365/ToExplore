@@ -1,14 +1,13 @@
 import React from "react";
+import { Profilo } from "./Profilo";
+import './index.css'
 
-
-class App extends React.Component() {
-  render() {
-    return(
-      <div>
-        
-      </div>
-    )
-  }
+export function App() {
+  return(
+    <div>
+      <Profilo />
+    </div>
+  )
 }
 
 export default App;
