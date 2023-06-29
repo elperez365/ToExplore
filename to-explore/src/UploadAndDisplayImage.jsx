@@ -19,12 +19,12 @@ const UploadAndDisplayImage = () => {
             className="flex justify-center items-center p-0 m-0 h-7 w-7"
             onClick={() => setSelectedImage(null)}
           >
-            <CiCircleRemove className="bg-red-500 rounded-full h-7 w-7" />
+            <CiCircleRemove className="bg-complement rounded-full h-7 w-7" />
           </button>
         </div>
       )}
       <label
-        className=" bg-green-500 rounded-full flex items-center cursor-pointer"
+        className=" bg-contrast rounded-full flex items-center cursor-pointer"
         onClick={() => fileInput.current.click()}
         htmlFor="myImage"
       >

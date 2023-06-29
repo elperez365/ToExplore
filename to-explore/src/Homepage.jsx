@@ -1,13 +1,18 @@
 import { Card } from "./Card";
 import { GrAddCircle } from "react-icons/gr";
 import { Navbar } from "./Navbar";
+import { Link } from "react-router-dom";
 
 export function Homepage() {
   return (
     <div className="bg-primary">
-      <button className="fixed bottom-20 right-4 bg-gray-700 rounded-full bg-primary">
-        <GrAddCircle size={50} />
-      </button>
+      <Link to="/add-content">
+        {" "}
+        <button className="fixed bottom-20 right-4 bg-gray-700 rounded-full bg-primary">
+          <GrAddCircle size={50} />
+        </button>
+      </Link>
+
       <Navbar />
       <header className="flex justify-between w-screen h-12 bg-primary px-1">
         <div className="headerLeft flex flex-col">
