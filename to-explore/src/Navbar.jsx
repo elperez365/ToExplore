@@ -4,7 +4,7 @@ import { BiSolidUserCircle, BiSolidArchiveIn } from "react-icons/bi";
 
 export function Navbar() {
   return (
-    <nav className="w-screen flex h-16 bg-primary fixed bottom-0 justify-between px-12">
+    <nav className="w-screen flex h-16 rounded-t-xl bg-primary fixed bottom-0 justify-between px-12">
       <button>
         <IoMdSettings size={30} />
       </button>
