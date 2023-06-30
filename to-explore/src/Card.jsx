@@ -27,7 +27,7 @@ export function Card({
   }
   return (
     <div>
-      <header className="flex glass-effect justify-between bg-secondary w-screen h-6 bg-blur bg-opacity-70">
+      <header className="flex glass-effect justify-between bg-secondary w-full lg:w-96 h-6 bg-blur bg-opacity-70">
         <h1 className="mx-1 flex">
           <MdLocationPin />
           {postLocation}
@@ -35,14 +35,14 @@ export function Card({
         <h1 className="mx-1">{postDate}</h1>
       </header>
       <section
-        className="w-screen h-80 bg-primary flex items-center bg-right bg-cover"
+        className="w-full h-80 bg-primary flex items-center bg-right bg-cover"
         style={{
           backgroundImage: `url(${postImg})`,
         }}
       >
         {/* <img src={postImg} alt="" className="w=full "></img> */}
       </section>
-      <footer className="flex justify-between w-screen h-14 bg-center bg-primary bg-blur bg-opacity-70 rounded-lg glass-effect">
+      <footer className="flex justify-between w-full h-14 bg-center bg-primary bg-blur bg-opacity-70 glass-effect">
         <button className="mx-1 w-8">
           <FcLike className="h-full w-full" />
         </button>
@@ -55,7 +55,7 @@ export function Card({
           {postAvatar}
         </div>
       </footer>
-      <div className="descriptionArea w-screen ">
+      <div className="descriptionArea w-full ">
         <Collapsible />
       </div>
     </div>
