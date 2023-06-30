@@ -62,10 +62,11 @@ export default function Card2({
       />
       <CardMedia
         component="img"
-        height="250"
+        // height="250"
         image={postImg}
         alt="img"
         className="p-1 bg-cardPrimary bg-blur bg-opacity-70"
+        style={{ height: 210 }}
       />
       <CardContent className="glass-effect bg-blur bg-opacity-70 bg-cardPrimary">
         <Typography variant="body2" color="text.secondary">
