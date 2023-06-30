@@ -3,7 +3,7 @@ import { MdLocationPin } from "react-icons/md";
 import { FaComment } from "react-icons/fa";
 import { useCollapse } from "react-collapsed";
 
-export function Card({
+export function CardBase({
   postLocation = "location",
   postDate = "11 Feb",
   postImg = "https://th.bing.com/th/id/OIP.vupylNDkkgtcj4-zykCWhAHaDt?pid=ImgDet&rs=1",

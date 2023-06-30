@@ -1,4 +1,4 @@
-import { Card } from "./Card";
+import { Card } from "./CardBase";
 import { Navbar } from "./Navbar";
 
 export function Profilo({ username = "Andre A. Anuta", postAvatar, n = 19 }) {

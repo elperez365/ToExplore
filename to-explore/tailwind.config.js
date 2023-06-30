@@ -9,6 +9,8 @@ module.exports = {
         complement: "#B25690",
         contrast: "#34823e",
         contrast2: "#366e3d",
+        cardPrimary: "#1D63DC",
+        cardFooter: "#0a0a7d",
       },
     },
   },
