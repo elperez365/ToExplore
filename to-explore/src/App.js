@@ -5,6 +5,9 @@ import { Homepage } from "./Homepage.jsx";
 import AddContentPage from "./AddContentPage.jsx";
 import RegionSelect from "./RegionSelect.jsx";
 import { Profilo } from "./Profilo.jsx";
+import { Settings } from "./Settings";
+import { ChangeAvatarColor } from "./ChangeAvatarColor";
+import { Team } from "./Team";
 
 export default function App() {
   return (
@@ -15,6 +18,9 @@ export default function App() {
       <Route path="/add-content" element={<AddContentPage />} />
       <Route path="/map" element={<RegionSelect />} />
       <Route path="/profilo" element={<Profilo />} />
+      <Route path="/settings" element={<Settings />} />
+      <Route path="/changeAvatarColor" element={<ChangeAvatarColor />} />
+      <Route path="/team" element={<Team />} />
     </Routes>
   );
 }
