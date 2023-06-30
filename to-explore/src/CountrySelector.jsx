@@ -61,9 +61,9 @@ function CountrySelector() {
   };
 
   return (
-    <div className="w-full">
-      <h2>Scrivi o seleziona la regione</h2>
+    <div className="w-full flex flex-col gap-3">
       <Select
+        placeholder="Scrivi o seleziona la regione"
         ref={regioniRef}
         className="w-full"
         options={regioniItaliane}
@@ -72,8 +72,8 @@ function CountrySelector() {
       />
       {regione && (
         <div>
-          <h2>la provincia</h2>
           <Select
+            placeholder="scrivi o seleziona la provincia"
             ref={provincieRef}
             className="w-full"
             options={provincieFiltrate}
@@ -85,8 +85,8 @@ function CountrySelector() {
       )}
       {provincia && (
         <div>
-          <h2>e il comune</h2>
           <Select
+            placeholder="scrivi o seleziona il comune"
             ref={comuniRef}
             className="w-full"
             options={comuniFiltrati}
