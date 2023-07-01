@@ -4,19 +4,22 @@ import IconButton from "@mui/joy/IconButton";
 import Textarea from "@mui/joy/Textarea";
 import Typography from "@mui/joy/Typography";
 
-export default function TextareaDecorators() {
+export default function TextareaDecorators(props) {
   const [text, setText] = React.useState("");
   const addEmoji = (emoji) => () => setText(`${text}${emoji}`);
+
+  let handleInputChange = (event) => {
+    text.length < 200
+      ? setText(event.target.value)
+      : setText(text.slice(0, text.length - 1));
+    props.passaState && props.passaState(event.target.value);
+  };
 
   return (
     <Textarea
       placeholder="Insert description...."
       value={text}
-      onChange={(event) =>
-        text.length < 200
-          ? setText(event.target.value)
-          : setText(text.slice(0, text.length - 1))
-      }
+      onChange={handleInputChange}
       minRows={2}
       maxRows={4}
       startDecorator={
