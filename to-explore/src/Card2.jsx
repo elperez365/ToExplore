@@ -15,6 +15,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CgComment } from "react-icons/cg";
+import CommentPage from "./CommentPage";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -94,8 +95,9 @@ export default function Card2({
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
+        <CardContent style={{ padding: "0" }}>
+          <CommentPage />
+          {/* <Typography paragraph>Method:</Typography>
           <Typography paragraph>
             Heat 1/2 cup of the broth in a pot until simmering, add saffron and
             set aside for 10 minutes.
@@ -121,7 +123,7 @@ export default function Card2({
           <Typography>
             Set aside off of the heat to let rest for 10 minutes, and then
             serve.
-          </Typography>
+          </Typography> */}
         </CardContent>
       </Collapse>
     </Card>

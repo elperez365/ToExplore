@@ -1,19 +1,27 @@
-import * as React from "react";
 import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
 import Textarea from "@mui/joy/Textarea";
 import Typography from "@mui/joy/Typography";
+import { useEffect, useState } from "react";
 
 export default function TextareaDecorators(props) {
-  const [text, setText] = React.useState("");
+  const [text, setText] = useState("");
   const addEmoji = (emoji) => () => setText(`${text}${emoji}`);
 
   let handleInputChange = (event) => {
+    let value = event.target.value;
     text.length < 200
-      ? setText(event.target.value)
+      ? setText(value)
       : setText(text.slice(0, text.length - 1));
-    props.passaState && props.passaState(event.target.value);
+    props.passaState && props.passaState(value);
   };
+
+  // useEffect(() => {
+  //   if (props.sentComment.sent) {
+  //     setText("");
+  //     props.sentComment.setSent(false);
+  //   }
+  // }, [props]);
 
   return (
     <Textarea
