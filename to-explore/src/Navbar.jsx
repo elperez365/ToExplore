@@ -17,7 +17,7 @@ export function Navbar() {
       <Link to="/add-content">
         {" "}
         <button
-          className="z-30 glass-effect bg-blur bg-opacity-60  rounded-full bg-contrast2"
+          className="animate-pulse z-30 glass-effect bg-blur bg-opacity-60  rounded-full bg-contrast2"
           style={{
             position: "fixed",
             bottom: 8,
