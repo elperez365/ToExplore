@@ -22,7 +22,7 @@ function AddContentPage() {
         </div>
         <CountrySelector />
         <div className="flex flex-col items-center">
-          <TextAdd />
+          <TextAdd sentComment={{ sent: false }} />
         </div>
 
         <div className="flex justify-center h-20 bg-contrast rounded-full">
