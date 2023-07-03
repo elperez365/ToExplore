@@ -179,7 +179,7 @@ export function Login() {
           </button>
           <div
             class="flex items-center w-64 m-auto mt-5 text-xs 
-                    md:w-[80%] md:ml-[5%] md:text-[16px] md:mt-[5%] md:absolute md:top-[34%]
+                    md:ml-[5%] md:text-[16px] md:mt-[5%] md:absolute md:top-[34%]
                     lg:absolute lg:text-[20px] lg:m-auto lg:top-[55%] lg:w-[50%] lg:ml-[5%]"
           >
             <input
