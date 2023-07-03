@@ -1,36 +1,48 @@
-import { Card } from "./Card";
-import { GrAddCircle } from "react-icons/gr";
+// import { CardBase } from "./CardBase";
 import { Navbar } from "./Navbar";
-import { Link } from "react-router-dom";
+
+import Card2 from "./Card2";
+
+import { Header } from "./Header";
 
 export function Homepage() {
   return (
-    <div className="bg-primary">
-      <Link to="/add-content">
-        {" "}
-        <button className="fixed bottom-20 right-4 bg-gray-700 rounded-full bg-primary">
-          <GrAddCircle size={50} />
-        </button>
-      </Link>
-
+    <div className="bg-contrast2 bg-blur bg-opacity-80 ">
       <Navbar />
-      <header className="flex justify-between w-screen h-12 bg-primary px-1">
-        <div className="headerLeft flex flex-col">
-          <h1>Logo</h1>
-          <h1>Username</h1>
-        </div>
-
-        <div className="headerRight">
-          <div className="imageContainer bg-contrast2 w-12 h-12 rounded-full"></div>
-        </div>
-      </header>
-      <div>
-        <Card
-          postImg="https://www.italia.it/content/dam/tdh/en/interests/sicilia/catania/catania/media/20210624132554-cattedrale-di-sant-agata-catania-sicilia-gettyimages-467663396.jpg"
-          postDescription="asdbasibfdiufb isucfgnergheriugver adasdsadasda sd a fweef we  ewfewfewewfwefwefwe  wefwefwefewfewf igvneruvghvreng vrehvgnrehvgnehrvugerhi"
+      <Header />
+      <div className="lg:flex lg:flex-wrap lg:gap-4 lg:p-2 md:flex md:flex-wrap md:gap-4 justify-center bg-contrast2 h-full px-2 py-1 pt-12 lg:pt-20">
+        <Card2
+          postDescription="Questo posto è bellissimo!"
+          postImg="https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg"
         />
-        <Card postImg="https://2.bp.blogspot.com/-DhohxTl47IA/U8zw1upZ_SI/AAAAAAAAGE4/KTtFDi7X1Vg/s1600/Aspecto+medieval+de+Sermoneta+-+Foto+www+adfilanesacta+it.jpg" />
-        <Card postImg="https://dynamic-media-cdn.tripadvisor.com/media/photo-s/01/2d/5e/f3/fiumefreddo-di-sicilia.jpg?w=600&h=400&s=1" />
+        <Card2
+          postDescription="Vacanza stupenda!"
+          postImg="https://free4kwallpapers.com/uploads/originals/2015/10/02/nice-place.jpg"
+        />
+        <Card2
+          postDescription="Mi sto grattando le palle in vacanza #nonFareUnCazzo"
+          postImg="https://planetofhotels.com/guide/sites/default/files/styles/paragraph__text_with_image___twi_image/public/2020-06/Northern-Light-Aurora-borealis.jpg"
+        />
+        <Card2
+          postDescription="Mi sto grattando le palle in vacanza #nonFareUnCazzo"
+          postImg="https://qph.cf2.quoracdn.net/main-qimg-4fab6a4ff1f91ebcd9dc952311570060-lq"
+        />
+        <Card2
+          postDescription="Mi sto grattando le palle in vacanza #nonFareUnCazzo"
+          postImg="https://qph.cf2.quoracdn.net/main-qimg-4fab6a4ff1f91ebcd9dc952311570060-lq"
+        />
+        <Card2
+          postDescription="Mi sto grattando le palle in vacanza #nonFareUnCazzo"
+          postImg="https://qph.cf2.quoracdn.net/main-qimg-4fab6a4ff1f91ebcd9dc952311570060-lq"
+        />
+        <Card2
+          postDescription="Mi sto grattando le palle in vacanza #nonFareUnCazzo"
+          postImg="https://qph.cf2.quoracdn.net/main-qimg-4fab6a4ff1f91ebcd9dc952311570060-lq"
+        />
+        <Card2
+          postDescription="Mi sto grattando le palle in vacanza #nonFareUnCazzo"
+          postImg="https://qph.cf2.quoracdn.net/main-qimg-4fab6a4ff1f91ebcd9dc952311570060-lq"
+        />
       </div>
     </div>
   );

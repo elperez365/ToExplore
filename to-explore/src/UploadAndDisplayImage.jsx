@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
-import { LiaCloudUploadAltSolid } from "react-icons/lia";
-import { TbHandClick } from "react-icons/tb";
 import { CiCircleRemove } from "react-icons/ci";
+import logoMacchinaFotografica from "./images/LA-logo-macchina-fotografica.png";
+import { GrFormAdd } from "react-icons/gr";
 
 const UploadAndDisplayImage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const fileInput = useRef();
   return (
-    <div className="relative">
+    <div className="flex self-center">
       {selectedImage && (
         <div className="flex justify-end gap-2">
           <img
@@ -24,13 +24,16 @@ const UploadAndDisplayImage = () => {
         </div>
       )}
       <label
-        className=" bg-contrast rounded-full flex items-center cursor-pointer"
+        className=" relative bg-contrast rounded-full flex flex-col justify-center items-center cursor-pointer w-32 h-32"
         onClick={() => fileInput.current.click()}
         htmlFor="myImage"
       >
-        <LiaCloudUploadAltSolid className="w-20 h-20" />
-        Carica la tua Foto
-        <TbHandClick className="w-12 h-12" />
+        <GrFormAdd className="absolute top-2 right-5" size={40} />
+        <img
+          className="w-20"
+          src={logoMacchinaFotografica}
+          alt="logo-Macchina-Fotografica"
+        />
       </label>
       <input
         className="hidden"
