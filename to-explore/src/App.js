@@ -5,6 +5,7 @@ import { Homepage } from "./Homepage.jsx";
 import AddContentPage from "./AddContentPage.jsx";
 import RegionSelect from "./RegionSelect.jsx";
 import { Profilo } from "./Profilo.jsx";
+import { ErrorPage } from "./ErrorPage.jsx";
 import { Settings } from "./Settings";
 import { ChangeAvatarColor } from "./ChangeAvatarColor";
 import { Team } from "./Team";
@@ -13,6 +14,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="" element={<Login />} />
+      <Route path="/*" element={<ErrorPage />} />
       <Route path="/register" element={<Register />} />
       <Route path="/homepage" element={<Homepage />} />
       <Route path="/add-content" element={<AddContentPage />} />

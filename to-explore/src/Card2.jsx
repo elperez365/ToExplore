@@ -45,6 +45,7 @@ export default function Card2({
     <Card
       style={{ borderRadius: "1.5rem", marginBottom: "0.75rem" }}
       sx={{ maxWidth: 400, marginTop: 0.5 }}
+      className="lg:w-1/3 md:w-[48%]"
     >
       <CardHeader
         className="glass-effect bg-blur bg-opacity-80 bg-cardPrimary rounded-t-3xl"
