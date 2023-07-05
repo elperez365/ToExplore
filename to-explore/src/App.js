@@ -17,7 +17,8 @@ export default function App() {
       <Route path="/homepage" element={<Homepage />} />
       <Route path="/add-content" element={<AddContentPage />} />
       <Route path="/map" element={<RegionSelect />} />
-      <Route path="/profilo" element={<Profilo />} />
+      <Route path="/profilo" element={<Profilo counterLuoghi={`luoghi visitati:`}/>} />
+      <Route path="/postRegion" element={<Profilo username='sicilia' nameAccount="SC" counterLuoghi={`numero post`}/>} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/changeAvatarColor" element={<ChangeAvatarColor />} />
       <Route path="/team" element={<Team />} />

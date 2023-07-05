@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ClickableMap from "./ClickableMap";
 import { Navbar } from "./Navbar";
+import { Link } from "react-router-dom";
 
 function RegionSelect() {
   const [regionClicked, setRegionClicked] = useState("");
@@ -15,9 +16,11 @@ function RegionSelect() {
       <ClickableMap passRegionClicked={passRegionClicked} />
       <h2>Selected region : {regionClicked}</h2>
       {regionClicked && (
-        <button className="bg-secondary rounded-full w-36 h-12">
-          Show Posts
-        </button>
+        <div className="bg-secondary rounded-full w-36 h-12">
+          <Link to="/postRegion">
+            Show Posts
+          </Link>
+        </div>
       )}
       <Navbar />
     </div>
