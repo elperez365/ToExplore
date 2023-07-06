@@ -11,7 +11,6 @@ loginRouter.get(`/`, (req, res) => {
 
 loginRouter.post(`/`, (req, res) => {
   const id = uuidv4();
-  console.log(req.body);
   const { username, mail, password, avatar, color } = req.body;
   const userFinded = usersArray.find((user) => user.username === username);
   const mailFinded = usersArray.find((user) => user.mail === mail);
