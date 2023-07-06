@@ -41,8 +41,8 @@ loginRouter.post(`/`, (req, res) => {
 
 //ESEMPIO DI BODY CHE ARRIVA DALLA REGISTRAZIONE
 // {
-//   "username": "username",
-//   "mail": "e-mail",
+//   "username": "username",   -----> se già esistente non viene inserito
+//   "mail": "e-mail",         -----> se già esistente non viene inserito
 //   "password": "password",
 //   "avatar": "PP",
 //   "color": "color",
