@@ -1,17 +1,36 @@
-import { express } from "express";
+import Express from "express";
 import pubblications from "./pubblications.mjs";
-const router = express.router();
+import { uuid } from "uuidv4";
+export const postsRouter = Express.Router();
 const posts = [...pubblications];
-router.get(`/`, (req, res) => {
+postsRouter.get(`/`, (req, res) => {
   res.json(posts);
 });
 
-router.post(`/`, (req, res) => {
-  const newpost = req.body;
-  posts.push(newpost);
-  res
-    .status(200)
-    .json({ success: true, text: "il tuo post è stato pubblicato" });
+postsRouter.post(`/`, (req, res) => {
+  const id = uuid();
+  const { location, region, postData, postUser, img, description, comments } =
+    req.body;
+
+  if (location && region && postData && postUser && img) {
+    posts.push({
+      id,
+      location,
+      region,
+      postData,
+      postUser,
+      img,
+      description,
+      comments,
+    });
+    res
+      .status(200)
+      .json({ success: true, text: "il tuo post è stato pubblicato" });
+  } else
+    res.json({
+      success: false,
+      text: "qualcosa non va, controlla i dati inseriti",
+    });
 });
 // ESEMPIO BODY DEL POST CHE ARRIVA
 // {
@@ -24,13 +43,13 @@ router.post(`/`, (req, res) => {
 //     comments: [arrayVuoto],
 //   },
 
-router.get(`/:region`, (req, res) => {
+postsRouter.get(`/:region`, (req, res) => {
   const { region } = req.params;
   const filteredByRegion = posts.filter((post) => post.region === region);
   res.json(filteredByRegion);
 });
 
-router.get(`/:username`, (req, res) => {
+postsRouter.get(`/:username`, (req, res) => {
   const { username } = req.params;
   const filteredByusername = posts.filter((post) => post.postUser === username);
   res.json(filteredByusername);

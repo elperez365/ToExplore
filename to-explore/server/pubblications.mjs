@@ -5,7 +5,7 @@ const pubblications = [
     region: "Sicilia",
     postData: "02/04/2023",
     postUser: "peppe",
-    img: "url",
+    img: "https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg",
     description: "bel posto",
     comments: [
       { user: "giggio", avatar: "GG", text: "Ci sono stato anche io!" },
@@ -18,7 +18,7 @@ const pubblications = [
     region: "Lazio",
     postData: "03/03/2023",
     postUser: "pippo",
-    img: "url",
+    img: "https://free4kwallpapers.com/uploads/originals/2015/10/02/nice-place.jpg",
     description: "La porchetta è buona",
     comments: [
       { user: "giggio", avatar: "GG", text: "Si è vero!" },

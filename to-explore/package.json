@@ -25,6 +25,8 @@
     "react-select-country-list": "^2.2.3",
     "react-svg": "^16.1.17",
     "styled-components": "^5.3.11",
+    "uuid": "^9.0.0",
+    "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

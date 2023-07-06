@@ -1,10 +1,10 @@
-import { express } from "express";
-
-const app = express();
+import Express from "express";
+import { postsRouter } from "./posts.mjs";
+import { loginRouter } from "./login.mjs";
+const app = Express();
 const port = 3001;
-const loginRouter = require(`./login.mjs`);
-const postsRouter = require(`./posts.mjs`);
-app.use(express.json());
+
+app.use(Express.json());
 
 app.use(`/login`, loginRouter);
 app.use(`/posts`, postsRouter);
