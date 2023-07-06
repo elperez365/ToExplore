@@ -5,6 +5,7 @@ import UploadAndDisplayImage from "./UploadAndDisplayImage";
 import { Avatar } from "@mui/material";
 import * as React from "react";
 import TextAdd from "./TextAdd";
+import { CustomButton } from "./CustomButton";
 
 function AddContentPage() {
   return (
@@ -25,8 +26,8 @@ function AddContentPage() {
           <TextAdd sentComment={{ sent: false }} />
         </div>
 
-        <div className="flex justify-center h-20 bg-contrast rounded-full">
-          <button>PUBBLICA</button>
+        <div className="flex justify-center">
+          <CustomButton buttonText="Carica Immagine" />
         </div>
       </div>
     </div>

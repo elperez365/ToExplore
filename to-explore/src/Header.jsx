@@ -10,7 +10,7 @@ export function Header() {
         </div>
 
         <div className="headerRight flex items-center gap-2">
-          <h1>Francesco Francomollo</h1>
+          <h1> Name Name</h1>
           <Avatar sx={{ bgcolor: "blue" }}>FF</Avatar>
         </div>
       </header>
