@@ -1,6 +1,7 @@
 import Express from "express";
-import users from "./users.mjs";
-import { uuid } from "uuidv4";
+import { users } from "./users.mjs";
+import { v4 as uuidv4 } from "uuid";
+import { writeFileSync } from "fs";
 export const loginRouter = Express.Router();
 const usersArray = [...users];
 
@@ -9,7 +10,8 @@ loginRouter.get(`/`, (req, res) => {
 });
 
 loginRouter.post(`/`, (req, res) => {
-  const id = uuid();
+  const id = uuidv4();
+  console.log(req.body);
   const { username, mail, password, avatar, color } = req.body;
   const userFinded = usersArray.find((user) => user.username === username);
   const mailFinded = usersArray.find((user) => user.mail === mail);
@@ -26,6 +28,10 @@ loginRouter.post(`/`, (req, res) => {
     res
       .status(200)
       .json({ success: true, text: "Registrazione completata con successo" });
+    writeFileSync(
+      "./users.mjs",
+      `export const users = ${JSON.stringify(usersArray)}`
+    );
   } else
     res.json({
       success: false,
@@ -35,11 +41,11 @@ loginRouter.post(`/`, (req, res) => {
 
 //ESEMPIO DI BODY CHE ARRIVA DALLA REGISTRAZIONE
 // {
-//   username: "username",
-//   mail: "e-mail",
-//   password: "password",
-//   avatar: "PP",
-//   color: "color",
+//   "username": "username",
+//   "mail": "e-mail",
+//   "password": "password",
+//   "avatar": "PP",
+//   "color": "color",
 // }
 
 loginRouter.put(`/`, (req, res) => {});

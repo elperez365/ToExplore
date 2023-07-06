@@ -1,4 +1,4 @@
-const pubblications = [
+export const pubblications = [
   {
     id: "1",
     location: "fiume freddo",
@@ -25,6 +25,34 @@ const pubblications = [
       { user: "albertino", avatar: "AA", text: "No non è vero" },
     ],
   },
+  {
+    id: "62d1d49c-2fc4-4503-bbff-8bace8ede93b",
+    location: "fiume freddo",
+    region: "Sicilia",
+    postData: "02/04/2023",
+    postUser: "peppe",
+    img: "https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg",
+    description: "bel posto",
+    comments: [],
+  },
+  {
+    id: "9676d011-61e9-41a1-b5b4-5180ec1aa9bb",
+    location: "fiume freddo",
+    region: "Sicilia",
+    postData: "02/04/2023",
+    postUser: "peppe",
+    img: "https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg",
+    description: "bel posto",
+    comments: [],
+  },
+  {
+    id: "91e16ceb-eeb1-4501-9c45-8c2234de0f35",
+    location: "fiume freddo",
+    region: "Sicilia",
+    postData: "02/04/2023",
+    postUser: "peppe",
+    img: "https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg",
+    description: "bel posto",
+    comments: [],
+  },
 ];
-
-export default pubblications;

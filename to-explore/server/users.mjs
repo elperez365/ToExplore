@@ -1,4 +1,4 @@
-const users = [
+export const users = [
   {
     id: "1",
     username: "peppe",
@@ -23,6 +23,20 @@ const users = [
     avatar: "GG",
     color: "blue",
   },
+  {
+    id: "548a8019-9a7f-4a25-bf0e-ccb8a3a0d36b",
+    username: "superman",
+    mail: "e.e@e.com",
+    password: "aaaaa",
+    avatar: "PP",
+    color: "blue",
+  },
+  {
+    id: "16673390-42af-45c4-812f-5c68e006dee5",
+    username: "supermanssss",
+    mail: "eeee.e@e.com",
+    password: "aaaaa",
+    avatar: "PP",
+    color: "blue",
+  },
 ];
-
-export default users;
