@@ -16,12 +16,12 @@ export default function TextareaDecorators(props) {
     props.passaState && props.passaState(value);
   };
 
-  // useEffect(() => {
-  //   if (props.sentComment.sent) {
-  //     setText("");
-  //     props.sentComment.setSent(false);
-  //   }
-  // }, [props]);
+  useEffect(() => {
+    if (props.sentComment.sent) {
+      setText("");
+      props.sentComment.setSent(false);
+    }
+  }, [props]);
 
   return (
     <Textarea
