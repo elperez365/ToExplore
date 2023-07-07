@@ -32,7 +32,7 @@ loginRouter.post(`/`, (req, res) => {
       `export const users = ${JSON.stringify(usersArray)}`
     );
   } else
-    res.json({
+    res.status(500).json({
       success: false,
       text: "qualcosa non va, controlla i dati inseriti",
     });

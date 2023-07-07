@@ -29,15 +29,15 @@ postsRouter.post(`/`, (req, res) => {
     res
       .status(200)
       .json({ success: true, text: "il tuo post è stato pubblicato" });
+    writeFileSync(
+      "./pubblications.mjs",
+      `export const pubblications= ${JSON.stringify(posts)}`
+    );
   } else
-    res.json({
+    res.status(500).json({
       success: false,
       text: "qualcosa non va, controlla i dati inseriti",
     });
-  writeFileSync(
-    "./pubblications.mjs",
-    `export const pubblications= ${JSON.stringify(posts)}`
-  );
 });
 // ESEMPIO BODY DEL POST CHE ARRIVA
 //   {
