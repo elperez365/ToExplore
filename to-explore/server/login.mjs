@@ -9,7 +9,7 @@ loginRouter.get(`/`, (req, res) => {
   res.json(usersArray);
 });
 
-loginRouter.post(`/`, (req, res) => {
+loginRouter.post(`/post`, (req, res) => {
   const id = uuidv4();
   const { username, mail, password, avatar, color } = req.body;
   const userFinded = usersArray.find((user) => user.username === username);
@@ -47,12 +47,12 @@ loginRouter.post(`/`, (req, res) => {
 //   "color": "string",
 // }
 
-loginRouter.put(`/`, (req, res) => {
+loginRouter.put(`/put`, (req, res) => {
   const { username, color } = req.body;
   const UserPosition = usersArray.findIndex(
     (user) => user.username === username
   );
-  if (UserPosition) {
+  if (UserPosition >= 0) {
     usersArray[UserPosition].color = color;
     res
       .status(200)

@@ -10,6 +10,7 @@ export const pubblications = [
     comments: [
       { user: "giggio", avatar: "GG", text: "Ci sono stato anche io!" },
       { user: "albertino", avatar: "AA", text: "come sei stato?" },
+      { user: "giggiolone", avatar: "GI", text: "grandissimo!" },
     ],
   },
   {

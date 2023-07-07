@@ -10,7 +10,7 @@ postsRouter.get(`/`, (req, res) => {
   res.json(posts.reverse());
 });
 
-postsRouter.post(`/`, (req, res) => {
+postsRouter.post(`/post`, (req, res) => {
   const id = uuidv4();
   const comments = [];
   const { location, region, postData, postUser, img, description } = req.body;

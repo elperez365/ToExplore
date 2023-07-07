@@ -1,4 +1,5 @@
-
+PER MAGGIOR FACILITA' NEI BODY DELLE RICHIESTE INSERIRE
+OGGETTI JSON.stringificati
 ------------------------------------------------------------------
 
 localhost:3001/login ----->GET
@@ -7,7 +8,7 @@ RISPOSTA----> array di {user}
 
 -----------------------------------------------------------------
 
-localhost:3001/login ----->POST
+localhost:3001/login/post ----->POST
 
 RICHIESTA:
 //ESEMPIO DI BODY CHE ARRIVA DALLA REGISTRAZIONE
@@ -34,7 +35,7 @@ RISPOSTA: se non va
 
 ------------------------------------------------------------------
 
-localhost:3001/login ----->PUT
+localhost:3001/login/put ----->PUT
 RICHIESTA:
 //ESEMPIO DI BODY CHE ARRIVA DAL CAMBIO COLORE AVATAR
 // {
@@ -63,7 +64,7 @@ RISPOSTA ----> tutto l' array di {pubblicazioni} ----> reverse
 
 ------------------------------------------------------------------
 
-localhost:3001/posts ----->POST
+localhost:3001/posts/post ----->POST
 RICHIESTA:
 // ESEMPIO BODY DEL POST CHE ARRIVA
 //   {
@@ -110,5 +111,50 @@ RISPOSTA ---> array di {pubblicazioni} solo dell'username inserita
 
 ------------------------------------------------------------------
 
-WORK IN PROGRESS:
-localhost:3001/comments
+
+localhost:3001/comments/commentlist
+//ESEMPIO DI BODY CHE ARRIVA IN /COMMENTLIST
+//
+// {"postId":"1"} ---- TUTTO A STRINGA
+//
+// ESEMPIO RISPOSTA
+// {
+//     "success": true,
+//     "commentPost": [
+//         {
+//             "user": "giggio",
+//             "avatar": "GG",
+//             "text": "Ci sono stato anche io!"
+//         },
+//         {
+//             "user": "albertino",
+//             "avatar": "AA",
+//             "text": "come sei stato?"
+//         }
+//     ]
+// }
+
+-------------------------------------------------------------------
+
+localhost:3001/comments/commentpush
+// ESEMPIO DI BODY CHE ARRIVA IN /COMMENTPUSH
+// {
+//     "postId":"1",
+//     "user":"giggiolone",
+//     "avatar":"GI",
+//     "text":"grandissimo!"
+// }
+//
+// ESEMPIO DI RISPOSTA
+// {
+//     "success": true,
+//     "text": "commento pubblicato"
+// }
+
+
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+-----------------API WORK IN PROGRESS-----------------------------
+-localhost:3001/posts/delete    ---------> DELETE
+-localhost:3001/comments/delete ---------> DELETE
