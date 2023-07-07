@@ -1,0 +1,114 @@
+
+------------------------------------------------------------------
+
+localhost:3001/login ----->GET
+
+RISPOSTA----> array di {user}
+
+-----------------------------------------------------------------
+
+localhost:3001/login ----->POST
+
+RICHIESTA:
+//ESEMPIO DI BODY CHE ARRIVA DALLA REGISTRAZIONE
+// {
+//   "username": "string",   -----> se già esistente non viene inserito
+//   "mail": "string",         -----> se già esistente non viene inserito
+//   "password": "string",
+//   "avatar": "string",
+//   "color": "string",
+// }
+
+RISPOSTA: se tutto ok
+{
+  success: true,
+  text: "Registrazione completata con successo" 
+}
+
+RISPOSTA: se non va
+{
+  success: false,
+  text: "qualcosa non va, controlla i dati inseriti",
+}
+
+
+------------------------------------------------------------------
+
+localhost:3001/login ----->PUT
+RICHIESTA:
+//ESEMPIO DI BODY CHE ARRIVA DAL CAMBIO COLORE AVATAR
+// {
+//   "username": "string",
+//   "color": "string",
+// }
+
+RISPOSTA: se tutto ok
+{ 
+    success: true,
+    text: "The avatar color is changed!"
+}
+
+RISPOSTA: se utente non trovato
+{ 
+    success: false,
+    text: "username not found"
+}
+
+
+------------------------------------------------------------------
+localhost:3001/posts ----->GET
+
+RISPOSTA ----> tutto l' array di {pubblicazioni} ----> reverse
+
+
+------------------------------------------------------------------
+
+localhost:3001/posts ----->POST
+RICHIESTA:
+// ESEMPIO BODY DEL POST CHE ARRIVA
+//   {
+//     "location": "comune del post",
+//     "region": "regione del post",
+//     "postData": "data del post",
+//     "postUser": "username di chi ha postato",
+//     "img": "boh",
+//     "description": "descrizione del post",
+//   },
+
+RISPOSTA: se tutto ok
+
+{ 
+    success: true, 
+    text: "il tuo post è stato pubblicato" 
+}
+
+RISPOSTA:
+se:
+-utente già esistente
+-mail già esistente
+-manca qualche campo da inserire (solo la descrizione è facoltativa)
+
+{
+    success: false,
+    text: "qualcosa non va, controlla i dati inseriti",
+}
+
+------------------------------------------------------------------
+
+localhost:3001/posts/region/NOMEREGIONE ----->GET
+
+RISPOSTA ---> array di {pubblicazioni} solo della regione inserita
+
+
+------------------------------------------------------------------
+
+localhost:3001/posts/username/NOMEUTENTE ----->GET
+
+RISPOSTA ---> array di {pubblicazioni} solo dell'username inserita
+
+
+
+------------------------------------------------------------------
+
+WORK IN PROGRESS:
+localhost:3001/comments

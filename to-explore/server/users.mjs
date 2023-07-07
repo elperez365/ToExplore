@@ -21,7 +21,7 @@ export const users = [
     mail: "giacomino.gia@gmail.com",
     password: "bellazi",
     avatar: "GG",
-    color: "blue",
+    color: "black",
   },
   {
     id: "548a8019-9a7f-4a25-bf0e-ccb8a3a0d36b",

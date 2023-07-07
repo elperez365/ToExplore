@@ -40,11 +40,32 @@ loginRouter.post(`/`, (req, res) => {
 
 //ESEMPIO DI BODY CHE ARRIVA DALLA REGISTRAZIONE
 // {
-//   "username": "username",   -----> se già esistente non viene inserito
-//   "mail": "e-mail",         -----> se già esistente non viene inserito
-//   "password": "password",
-//   "avatar": "PP",
-//   "color": "color",
+//   "username": "string",   -----> se già esistente non viene inserito
+//   "mail": "string",         -----> se già esistente non viene inserito
+//   "password": "string",
+//   "avatar": "string",
+//   "color": "string",
 // }
 
-loginRouter.put(`/`, (req, res) => {});
+loginRouter.put(`/`, (req, res) => {
+  const { username, color } = req.body;
+  const UserPosition = usersArray.findIndex(
+    (user) => user.username === username
+  );
+  if (UserPosition) {
+    usersArray[UserPosition].color = color;
+    res
+      .status(200)
+      .json({ success: true, text: "The avatar color is changed!" });
+    writeFileSync(
+      "./users.mjs",
+      `export const users = ${JSON.stringify(usersArray)}`
+    );
+  } else res.json({ success: false, text: "username not found" });
+});
+
+//ESEMPIO DI BODY CHE ARRIVA DAL CAMBIO COLORE AVATAR
+// {
+//   "username": "string",
+//   "color": "string",
+// }

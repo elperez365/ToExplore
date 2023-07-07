@@ -5,14 +5,15 @@ import { writeFileSync } from "fs";
 
 export const postsRouter = Express.Router();
 const posts = [...pubblications];
+
 postsRouter.get(`/`, (req, res) => {
-  res.json(posts);
+  res.json(posts.reverse());
 });
 
 postsRouter.post(`/`, (req, res) => {
   const id = uuidv4();
-  const { location, region, postData, postUser, img, description, comments } =
-    req.body;
+  const comments = [];
+  const { location, region, postData, postUser, img, description } = req.body;
 
   if (location && region && postData && postUser && img) {
     posts.push({
@@ -46,16 +47,15 @@ postsRouter.post(`/`, (req, res) => {
 //     "postUser": "username di chi ha postato",
 //     "img": "boh",
 //     "description": "descrizione del post",
-//     "comments": [arrayVuoto],
 //   },
 
-postsRouter.get(`/:region`, (req, res) => {
+postsRouter.get(`/region/:region`, (req, res) => {
   const { region } = req.params;
   const filteredByRegion = posts.filter((post) => post.region === region);
   res.json(filteredByRegion);
 });
 
-postsRouter.get(`/:username`, (req, res) => {
+postsRouter.get(`/username/:username`, (req, res) => {
   const { username } = req.params;
   const filteredByusername = posts.filter((post) => post.postUser === username);
   res.json(filteredByusername);

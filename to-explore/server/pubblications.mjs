@@ -2,7 +2,7 @@ export const pubblications = [
   {
     id: "1",
     location: "fiume freddo",
-    region: "Sicilia",
+    region: "sicilia",
     postData: "02/04/2023",
     postUser: "peppe",
     img: "https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg",
@@ -15,7 +15,7 @@ export const pubblications = [
   {
     id: "2",
     location: "ariccia",
-    region: "Lazio",
+    region: "lazio",
     postData: "03/03/2023",
     postUser: "pippo",
     img: "https://free4kwallpapers.com/uploads/originals/2015/10/02/nice-place.jpg",
@@ -28,7 +28,7 @@ export const pubblications = [
   {
     id: "62d1d49c-2fc4-4503-bbff-8bace8ede93b",
     location: "fiume freddo",
-    region: "Sicilia",
+    region: "sicilia",
     postData: "02/04/2023",
     postUser: "peppe",
     img: "https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg",
@@ -38,7 +38,7 @@ export const pubblications = [
   {
     id: "9676d011-61e9-41a1-b5b4-5180ec1aa9bb",
     location: "fiume freddo",
-    region: "Sicilia",
+    region: "sicilia",
     postData: "02/04/2023",
     postUser: "peppe",
     img: "https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg",
@@ -48,7 +48,7 @@ export const pubblications = [
   {
     id: "91e16ceb-eeb1-4501-9c45-8c2234de0f35",
     location: "fiume freddo",
-    region: "Sicilia",
+    region: "sicilia",
     postData: "02/04/2023",
     postUser: "peppe",
     img: "https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg",
