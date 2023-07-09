@@ -15,9 +15,9 @@ import Trentino from "./images/regioni/Trentino-Alto Adige.png";
 import Umbria from "./images/regioni/Umbria.png";
 import ValleDaosta from "./images/regioni/Valle d'Aosta.png";
 import Veneto from "./images/regioni/Veneto.png";
-// import Sicilia from "./images/regioni/Sicilia.png";
-// import Sicilia from "./images/regioni/Sicilia.png";
-// import Sicilia from "./images/regioni/Sicilia.png";
+import Lazio from "./images/regioni/Lazio.png";
+import Friuli from "./images/regioni/Friuli.png";
+import Marche from "./images/regioni/Marche.png";
 
 const regionImgs = {
   Abruzzo: Abruzzo,
@@ -37,5 +37,8 @@ const regionImgs = {
   Umbria: Umbria,
   "Valle d'Aosta": ValleDaosta,
   Veneto: Veneto,
+  Lazio: Lazio,
+  Marche: Marche,
+  "Friuli-Venezia Giulia": Friuli,
 };
 export default regionImgs;
