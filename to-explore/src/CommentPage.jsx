@@ -3,7 +3,7 @@ import TextAdd from "./TextAdd";
 import { Avatar } from "@mui/material";
 import userLoggedContest from "./UserLoggedContest";
 
-function CommentPage() {
+function CommentPage({ postId }) {
   const [comment, setComment] = useState("");
   const [commentList, SetCommentList] = useState([]);
   const [sent, setSent] = useState(false);
@@ -12,6 +12,17 @@ function CommentPage() {
   let riceviState = (text) => {
     setComment(text);
   };
+
+  useEffect(() => {
+    fetch("http://localhost:3001/comments/commentlist", {
+      method: "POST",
+      body: JSON.stringify({ postId: `${postId}` }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((res) => res.json())
+      // .then((json) => console.log(json.commentPost));
+      .then((json) => SetCommentList(json.commentPost));
+  }, []);
 
   let handlePostComment = () => {
     SetCommentList([
@@ -25,11 +36,20 @@ function CommentPage() {
     ]);
     setComment("");
     setSent(true);
+    fetch("http://localhost:3001/comments/commentpush", {
+      method: "POST",
+      body: JSON.stringify({
+        postId: `${postId}`,
+        user: username,
+        avatar: avatar,
+        avatarColor: avatarColor,
+        text: comment,
+      }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((res) => res.json())
+      .then(console.log);
   };
-
-  // useEffect(() => {
-  //   console.log(commentList);
-  // }, [commentList]);
 
   return (
     <div className="relative w-screen">

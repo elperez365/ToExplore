@@ -13,6 +13,9 @@ export function Homepage() {
       .then((res) => res.json())
       .then((json) => setPosts(json));
   }, []);
+  // useEffect(() => {
+  //   console.log(posts);
+  // }, [posts]);
   return (
     <div className="bg-contrast2 bg-blur bg-opacity-80 ">
       <Navbar />
@@ -26,6 +29,7 @@ export function Homepage() {
             postDate={el.postData}
             postAvatar={el.postAvatar}
             avatarColor={el.avatarColor}
+            postId={el.id}
           />
         ))}
 
