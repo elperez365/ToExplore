@@ -6,7 +6,7 @@ function HeaderProfilo({
   username,
 }) {
   return (
-    <div className="flex justify-around items-center h-36 w-full bg-contrast">
+    <div className="flex justify-around items-center h-28 w-full bg-contrast">
       <div className="flex items-center gap-2">
         <Avatar sx={{ bgcolor: `${avatarColor}`, width: 60, height: 60 }}>
           {avatar}

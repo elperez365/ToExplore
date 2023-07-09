@@ -10,7 +10,7 @@ import { Settings } from "./Settings";
 import { ChangeAvatarColor } from "./ChangeAvatarColor";
 import { Team } from "./Team";
 import userLoggedContest from "./UserLoggedContest";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderProfilo from "./HeaderProfilo";
 import BodyProfilo from "./BodyProfilo";
 
@@ -23,6 +23,8 @@ export default function App() {
     avatar: "PI",
     avatarColor: "red",
   });
+  const [regionSelected, setRegionSelected] = useState("");
+
   return (
     <userLoggedContest.Provider value={userLogged}>
       <Routes>
@@ -31,7 +33,10 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/add-content" element={<AddContentPage />} />
-        <Route path="/map" element={<RegionSelect />} />
+        <Route
+          path="/map"
+          element={<RegionSelect setRegionSelected={setRegionSelected} />}
+        />
         <Route
           path="/profilo"
           element={
@@ -50,9 +55,9 @@ export default function App() {
           element={
             <Profilo counterLuoghi={`numero post`}>
               <HeaderProfilo
-                avatar="SI"
+                avatar={regionSelected.slice(0, 2).toUpperCase()}
                 avatarColor="lightblue"
-                username="Sicilia"
+                username={regionSelected}
               />
               <BodyProfilo />
             </Profilo>

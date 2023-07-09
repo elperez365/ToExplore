@@ -13,7 +13,6 @@ function AddContentPage() {
   const [countrySelected, setCountrySelected] = React.useState({});
   const [descriptionSelected, setDescriptionSelected] = React.useState("");
 
-  console.log(avatarColor);
   let riceviStateCountry = (state) => {
     const { regione, provincia, comune } = state;
     setCountrySelected({ regione, provincia, comune });
