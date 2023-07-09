@@ -58,6 +58,7 @@ export default function App() {
                 avatar={regionSelected.slice(0, 2).toUpperCase()}
                 avatarColor="lightblue"
                 username={regionSelected}
+                regionSelected={regionSelected}
               />
               <BodyProfilo />
             </Profilo>
