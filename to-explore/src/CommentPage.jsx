@@ -14,7 +14,10 @@ function CommentPage() {
   };
 
   let handlePostComment = () => {
-    SetCommentList([...commentList, [avatar, avatarColor, comment]]);
+    SetCommentList([
+      ...commentList,
+      { avatar: avatar, avatarColor: avatarColor, comment: comment },
+    ]);
     setComment("");
     setSent(true);
   };
@@ -28,10 +31,12 @@ function CommentPage() {
       <div className="flex flex-col gap-5 w-full min-h-12 max-h-52 overflow-x-scroll ">
         {commentList.map((el, i) => (
           <div key={i} className="flex gap-5">
-            <Avatar sx={{ width: 40, height: 40, bgcolor: `${el[1]}` }}>
-              {el[0]}
+            <Avatar
+              sx={{ width: 40, height: 40, bgcolor: `${el.avatarColor}` }}
+            >
+              {el.avatar}
             </Avatar>
-            <p className="bg-secondary rounded-xl ">{el[2]}</p>
+            <p className="bg-secondary rounded-xl ">{el.comment}</p>
           </div>
         ))}
       </div>
