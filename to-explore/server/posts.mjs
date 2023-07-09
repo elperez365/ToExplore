@@ -13,15 +13,34 @@ postsRouter.get(`/`, (req, res) => {
 postsRouter.post(`/post`, (req, res) => {
   const id = uuidv4();
   const comments = [];
-  const { location, region, postData, postUser, img, description } = req.body;
+  const {
+    location,
+    region,
+    postData,
+    postUser,
+    postAvatar,
+    avatarColor,
+    img,
+    description,
+  } = req.body;
 
-  if (location && region && postData && postUser && img) {
+  if (
+    location &&
+    region &&
+    postData &&
+    postUser &&
+    postAvatar &&
+    avatarColor &&
+    img
+  ) {
     posts.push({
       id,
       location,
       region,
       postData,
       postUser,
+      postAvatar,
+      avatarColor,
       img,
       description,
       comments,
@@ -45,6 +64,8 @@ postsRouter.post(`/post`, (req, res) => {
 //     "region": "regione del post",
 //     "postData": "data del post",
 //     "postUser": "username di chi ha postato",
+//     "postAvatar": "AA",
+//     "avatarColor": "red",
 //     "img": "boh",
 //     "description": "descrizione del post",
 //   },

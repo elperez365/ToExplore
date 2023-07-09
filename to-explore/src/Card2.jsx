@@ -9,7 +9,6 @@ import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -34,6 +33,7 @@ export default function Card2({
   postImg = "https://th.bing.com/th/id/OIP.vupylNDkkgtcj4-zykCWhAHaDt?pid=ImgDet&rs=1",
   postAvatar,
   postDescription,
+  avatarColor,
 }) {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -50,8 +50,8 @@ export default function Card2({
       <CardHeader
         className="glass-effect bg-blur bg-opacity-80 bg-cardPrimary rounded-t-3xl"
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+          <Avatar sx={{ bgcolor: `${avatarColor}` }} aria-label="recipe">
+            {postAvatar}
           </Avatar>
         }
         action={

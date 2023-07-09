@@ -72,6 +72,8 @@ RICHIESTA:
 //     "region": "regione del post",
 //     "postData": "data del post",
 //     "postUser": "username di chi ha postato",
+//     "postAvatar": "AA",
+//     "avatarColor": "red",
 //     "img": "boh",
 //     "description": "descrizione del post",
 //   },

@@ -27,9 +27,9 @@ function CommentPage() {
     setSent(true);
   };
 
-  useEffect(() => {
-    console.log(commentList);
-  }, [commentList]);
+  // useEffect(() => {
+  //   console.log(commentList);
+  // }, [commentList]);
 
   return (
     <div className="relative w-screen">
