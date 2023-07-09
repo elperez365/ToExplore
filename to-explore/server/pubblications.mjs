@@ -8,9 +8,24 @@ export const pubblications = [
     img: "https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg",
     description: "bel posto",
     comments: [
-      { user: "giggio", avatar: "GG", text: "Ci sono stato anche io!" },
-      { user: "albertino", avatar: "AA", text: "come sei stato?" },
-      { user: "giggiolone", avatar: "GI", text: "grandissimo!" },
+      {
+        user: "giggio",
+        avatar: "GG",
+        avatarColor: "blue",
+        text: "Ci sono stato anche io!",
+      },
+      {
+        user: "albertino",
+        avatar: "AA",
+        avatarColor: "red",
+        text: "come sei stato?",
+      },
+      {
+        user: "giggiolone",
+        avatar: "GI",
+        avatarColor: "green",
+        text: "grandissimo!",
+      },
     ],
   },
   {
@@ -22,8 +37,13 @@ export const pubblications = [
     img: "https://free4kwallpapers.com/uploads/originals/2015/10/02/nice-place.jpg",
     description: "La porchetta è buona",
     comments: [
-      { user: "giggio", avatar: "GG", text: "Si è vero!" },
-      { user: "albertino", avatar: "AA", text: "No non è vero" },
+      { user: "giggio", avatar: "GG", avatarColor: "blue", text: "Si è vero!" },
+      {
+        user: "albertino",
+        avatar: "AA",
+        avatarColor: "red",
+        text: "No non è vero",
+      },
     ],
   },
   {

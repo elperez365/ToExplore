@@ -20,26 +20,33 @@ commentsRouter.post(`/commentlist`, (req, res) => {
 // ESEMPIO RISPOSTA
 // {
 //     "success": true,
-//     "commentPost": [
-//         {
-//             "user": "giggio",
-//             "avatar": "GG",
-//             "text": "Ci sono stato anche io!"
-//         },
-//         {
-//             "user": "albertino",
-//             "avatar": "AA",
-//             "text": "come sei stato?"
-//         }
-//     ]
+//     "commentPost":  [
+//                       {
+//                         user: "giggio",
+//                         avatar: "GG",
+//                         avatarColor: "blue",
+//                         text: "Ci sono stato anche io!",
+//                       },
+//                       {
+//                         user: "albertino",
+//                         avatar: "AA",
+//                         avatarColor: "red",
+//                         text: "come sei stato?",
+//                       },
+//                       {
+//                         user: "giggiolone",
+//                         avatar: "GI",
+//                         avatarColor: "green",
+//                         text: "grandissimo!",
+//                       },
+//                     ]
 // }
 
 commentsRouter.post(`/commentpush`, (req, res) => {
-  const { postId, user, avatar, text } = req.body;
+  const { postId, user, avatar, avatarColor, text } = req.body;
   const postPosition = posts.findIndex((post) => post.id === postId);
-  console.log(postPosition);
   if (postPosition >= 0) {
-    posts[postPosition].comments.push({ user, avatar, text });
+    posts[postPosition].comments.push({ user, avatar, avatarColor, text });
     res.status(200).json({ success: true, text: `commento pubblicato` });
     writeFileSync(
       "./pubblications.mjs",
@@ -53,6 +60,7 @@ commentsRouter.post(`/commentpush`, (req, res) => {
 //     "postId":"1",
 //     "user":"giggiolone",
 //     "avatar":"GI",
+//     "avatarColor": "green",
 //     "text":"grandissimo!"
 // }
 //

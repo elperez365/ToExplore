@@ -120,18 +120,26 @@ localhost:3001/comments/commentlist
 // ESEMPIO RISPOSTA
 // {
 //     "success": true,
-//     "commentPost": [
-//         {
-//             "user": "giggio",
-//             "avatar": "GG",
-//             "text": "Ci sono stato anche io!"
-//         },
-//         {
-//             "user": "albertino",
-//             "avatar": "AA",
-//             "text": "come sei stato?"
-//         }
-//     ]
+//     "commentPost":  [
+//                       {
+//                         user: "giggio",
+//                         avatar: "GG",
+//                         avatarColor: "blue",
+//                         text: "Ci sono stato anche io!",
+//                       },
+//                       {
+//                         user: "albertino",
+//                         avatar: "AA",
+//                         avatarColor: "red",
+//                         text: "come sei stato?",
+//                       },
+//                       {
+//                         user: "giggiolone",
+//                         avatar: "GI",
+//                         avatarColor: "green",
+//                         text: "grandissimo!",
+//                       },
+//                     ]
 // }
 
 -------------------------------------------------------------------
@@ -142,6 +150,7 @@ localhost:3001/comments/commentpush
 //     "postId":"1",
 //     "user":"giggiolone",
 //     "avatar":"GI",
+//     "avatarColor": "green",
 //     "text":"grandissimo!"
 // }
 //

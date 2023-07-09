@@ -7,7 +7,7 @@ function CommentPage() {
   const [comment, setComment] = useState("");
   const [commentList, SetCommentList] = useState([]);
   const [sent, setSent] = useState(false);
-  const { avatar, avatarColor } = useContext(userLoggedContest);
+  const { avatar, avatarColor, username } = useContext(userLoggedContest);
 
   let riceviState = (text) => {
     setComment(text);
@@ -16,7 +16,12 @@ function CommentPage() {
   let handlePostComment = () => {
     SetCommentList([
       ...commentList,
-      { avatar: avatar, avatarColor: avatarColor, comment: comment },
+      {
+        user: username,
+        avatar: avatar,
+        avatarColor: avatarColor,
+        text: comment,
+      },
     ]);
     setComment("");
     setSent(true);
@@ -36,7 +41,7 @@ function CommentPage() {
             >
               {el.avatar}
             </Avatar>
-            <p className="bg-secondary rounded-xl ">{el.comment}</p>
+            <p className="bg-secondary rounded-xl ">{el.text}</p>
           </div>
         ))}
       </div>
