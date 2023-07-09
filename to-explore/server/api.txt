@@ -112,7 +112,7 @@ RISPOSTA ---> array di {pubblicazioni} solo dell'username inserita
 ------------------------------------------------------------------
 
 
-localhost:3001/comments/commentlist
+localhost:3001/comments/commentlist ---> post
 //ESEMPIO DI BODY CHE ARRIVA IN /COMMENTLIST
 //
 // {"postId":"1"} ---- TUTTO A STRINGA
@@ -144,7 +144,7 @@ localhost:3001/comments/commentlist
 
 -------------------------------------------------------------------
 
-localhost:3001/comments/commentpush
+localhost:3001/comments/commentpush ------>post
 // ESEMPIO DI BODY CHE ARRIVA IN /COMMENTPUSH
 // {
 //     "postId":"1",
