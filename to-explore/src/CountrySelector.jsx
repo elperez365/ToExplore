@@ -1,11 +1,11 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import Select from "react-select";
 // import countryList from "react-select-country-list";
 import comuniWithSpec from "./comuni.json";
 import regioniWithSpec from "./regioni.json";
 import provinceWithSpec from "./province.json";
 
-function CountrySelector() {
+function CountrySelector({ passaState }) {
   const [regione, setRegione] = useState("");
   const [provincia, setProvincia] = useState("");
   const [comune, setComune] = useState("");
@@ -13,6 +13,16 @@ function CountrySelector() {
   const provincieRef = useRef();
   const comuniRef = useRef();
   // const stati = useMemo(() => countryList().getData(), []);
+
+  useEffect(() => {
+    if (regione && provincia && comune) {
+      passaState({
+        regione: regione.label,
+        provincia: provincia.label,
+        comune: comune.label,
+      });
+    }
+  }, [regione, provincia, comune, passaState]);
 
   const regioniItaliane = useMemo(
     () =>

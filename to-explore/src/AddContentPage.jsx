@@ -8,6 +8,22 @@ import TextAdd from "./TextAdd";
 import { CustomButton } from "./CustomButton";
 
 function AddContentPage() {
+  const [countrySelected, setCountrySelected] = React.useState({});
+  const [descriptionSelected, setDescriptionSelected] = React.useState("");
+
+  let riceviStateCountry = (state) => {
+    const { regione, provincia, comune } = state;
+    setCountrySelected({ regione, provincia, comune });
+  };
+
+  let riceviStateDescription = (description) => {
+    setDescriptionSelected(description);
+  };
+
+  let onPushcontent = () => {
+    console.log(countrySelected);
+    console.log(descriptionSelected);
+  };
   return (
     <div>
       <div className="p-4 flex flex-col justify-around bg-primary h-screen">
@@ -21,13 +37,19 @@ function AddContentPage() {
         <div className="flex flex-col items-center gap-4">
           <UploadAndDisplayImage />
         </div>
-        <CountrySelector />
+        <CountrySelector passaState={riceviStateCountry} />
         <div className="flex flex-col items-center">
-          <TextAdd sentComment={{ sent: false }} />
+          <TextAdd
+            sentComment={{ sent: false }}
+            passaState={riceviStateDescription}
+          />
         </div>
 
         <div className="flex justify-center">
-          <CustomButton buttonText="Carica Immagine" />
+          <CustomButton
+            buttonText="Carica Immagine"
+            onPushcontent={onPushcontent}
+          />
         </div>
       </div>
     </div>
