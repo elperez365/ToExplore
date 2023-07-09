@@ -10,7 +10,7 @@ import { Settings } from "./Settings";
 import { ChangeAvatarColor } from "./ChangeAvatarColor";
 import { Team } from "./Team";
 import userLoggedContest from "./UserLoggedContest";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import HeaderProfilo from "./HeaderProfilo";
 import BodyProfilo from "./BodyProfilo";
 
