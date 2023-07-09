@@ -11,6 +11,8 @@ import { ChangeAvatarColor } from "./ChangeAvatarColor";
 import { Team } from "./Team";
 import userLoggedContest from "./UserLoggedContest";
 import { useState } from "react";
+import HeaderProfilo from "./HeaderProfilo";
+import BodyProfilo from "./BodyProfilo";
 
 export default function App() {
   const [userLogged, setUserlogged] = useState({
@@ -32,16 +34,28 @@ export default function App() {
         <Route path="/map" element={<RegionSelect />} />
         <Route
           path="/profilo"
-          element={<Profilo counterLuoghi={`luoghi visitati:`} />}
+          element={
+            <Profilo counterLuoghi={`luoghi visitati:`}>
+              <HeaderProfilo
+                avatar={userLogged.avatar}
+                avatarColor={userLogged.avatarColor}
+                username={userLogged.username}
+              />
+              <BodyProfilo />
+            </Profilo>
+          }
         />
         <Route
           path="/postRegion"
           element={
-            <Profilo
-              username="sicilia"
-              nameAccount="SC"
-              counterLuoghi={`numero post`}
-            />
+            <Profilo counterLuoghi={`numero post`}>
+              <HeaderProfilo
+                avatar="SI"
+                avatarColor="lightblue"
+                username="Sicilia"
+              />
+              <BodyProfilo />
+            </Profilo>
           }
         />
         <Route path="/settings" element={<Settings />} />
