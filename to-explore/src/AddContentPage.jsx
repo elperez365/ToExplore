@@ -6,11 +6,14 @@ import { Avatar } from "@mui/material";
 import * as React from "react";
 import TextAdd from "./TextAdd";
 import { CustomButton } from "./CustomButton";
+import userLoggedContest from "./UserLoggedContest";
 
 function AddContentPage() {
+  const { avatar, avatarColor } = React.useContext(userLoggedContest);
   const [countrySelected, setCountrySelected] = React.useState({});
   const [descriptionSelected, setDescriptionSelected] = React.useState("");
 
+  console.log(avatarColor);
   let riceviStateCountry = (state) => {
     const { regione, provincia, comune } = state;
     setCountrySelected({ regione, provincia, comune });
@@ -32,7 +35,9 @@ function AddContentPage() {
             <ButtonPrev />
           </Link>
 
-          <Avatar sx={{ width: 60, height: 60, bgcolor: "blue" }}>FF</Avatar>
+          <Avatar sx={{ width: 60, height: 60, bgcolor: `${avatarColor}` }}>
+            {avatar}
+          </Avatar>
         </div>
         <div className="flex flex-col items-center gap-4">
           <UploadAndDisplayImage />

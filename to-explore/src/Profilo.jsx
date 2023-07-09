@@ -1,14 +1,15 @@
-import Backdrop from '@mui/material/Backdrop';
+import Backdrop from "@mui/material/Backdrop";
 // import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
+import Modal from "@mui/material/Modal";
 // import Fade from '@mui/material/Fade';
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 import { Avatar } from "@mui/material";
 
 import { Navbar } from "./Navbar";
-import { useState } from "react";
-import Card2 from './Card2';
+import { useContext, useState } from "react";
+import Card2 from "./Card2";
+import userLoggedContest from "./UserLoggedContest";
 
 // const style = {
 //   position: 'absolute',
@@ -23,37 +24,71 @@ import Card2 from './Card2';
 // };
 
 const post = [
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-  {src:"https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg"},
-]
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+  {
+    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
+  },
+];
 
-export function Profilo({ username = "Andre A. Anuta", nameAccount='AA', counterLuoghi=20}) {
+export function Profilo({ counterLuoghi = 20 }) {
+  const { avatar, avatarColor, username } = useContext(userLoggedContest);
+  const [open, setOpen] = useState(false);
 
-  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true);
 
-  const handleOpen = () => setOpen(true)
-
-  const handleClose = () => setOpen(false)
+  const handleClose = () => setOpen(false);
 
   return (
     <div className="flex flex-col items-center">
       <div className="flex justify-around items-center h-36 w-full bg-contrast">
         <div className="flex items-center gap-2">
-          <Avatar sx={{ bgcolor: "blue", width: 60, height: 60 }}>{nameAccount}</Avatar>
+          <Avatar sx={{ bgcolor: `${avatarColor}`, width: 60, height: 60 }}>
+            {avatar}
+          </Avatar>
         </div>
         <div>
           <h1 className="text-xl">{username}</h1>
@@ -61,7 +96,15 @@ export function Profilo({ username = "Andre A. Anuta", nameAccount='AA', counter
         </div>
       </div>
       <div className="flex flex-wrap">
-          {post.map((el, i) => <img key={i} src={el.src} alt='img' className='w-1/3 cursor-pointer' onClick={handleOpen}/>)}
+        {post.map((el, i) => (
+          <img
+            key={i}
+            src={el.src}
+            alt="img"
+            className="w-1/3 cursor-pointer"
+            onClick={handleOpen}
+          />
+        ))}
       </div>
       <Navbar />
 
@@ -90,13 +133,12 @@ export function Profilo({ username = "Andre A. Anuta", nameAccount='AA', counter
           </Box>
         </Fade> */}
         <div>
-            <Card2
+          <Card2
             postDescription="Vacanza stupenda!"
             postImg="https://free4kwallpapers.com/uploads/originals/2015/10/02/nice-place.jpg"
-            />
+          />
         </div>
       </Modal>
-
     </div>
   );
 }
