@@ -23,7 +23,7 @@ function ClickableMap(props) {
           shape="poly"
           coords="42,39,14,44,17,56,39,54,39,43"
           href="#"
-          alt="Val d'Aosta"
+          alt="Valle d'Aosta"
           onClick={handleREgionClicked}
         />
         <area
@@ -51,7 +51,7 @@ function ClickableMap(props) {
           shape="poly"
           coords="128,14,128,34,124,45,135,54,159,37,164,24,178,17,174,5,154,7,142,13"
           href="#"
-          alt="Trentino Alto Adige"
+          alt="Trentino-Alto Adige"
           onClick={handleREgionClicked}
         />
         <area
@@ -65,14 +65,14 @@ function ClickableMap(props) {
           shape="poly"
           coords="183,43,186,51,194,51,203,59,214,54,213,47,208,43,210,36,216,29,207,26,195,26,187,29"
           href="#"
-          alt="Friuli Venezia Giulia"
+          alt="Friuli-Venezia Giulia"
           onClick={handleREgionClicked}
         />
         <area
           shape="poly"
           coords="92,85,101,86,109,92,121,94,133,94,150,97,166,96,169,121,179,137,171,137,159,140,148,134,143,124,127,127,107,112,96,107,89,110,80,102,84,88"
           href="#"
-          alt="Emilia Romagna"
+          alt="Emilia-Romagna"
           onClick={handleREgionClicked}
         />
         <area
@@ -108,7 +108,7 @@ function ClickableMap(props) {
           shape="poly"
           coords="193,199,213,186,221,202,238,218,232,224,220,227,212,231,198,227,189,216,194,210"
           href="#"
-          alt="Abbruzzo"
+          alt="Abruzzo"
           onClick={handleREgionClicked}
         />
         <area
