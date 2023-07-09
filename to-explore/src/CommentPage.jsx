@@ -20,9 +20,9 @@ function CommentPage({ postId }) {
       headers: { "Content-type": "application/json; charset=UTF-8" },
     })
       .then((res) => res.json())
-      // .then((json) => console.log(json.commentPost));
+
       .then((json) => SetCommentList(json.commentPost));
-  }, []);
+  }, [postId]);
 
   let handlePostComment = () => {
     SetCommentList([
@@ -67,10 +67,6 @@ function CommentPage({ postId }) {
       </div>
       <div className=" w-screen flex flex-col">
         <TextAdd passaState={riceviState} sentComment={{ sent, setSent }} />
-        {/* <div className="flex gap-5 items-center justify-center">
-          <Avatar sx={{ width: 40, height: 40, bgcolor: "blue" }}>FF</Avatar>
-          <h1>Francesco Francomollo</h1>
-        </div> */}
       </div>
 
       <button
