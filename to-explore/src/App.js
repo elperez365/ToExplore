@@ -23,7 +23,6 @@ export default function App() {
     avatar: "PI",
     avatarColor: "red",
   });
-  const [regionSelected, setRegionSelected] = useState("");
 
   return (
     <userLoggedContest.Provider value={userLogged}>
@@ -33,10 +32,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/add-content" element={<AddContentPage />} />
-        <Route
-          path="/map"
-          element={<RegionSelect setRegionSelected={setRegionSelected} />}
-        />
+        <Route path="/map" element={<RegionSelect />} />
         <Route
           path="/profilo"
           element={
@@ -51,15 +47,10 @@ export default function App() {
           }
         />
         <Route
-          path="/postRegion"
+          path="/postRegion/:region"
           element={
             <Profilo counterLuoghi={`numero post`}>
-              <HeaderProfilo
-                avatar={regionSelected.slice(0, 2).toUpperCase()}
-                avatarColor="lightblue"
-                username={regionSelected}
-                regionSelected={regionSelected}
-              />
+              <HeaderProfilo />
               <BodyProfilo />
             </Profilo>
           }
