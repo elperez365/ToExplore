@@ -10,7 +10,7 @@ import { Settings } from "./Settings";
 import { ChangeAvatarColor } from "./ChangeAvatarColor";
 import { Team } from "./Team";
 import userLoggedContest from "./UserLoggedContest";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeaderProfilo from "./HeaderProfilo";
 import BodyProfilo from "./BodyProfilo";
 
@@ -23,6 +23,10 @@ export default function App() {
     avatar: "PI",
     avatarColor: "red",
   });
+
+  useEffect(() => {
+    console.log(userLogged);
+  }, [userLogged]);
 
   return (
     <userLoggedContest.Provider value={userLogged}>

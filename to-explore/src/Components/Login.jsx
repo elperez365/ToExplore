@@ -1,18 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Travel from "./Travel.png";
 // import prova2 from "./prova2.jpg";
-import birdlogo2 from "../images/birdLogo2.png"
+import birdlogo2 from "../images/birdLogo2.png";
 
-export function Login() {
+export function Login({ setUserlogged }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberUsername, setRememberUsername] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (username !== "" && password !== "") {
-      console.log({ username, password });
+      fetch("http://localhost:3001/login", {
+        method: "POST",
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          setUserlogged({
+            logged: true,
+            userID: json[0].id,
+            username: json[0].username,
+            mail: json[0].mail,
+            avatar: json[0].avatar,
+            avatarColor: json[0].color,
+          });
+          setTimeout(() => {
+            navigate("/homepage");
+          }, 1000);
+        });
     }
   };
 
@@ -59,9 +81,11 @@ export function Login() {
       class="h-screen w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100
         lg:bg-white"
     >
-      <div class="h-screen flex flex-col items-center gap-6 justify-center 
+      <div
+        class="h-screen flex flex-col items-center gap-6 justify-center 
       md:justify-start 
-      lg:gap-12">
+      lg:gap-12"
+      >
         <img class="w-28" src={birdlogo2} alt="" />
         <h1
           class="text-white text-center font-bold text-center
@@ -98,9 +122,11 @@ export function Login() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <div class="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
+          <div
+            class="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
           md:w-5/6
-          lg:w-4/5 lg:items-center ">
+          lg:w-4/5 lg:items-center "
+          >
             <input
               class="bg-transparent w-64
               md:w-full md:text-2xl
@@ -202,12 +228,13 @@ export function Login() {
           >
             Login
           </button>
-          <Link to="/register" class="flex text-xs w-72 justify-center
+          <Link
+            to="/register"
+            class="flex text-xs w-72 justify-center
                         md:text-xl md:w-5/6 md:text-center
-                        lg:w-4/5 lg:h-12 lg:text-2xl">
-            <p>
-              Do not have an account? Sign in!
-            </p>
+                        lg:w-4/5 lg:h-12 lg:text-2xl"
+          >
+            <p>Do not have an account? Sign in!</p>
           </Link>
         </div>
         <img

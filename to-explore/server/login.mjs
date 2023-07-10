@@ -5,8 +5,19 @@ import { writeFileSync } from "fs";
 export const loginRouter = Express.Router();
 const usersArray = [...users];
 
-loginRouter.get(`/`, (req, res) => {
-  res.json(usersArray);
+loginRouter.post(`/`, (req, res) => {
+  const { username, password } = req.body;
+  const findPassword = usersArray.find((user) => user.password === password);
+  const findUser = usersArray.find((user) => user.username === username);
+
+  if (findPassword && findUser) {
+    const userFiltered = usersArray.filter(
+      (user) => user.username === username
+    );
+    res.json(userFiltered);
+  } else {
+    res.json("I dati inseriti non sono");
+  }
 });
 
 loginRouter.post(`/post`, (req, res) => {
