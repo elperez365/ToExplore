@@ -12,7 +12,7 @@ function AddContentPage() {
   const { avatar, avatarColor } = React.useContext(userLoggedContest);
   const [countrySelected, setCountrySelected] = React.useState({});
   const [descriptionSelected, setDescriptionSelected] = React.useState("");
-
+  const [selectedImage, setSelectedImage] = React.useState(null);
   let riceviStateCountry = (state) => {
     const { regione, provincia, comune } = state;
     setCountrySelected({ regione, provincia, comune });
@@ -23,8 +23,18 @@ function AddContentPage() {
   };
 
   let onPushcontent = () => {
-    console.log(countrySelected);
-    console.log(descriptionSelected);
+    const formData = new FormData();
+    formData.append("comune", countrySelected.comune);
+    formData.append("regione", countrySelected.regione);
+    formData.append("descrizione", descriptionSelected);
+    formData.append("image", selectedImage);
+    // fetch("",)
+    console.log(formData.get("image"));
+  };
+
+  const onClickP = (event) => {
+    console.log(event.target.files[0]);
+    setSelectedImage(event.target.files[0]);
   };
   return (
     <div>
@@ -39,7 +49,11 @@ function AddContentPage() {
           </Avatar>
         </div>
         <div className="flex flex-col items-center gap-4">
-          <UploadAndDisplayImage />
+          <UploadAndDisplayImage
+            onClickP={onClickP}
+            onRemove={setSelectedImage}
+            selectedImage={selectedImage}
+          />
         </div>
         <CountrySelector passaState={riceviStateCountry} />
         <div className="flex flex-col items-center">

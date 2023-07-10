@@ -1,10 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { CiCircleRemove } from "react-icons/ci";
 import logoMacchinaFotografica from "./images/LA-logo-macchina-fotografica.png";
 import { GrFormAdd } from "react-icons/gr";
 
-const UploadAndDisplayImage = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const UploadAndDisplayImage = ({ onClickP, selectedImage, onRemove }) => {
   const fileInput = useRef();
   return (
     <div className="flex self-center">
@@ -17,7 +16,7 @@ const UploadAndDisplayImage = () => {
           />
           <button
             className="flex justify-center items-center p-0 m-0 h-7 w-7"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => onRemove(null)}
           >
             <CiCircleRemove className="bg-complement rounded-full h-7 w-7" />
           </button>
@@ -40,10 +39,7 @@ const UploadAndDisplayImage = () => {
         type="file"
         name="myImage"
         ref={fileInput}
-        onChange={(event) => {
-          console.log(event.target.files[0]);
-          setSelectedImage(event.target.files[0]);
-        }}
+        onChange={onClickP}
       />
     </div>
   );
