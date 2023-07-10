@@ -21,8 +21,9 @@ export function Homepage() {
       <Navbar />
       <Header />
       <div className="lg:flex lg:flex-wrap lg:gap-4 lg:p-2 md:flex md:flex-wrap md:gap-4 justify-center bg-contrast2 h-full px-2 py-1 pt-12 lg:pt-20">
-        {posts.map((el) => (
+        {posts.map((el, i) => (
           <Card2
+            key={i}
             postDescription={el.description}
             postLocation={el.location}
             postImg={el.img}
