@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Travel from "./Travel.png";
 // import prova1 from './prova1.jpg'
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/system";
 import birdlogo2 from "../images/birdLogo2.png";
+import { Link } from "react-router-dom";
 
 export function Register() {
   const [email, setEmail] = useState("");
@@ -15,6 +16,10 @@ export function Register() {
   const [showPassword2, setShowPassword2] = useState(false);
   const [avatarName, setAvatarName] = useState("");
   const [avatarColor, setAvatarColor] = useState("#166534");
+  const showSvgRef = useRef(null);
+  const hideSvgRef = useRef(null);
+  const showSvgRef2 = useRef(null);
+  const hideSvgRef2 = useRef(null);
 
   const notMatchPass = document.getElementById("notMatchPass");
 
@@ -70,33 +75,28 @@ export function Register() {
     rptPassword === "" ||
     avatarName === "";
 
-  const showSvg = document.getElementById("showSvg");
-  const hideSvg = document.getElementById("hideSvg");
-
   const changeSvgIcon = () => {
-    setShowPassword(!showPassword);
-
-    if (showPassword) {
-      showSvg.style.display = "none";
-      hideSvg.style.display = "block";
+    if (showSvgRef.current.style.display === "none" && hideSvgRef.current.style.display === "block") {
+      showSvgRef.current.style.display = "block";
+      hideSvgRef.current.style.display = "none";
+      setShowPassword(true);
     } else {
-      showSvg.style.display = "block";
-      hideSvg.style.display = "none";
+      showSvgRef.current.style.display = "none";
+      hideSvgRef.current.style.display = "block";
+      setShowPassword(false);
     }
   };
 
-  const showSvg2 = document.getElementById("showSvg2");
-  const hideSvg2 = document.getElementById("hideSvg2");
 
   const changeSvgIcon2 = () => {
-    setShowPassword2(!showPassword2);
-
-    if (showPassword2) {
-      showSvg2.style.display = "none";
-      hideSvg2.style.display = "block";
+    if (showSvgRef2.current.style.display === "none" && hideSvgRef2.current.style.display === "block") {
+      showSvgRef2.current.style.display = "block";
+      hideSvgRef2.current.style.display = "none";
+      setShowPassword2(true);
     } else {
-      showSvg2.style.display = "block";
-      hideSvg2.style.display = "none";
+      showSvgRef2.current.style.display = "none";
+      hideSvgRef2.current.style.display = "block";
+      setShowPassword2(false);
     }
   };
 
@@ -130,9 +130,9 @@ export function Register() {
   return (
     <div class="h-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100">
       <div
-        class="h-screen flex flex-col items-center gap-6 justify-center 
-            md:justify-start 
-            lg:gap-8"
+        class="h-screen flex flex-col items-center gap-6 justify-center pt-2
+            md:justify-start md:pt-8
+            lg:gap-8 lg:pt-12"
       >
         <img class="w-28" src={birdlogo2} alt="" />
         <h1
@@ -156,9 +156,9 @@ export function Register() {
           Become part of our community
         </p>
         <div
-          class="bg-white/90 w-80 h-4/6 rounded-lg flex flex-col items-center gap-4
-                md:w-4/6 md:h-2/5 md:flex md:flex-col md:gap-7
-                lg:w-2/5 lg:h-3/6 lg:rounded-[10%] lg:opacity-95 justify-center"
+          class="bg-white/90 w-80 h-5/6 rounded-lg flex flex-col items-center gap-4
+                md:w-4/6 md:h-3/6 md:flex md:flex-col md:gap-7
+                lg:w-2/5 lg:h-4/6 lg:rounded-[10%] lg:opacity-95 justify-center"
         >
           <input
             class="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center 
@@ -192,6 +192,7 @@ export function Register() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button
+              ref={hideSvgRef}
               id="hideSvg"
               class=" 
                     md:w-14 md:h-8
@@ -230,6 +231,7 @@ export function Register() {
               </svg>
             </button>
             <button
+              ref={showSvgRef}
               id="showSvg"
               class="hidden 
                     md:w-14 md:h-8 md:hidden
@@ -273,6 +275,7 @@ export function Register() {
               onChange={(e) => setRptPassword(e.target.value)}
             />
             <button
+              ref={hideSvgRef2}
               id="hideSvg2"
               class=" 
                     md:w-14 md:h-8 
@@ -311,6 +314,7 @@ export function Register() {
               </svg>
             </button>
             <button
+              ref={showSvgRef2}
               id="showSvg2"
               class="hidden 
                     md:w-14 md:h-8 md:hidden
@@ -390,12 +394,20 @@ export function Register() {
           >
             Register
           </button>
+          <Link
+            to="/"
+            class="flex text-xs w-72 justify-center
+                        md:text-xl md:w-5/6 md:text-center
+                        lg:w-4/5 lg:h-12 lg:text-2xl"
+          >
+            <p>Do you already have an account? Login!</p>
+          </Link>
         </div>
         <img
           src={Travel}
           alt=""
           class="w-full
-                md:h-auto md:fixed md:bottom-0
+                md:h-1/4 md:fixed md:bottom-0
                 lg:hidden"
         />
       </div>
