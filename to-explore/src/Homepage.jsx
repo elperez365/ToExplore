@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 export function Homepage() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("http://127.0.0.1:3001/posts")
+    fetch("http://localhost:3001/posts")
       .then((res) => res.json())
       .then((json) => setPosts(json));
   }, []);
