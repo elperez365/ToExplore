@@ -64,39 +64,7 @@ RISPOSTA ----> tutto l' array di {pubblicazioni} ----> reverse
 
 ------------------------------------------------------------------
 
-localhost:3001/posts/post ----->POST
-RICHIESTA:
-// ESEMPIO BODY DEL POST CHE ARRIVA
-//   {
-//     "location": "comune del post",
-//     "region": "regione del post",
-//     "postData": "data del post",
-//     "postUser": "username di chi ha postato",
-//     "postAvatar": "AA",
-//     "avatarColor": "red",
-//     "img": "boh",
-//     "description": "descrizione del post",
-//   },
 
-RISPOSTA: se tutto ok
-
-{ 
-    success: true, 
-    text: "il tuo post è stato pubblicato" 
-}
-
-RISPOSTA:
-se:
--utente già esistente
--mail già esistente
--manca qualche campo da inserire (solo la descrizione è facoltativa)
-
-{
-    success: false,
-    text: "qualcosa non va, controlla i dati inseriti",
-}
-
-------------------------------------------------------------------
 
 localhost:3001/posts/region/NOMEREGIONE ----->GET
 
