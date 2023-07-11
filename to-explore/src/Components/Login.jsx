@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Travel from "./Travel.png";
 // import prova2 from "./prova2.jpg";
 import birdlogo2 from "../images/birdLogo2.png";
@@ -9,6 +9,8 @@ export function Login({ setUserlogged }) {
   const [password, setPassword] = useState("");
   const [rememberUsername, setRememberUsername] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const showSvgRef = useRef(null);
+  const hideSvgRef = useRef(null);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -49,18 +51,15 @@ export function Login({ setUserlogged }) {
     setRememberUsername(!rememberUsername);
   };
 
-  const showSvg = document.getElementById("showSvg");
-  const hideSvg = document.getElementById("hideSvg");
-
   const changeSvgIcon = () => {
-    setShowPassword(!showPassword);
-
-    if (showPassword) {
-      showSvg.style.display = "none";
-      hideSvg.style.display = "block";
+    if (showSvgRef.current.style.display === "none" && hideSvgRef.current.style.display === "block") {
+      showSvgRef.current.style.display = "block";
+      hideSvgRef.current.style.display = "none";
+      setShowPassword(true);
     } else {
-      showSvg.style.display = "block";
-      hideSvg.style.display = "none";
+      showSvgRef.current.style.display = "none";
+      hideSvgRef.current.style.display = "block";
+      setShowPassword(false);
     }
   };
 
@@ -87,9 +86,9 @@ export function Login({ setUserlogged }) {
         lg:bg-white"
     >
       <div
-        class="h-screen flex flex-col items-center gap-6 justify-center 
-      md:justify-start 
-      lg:gap-12"
+        class="h-screen flex flex-col items-center gap-6 justify-center pt-5
+      md:justify-start md:pt-12
+      lg:gap-12 lg:pt-16"
       >
         <img class="w-28" src={birdlogo2} alt="" />
         <h1
@@ -142,6 +141,7 @@ export function Login({ setUserlogged }) {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button
+              ref={hideSvgRef}
               id="hideSvg"
               class="
               md:w-14 md:h-8
@@ -180,6 +180,7 @@ export function Login({ setUserlogged }) {
               </svg>
             </button>
             <button
+              ref={showSvgRef}
               id="showSvg"
               class=" hidden
                     md:hidden md:w-14 md:h-8

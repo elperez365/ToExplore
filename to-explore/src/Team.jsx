@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import ButtonPrev from "./ButtonPrev";
-import Peppe from "./images/Peppe.jpg"
-import Marco from "./images/Marco.png"
+import Peppe from "./images/Peppe.jpg";
+import Marco from "./images/Marco.png";
+import Vasco from "./images/Vasco.JPG";
 
 
 export function Team() {
@@ -10,28 +11,69 @@ export function Team() {
             <Link to="/settings">
                 <ButtonPrev />
             </Link>
-            <div class="flex flex-wrap h-[80%]">
-                <div class="flex w-full justify-center items-center space-x-3">
-                    <div class="w-36 h-36">
+            <div class="flex flex-wrap h-4/5 gap-8">
+                <div class="flex w-full justify-center items-center gap-8">
+                    <div class="w-36 h-36 
+                    md:w-56 md:h-56">
                         <img class="rounded-full object-cover w-full h-full" src={Peppe} alt="" />
                     </div>
-                    <h1 class="text-2xl">Giuseppe Caliri</h1>
+                    <div>
+                        <h1 class="text-2xl 
+                        md:text-5xl">Giuseppe Caliri</h1>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                    </div>
+
                 </div>
-                <div class="flex w-full justify-center items-center space-x-3">
-                    <h1 class="text-2xl">Marco Verduci</h1>
-                    <div class="w-36 h-36">
+                <div class="flex w-full justify-center items-center gap-8">
+                    <div>
+                        <h1 class="text-2xl 
+                        md:text-5xl">Marco Verduci</h1>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                    </div>
+                    <div class="w-36 h-36 
+                    md:w-56 md:h-56">
                         <img class="rounded-full object-cover w-full h-full" src={Marco} alt="" />
                     </div>
                 </div>
-                <div class="flex w-full justify-center items-center space-x-3">
-                    <div class="w-36 h-36">
-                        <img class="rounded-full object-cover w-full h-full" src={Peppe} alt="" />
+                <div class="flex w-full justify-center items-center gap-8">
+                    <div class="w-36 h-36 
+                    md:w-56 md:h-56">
+                        <img class="rounded-full object-cover w-full h-full" src={Vasco} alt="" />
                     </div>
-                    <h1 class="text-2xl">Vasco Ceti</h1>
+                    <div>
+                        <h1 class="text-2xl 
+                        md:text-5xl">Vasco Ceti</h1>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                    </div>
                 </div>
-                <div class="flex w-full justify-center items-center space-x-3">
-                    <h1 class="text-2xl">Andrei Anuta</h1>
-                    <div class="w-36 h-36">
+                <div class="flex w-full justify-center items-center gap-8">
+                    <div>
+                        <h1 class="text-2xl 
+                        md:text-5xl">Andrei Anuta</h1>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                        <p class="text-sm 
+                        md:text-xl">Ho pullato develop</p>
+                    </div>
+                    <div class="w-36 h-36 
+                    md:w-56 md:h-56">
                         <img class="rounded-full object-cover w-full h-full" src={Marco} alt="" />
                     </div>
                 </div>
