@@ -32,17 +32,15 @@ function AddContentPage() {
     formData.append("avatarColor", avatarColor);
     formData.append("postUser", username);
 
-    console.log(formData.get("image"));
+    console.log(formData);
 
-    // fetch("http://localhost:3001/uploadPost", {
-    //   method: "POST",
-    //   body: formData,
-    //   headers: {
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    // })
-    //   .then((res) => console.log(res))
-    //   .catch((err) => ("Error occured", err));
+    fetch("http://localhost:3001/uploadPost", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then(console.log)
+      .catch((err) => ("Error occured", err));
   };
 
   const onClickP = (event) => {
