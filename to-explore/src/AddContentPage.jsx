@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonPrev from "./ButtonPrev";
 import CountrySelector from "./CountrySelector";
 import UploadAndDisplayImage from "./UploadAndDisplayImage";
@@ -9,6 +9,7 @@ import { CustomButton } from "./CustomButton";
 import userLoggedContest from "./UserLoggedContest";
 
 function AddContentPage() {
+  const navigate = useNavigate();
   const { avatar, avatarColor, username } = React.useContext(userLoggedContest);
   const [countrySelected, setCountrySelected] = React.useState({});
   const [descriptionSelected, setDescriptionSelected] = React.useState("");
@@ -39,8 +40,11 @@ function AddContentPage() {
       body: formData,
     })
       .then((res) => res.json())
-      .then(console.log)
-      .catch((err) => ("Error occured", err));
+      .then((json) => {
+        alert(json.text);
+        navigate(`/homepage`);
+      })
+      .catch((err) => "Error occured");
   };
 
   const onClickP = (event) => {
