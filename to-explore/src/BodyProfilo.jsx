@@ -6,56 +6,6 @@ import Backdrop from "@mui/material/Backdrop";
 import { useParams } from "react-router-dom";
 import userLoggedContest from "./UserLoggedContest";
 
-const post = [
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-  {
-    src: "https://www.rainews.it/resizegd/768x-/dl/img/2022/05/29/1653823152586_abrainridingarocketship.jpg",
-  },
-];
 function BodyProfilo() {
   const [open, setOpen] = useState(false);
   const [filtered, setFiltered] = useState([]);
@@ -70,7 +20,7 @@ function BodyProfilo() {
     fetch(`http://localhost:3001/posts/${arrayFetch}`)
       .then((res) => res.json())
       .then((json) => setFiltered(json));
-  }, []);
+  }, [arrayFetch]);
 
   const handleOpen = (evt) => {
     const found = filtered.findIndex((el) => evt.target.id === el.id);
