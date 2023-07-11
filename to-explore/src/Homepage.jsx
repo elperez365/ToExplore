@@ -17,10 +17,10 @@ export function Homepage() {
   //   console.log(posts);
   // }, [posts]);
   return (
-    <div className="bg-contrast2 bg-blur bg-opacity-80 ">
+    <div className="bg-contrast bg-blur bg-opacity-40 ">
       <Navbar />
       <Header />
-      <div className="lg:flex lg:flex-wrap lg:gap-4 lg:p-2 md:flex md:flex-wrap md:gap-4 justify-center bg-contrast2 h-full px-2 py-1 pt-12 lg:pt-20">
+      <div className="lg:flex lg:flex-wrap lg:gap-4 lg:p-2 md:flex md:flex-wrap md:gap-4 justify-center bg-secondary h-full px-2 py-14 lg:pt-20">
         {posts.map((el, i) => (
           <Card2
             key={i}
@@ -33,11 +33,6 @@ export function Homepage() {
             postId={el.id}
           />
         ))}
-
-        {/* <Card2
-          postDescription="Questo posto è bellissimo!"
-          postImg="https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-01/Kirkjufell-volcano.jpg"
-        /> */}
       </div>
     </div>
   );

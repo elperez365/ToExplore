@@ -15,6 +15,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CgComment } from "react-icons/cg";
 import CommentPage from "./CommentPage";
+import { AiFillHeart } from "react-icons/ai";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -37,9 +38,14 @@ export default function Card2({
   postId,
 }) {
   const [expanded, setExpanded] = React.useState(false);
+  const [liked, setLiked] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleLike = () => {
+    setLiked(liked === false ? true : false);
   };
 
   return (
@@ -49,7 +55,7 @@ export default function Card2({
       className="lg:w-1/3 md:w-[48%]"
     >
       <CardHeader
-        className="glass-effect bg-blur bg-opacity-80 bg-cardPrimary rounded-t-3xl"
+        className="glass-effect bg-blur bg-opacity-70 bg-cardPrimary rounded-t-3xl"
         avatar={
           <Avatar sx={{ bgcolor: `${avatarColor}` }} aria-label="recipe">
             {postAvatar}
@@ -71,17 +77,17 @@ export default function Card2({
         className="p-1 bg-cardPrimary bg-blur bg-opacity-70"
         style={{ height: 210 }}
       />
-      <CardContent className="glass-effect bg-blur bg-opacity-70 bg-cardPrimary">
+      <CardContent className="glass-effect bg-blur bg-opacity-60 bg-cardPrimary">
         <Typography variant="body2" color="text.secondary">
           {postDescription}
         </Typography>
       </CardContent>
       <CardActions
         disableSpacing
-        className="glass-effect bg-blur rounded-b-3xl bg-opacity-70 bg-cardPrimary"
+        className="glass-effect bg-blur rounded-b-3xl bg-opacity-60 bg-cardPrimary"
       >
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton aria-label="add to favorites" onClick={handleLike}>
+          {liked ? <AiFillHeart color="red" /> : <AiFillHeart />}
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />

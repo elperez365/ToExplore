@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export function Navbar() {
   return (
-    <nav className="w-screen glass-effect z-30 bg-blur bg-opacity-80 rounded-lg flex h-16 rounded-t-xl bg-primary fixed bottom-0 justify-between px-6">
+    <nav className="w-screen glass-effect z-30 bg-opacity-70 rounded-lg flex h-16 rounded-t-xl bg-primary fixed bottom-0 justify-between px-6">
       <Link to="/settings" className="flex self-center">
         <IoMdSettings size={35} />
       </Link>
