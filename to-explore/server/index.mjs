@@ -3,7 +3,7 @@ import { postsRouter } from "./posts.mjs";
 import { loginRouter } from "./login.mjs";
 import { commentsRouter } from "./comments.mjs";
 import cors from "cors";
-import { uploadPostRouter } from "./uploadPost.mjs";
+// import { uploadPostRouter } from "./uploadPost.mjs";
 const app = Express();
 const port = 3001;
 app.use(cors());
