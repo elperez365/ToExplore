@@ -1,6 +1,6 @@
 import Express from "express";
 import { users } from "./users.mjs";
-import { v4 as uuidv4 } from "uuid";
+import { uuid } from "uuidv4";
 import { writeFileSync } from "fs";
 export const loginRouter = Express.Router();
 const usersArray = [...users];
@@ -21,7 +21,7 @@ loginRouter.post(`/`, (req, res) => {
 });
 
 loginRouter.post(`/post`, (req, res) => {
-  const id = uuidv4();
+  const id = uuid();
   const { username, mail, password, avatar, color } = req.body;
   const userFinded = usersArray.find((user) => user.username === username);
   const mailFinded = usersArray.find((user) => user.mail === mail);

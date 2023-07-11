@@ -9,7 +9,7 @@ import { CustomButton } from "./CustomButton";
 import userLoggedContest from "./UserLoggedContest";
 
 function AddContentPage() {
-  const { avatar, avatarColor } = React.useContext(userLoggedContest);
+  const { avatar, avatarColor, username } = React.useContext(userLoggedContest);
   const [countrySelected, setCountrySelected] = React.useState({});
   const [descriptionSelected, setDescriptionSelected] = React.useState("");
   const [selectedImage, setSelectedImage] = React.useState(null);
@@ -28,8 +28,21 @@ function AddContentPage() {
     formData.append("regione", countrySelected.regione);
     formData.append("descrizione", descriptionSelected);
     formData.append("image", selectedImage);
-    // fetch("",)
+    formData.append("avatar", avatar);
+    formData.append("avatarColor", avatarColor);
+    formData.append("postUser", username);
+
     console.log(formData.get("image"));
+
+    // fetch("http://localhost:3001/uploadPost", {
+    //   method: "POST",
+    //   body: formData,
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //   },
+    // })
+    //   .then((res) => console.log(res))
+    //   .catch((err) => ("Error occured", err));
   };
 
   const onClickP = (event) => {

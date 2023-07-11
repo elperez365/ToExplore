@@ -1,6 +1,6 @@
 import Express from "express";
 import { pubblications } from "./pubblications.mjs";
-import { v4 as uuidv4 } from "uuid";
+import { uuid } from "uuidv4";
 import { writeFileSync } from "fs";
 
 export const postsRouter = Express.Router();
@@ -11,7 +11,7 @@ postsRouter.get(`/`, (req, res) => {
 });
 
 postsRouter.post(`/post`, (req, res) => {
-  const id = uuidv4();
+  const id = uuid();
   const comments = [];
   const {
     location,
