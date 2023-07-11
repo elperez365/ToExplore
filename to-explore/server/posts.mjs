@@ -1,7 +1,5 @@
 import Express from "express";
 import { pubblications } from "./pubblications.mjs";
-import { uuid } from "uuidv4";
-import { writeFileSync } from "fs";
 
 export const postsRouter = Express.Router();
 const posts = [...pubblications];
