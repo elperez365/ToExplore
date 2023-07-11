@@ -23,17 +23,22 @@ export function Login({ setUserlogged }) {
       })
         .then((res) => res.json())
         .then((json) => {
-          setUserlogged({
-            logged: true,
-            userID: json[0].id,
-            username: json[0].username,
-            mail: json[0].mail,
-            avatar: json[0].avatar,
-            avatarColor: json[0].color,
-          });
-          setTimeout(() => {
-            navigate("/homepage");
-          }, 1000);
+          if (json[0].id) {
+            setUserlogged({
+              logged: true,
+              userID: json[0].id,
+              username: json[0].username,
+              mail: json[0].mail,
+              avatar: json[0].avatar,
+              avatarColor: json[0].color,
+            });
+            setTimeout(() => {
+              navigate("/homepage");
+            }, 1000);
+          } else {
+            alert("I dati inseriti non sono corretti");
+            window.location.href = "/";
+          }
         });
     }
   };

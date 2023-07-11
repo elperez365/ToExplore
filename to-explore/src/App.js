@@ -13,6 +13,7 @@ import userLoggedContest from "./UserLoggedContest";
 import { useEffect, useState } from "react";
 import HeaderProfilo from "./HeaderProfilo";
 import BodyProfilo from "./BodyProfilo";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export default function App() {
   const [userLogged, setUserlogged] = useState({
@@ -34,34 +35,61 @@ export default function App() {
         <Route path="" element={<Login setUserlogged={setUserlogged} />} />
         <Route path="/*" element={<ErrorPage />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/homepage" element={<Homepage />} />
-        <Route path="/add-content" element={<AddContentPage />} />
-        <Route path="/map" element={<RegionSelect />} />
+        <Route
+          path={"/homepage"}
+          element={<ProtectedRoute component={<Homepage />} />}
+        />
+        <Route
+          path="/add-content"
+          element={<ProtectedRoute component={<AddContentPage />} />}
+        />
+        <Route
+          path="/map"
+          element={<ProtectedRoute component={<RegionSelect />} />}
+        />
         <Route
           path="/profilo"
           element={
-            <Profilo counterLuoghi={`luoghi visitati:`}>
-              <HeaderProfilo
-                avatar={userLogged.avatar}
-                avatarColor={userLogged.avatarColor}
-                username={userLogged.username}
-              />
-              <BodyProfilo />
-            </Profilo>
+            <ProtectedRoute
+              component={
+                <Profilo counterLuoghi={`luoghi visitati:`}>
+                  <HeaderProfilo
+                    avatar={userLogged.avatar}
+                    avatarColor={userLogged.avatarColor}
+                    username={userLogged.username}
+                  />
+                  <BodyProfilo />
+                </Profilo>
+              }
+            />
           }
         />
         <Route
           path="/postRegion/:region"
           element={
-            <Profilo counterLuoghi={`numero post`}>
-              <HeaderProfilo />
-              <BodyProfilo />
-            </Profilo>
+            <ProtectedRoute
+              component={
+                <Profilo counterLuoghi={`numero post`}>
+                  <HeaderProfilo />
+                  <BodyProfilo />
+                </Profilo>
+              }
+            />
           }
         />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/changeAvatarColor" element={<ChangeAvatarColor />} />
-        <Route path="/team" element={<Team />} />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute
+              component={<ProtectedRoute component={<Settings />} />}
+            />
+          }
+        />
+        <Route
+          path="/changeAvatarColor"
+          element={<ProtectedRoute component={<ChangeAvatarColor />} />}
+        />
+        <Route path="/team" element={<ProtectedRoute component={<Team />} />} />
       </Routes>
     </userLoggedContest.Provider>
   );

@@ -1,19 +1,14 @@
 import { Link } from "react-router-dom";
-import ErrorImage from "./images/sign-red-error-icon-1.png";
-import { Homepage } from "./Homepage";
 
 export function ErrorPage() {
   return (
-    <div className="bg-red-500 h-screen w-screen">
-      {/* <img src={ErrorImage} alt="Error"></img>
-      <div className="flex flex-col items-center">
-        {" "}
-        <h1>Something went wrong</h1>
-    
-      </div> */}
+    <div className="flex flex-col items-center gap-20 p-10 bg-red-500 h-screen w-screen">
+      <h1>LA SESSIONE DI LOGIN E' TERMINATA</h1>
 
-      <Link to="/homepage">
-        <button className="border-2 border-transparent">Go to homepage</button>
+      <Link to="/">
+        <button className="w-36 h-16 rounded-full bg-contrast">
+          Go to login
+        </button>
       </Link>
     </div>
   );
