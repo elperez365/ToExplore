@@ -6,7 +6,7 @@ import Backdrop from "@mui/material/Backdrop";
 import { useParams } from "react-router-dom";
 import userLoggedContest from "./UserLoggedContest";
 
-function BodyProfilo() {
+function BodyProfiloDesk() {
   const [open, setOpen] = useState(false);
   const [filtered, setFiltered] = useState([]);
   const [publication, setPublication] = useState({});
@@ -32,24 +32,22 @@ function BodyProfilo() {
   return (
     <div className="bg-contrast bg-blur bg-opacity-40 h-screen">
       <Navbar />
-      <div className="flex flex-wrap w-full">
+      <div className="flex flex-wrap w-full  ">
         {!filtered.length && (
           <h1 className="m-auto text-xl my-56">Non ci sono contenuti</h1>
         )}
 
-        {/* {if(windowWidth ) } */}
-
-        {filtered.map((el, i) => (
+        {/* {filtered.map((el, i) => (
           <img
             key={i}
             id={el.id}
             src={el.img}
             alt="img"
-            className="w-1/3 h-40 cursor-pointer"
+            className="lg:hidden w-1/3 h-40 cursor-pointer"
             onClick={handleOpen}
           />
-        ))}
-        {/* {filtered.map((el, i) => (
+        ))} */}
+        {filtered.map((el, i) => (
           <Card2
             key={i}
             postDescription={el.description}
@@ -60,7 +58,7 @@ function BodyProfilo() {
             avatarColor={el.avatarColor}
             postId={el.id}
           />
-        ))} */}
+        ))}
       </div>
 
       <Modal
@@ -92,4 +90,4 @@ function BodyProfilo() {
   );
 }
 
-export default BodyProfilo;
+export default BodyProfiloDesk;

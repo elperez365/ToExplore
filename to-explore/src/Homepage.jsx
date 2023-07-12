@@ -24,7 +24,7 @@ export function Homepage() {
       {loading && <Loading />}
       <Navbar />
       <Header />
-      <div className="lg:flex lg:flex-wrap lg:gap-4 lg:p-2 md:flex md:flex-wrap md:gap-4 justify-center bg-secondary h-full px-2 py-14 lg:pt-20">
+      <div className="lg:flex lg:flex-wrap lg:gap-4 lg:p-2 md:flex md:flex-wrap md:gap-4 justify-center bg-secondary h-full px-2 py-14 lg:py-20 lg:pt-20">
         {posts.map((el, i) => (
           <Card2
             key={i}

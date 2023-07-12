@@ -4,9 +4,11 @@ import CountrySelector from "./CountrySelector";
 import UploadAndDisplayImage from "./UploadAndDisplayImage";
 import { Avatar } from "@mui/material";
 import * as React from "react";
+import { useState } from "react";
 import TextAdd from "./TextAdd";
 import { CustomButton } from "./CustomButton";
 import userLoggedContest from "./UserLoggedContest";
+import { Loading } from "./Loading";
 
 function AddContentPage() {
   const navigate = useNavigate();
@@ -14,6 +16,7 @@ function AddContentPage() {
   const [countrySelected, setCountrySelected] = React.useState({});
   const [descriptionSelected, setDescriptionSelected] = React.useState("");
   const [selectedImage, setSelectedImage] = React.useState(null);
+  const [loading, setLoading] = useState(false);
   let riceviStateCountry = (state) => {
     const { regione, provincia, comune } = state;
     setCountrySelected({ regione, provincia, comune });
@@ -24,6 +27,7 @@ function AddContentPage() {
   };
 
   let onPushcontent = () => {
+    setLoading(true);
     const formData = new FormData();
     formData.append("comune", countrySelected.comune);
     formData.append("regione", countrySelected.regione);
@@ -42,6 +46,7 @@ function AddContentPage() {
       .then((res) => res.json())
       .then((json) => {
         alert(json.text);
+        setLoading(false);
         navigate(`/homepage`);
       })
       .catch((err) => "Error occured");
@@ -53,6 +58,7 @@ function AddContentPage() {
   };
   return (
     <div>
+      {loading && <Loading />}
       <div className="p-4 flex flex-col justify-around bg-primary h-screen">
         <div className="flex justify-between items-center">
           <Link to="/homepage">

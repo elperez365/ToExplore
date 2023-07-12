@@ -10,9 +10,10 @@ import { Settings } from "./Settings";
 import { ChangeAvatarColor } from "./ChangeAvatarColor";
 import { Team } from "./Team";
 import userLoggedContest from "./UserLoggedContest";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import HeaderProfilo from "./HeaderProfilo";
 import BodyProfilo from "./BodyProfilo";
+import BodyProfiloDesk from "./BodyProfiloDesk";
 import { ProtectedRoute } from "./ProtectedRoute";
 
 export default function App() {
@@ -24,10 +25,22 @@ export default function App() {
     avatar: "PI",
     avatarColor: "red",
   });
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     console.log(userLogged);
   }, [userLogged]);
+
+  const handleWindowResize = useCallback((event) => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [handleWindowResize]);
 
   return (
     <userLoggedContest.Provider value={userLogged}>
@@ -58,7 +71,7 @@ export default function App() {
                     avatarColor={userLogged.avatarColor}
                     username={userLogged.username}
                   />
-                  <BodyProfilo />
+                  {windowWidth >= 1024 ? <BodyProfiloDesk /> : <BodyProfilo />}
                 </Profilo>
               }
             />
@@ -71,7 +84,7 @@ export default function App() {
               component={
                 <Profilo counterLuoghi={`numero post`}>
                   <HeaderProfilo />
-                  <BodyProfilo />
+                  {windowWidth >= 1024 ? <BodyProfiloDesk /> : <BodyProfilo />}
                 </Profilo>
               }
             />
