@@ -19,7 +19,11 @@ function AddContentPage() {
   const [loading, setLoading] = useState(false);
   let riceviStateCountry = (state) => {
     const { regione, provincia, comune } = state;
-    setCountrySelected({ regione, provincia, comune });
+    setCountrySelected({
+      regione,
+      provincia,
+      comune: comune ? comune : provincia,
+    });
   };
 
   let riceviStateDescription = (description) => {
@@ -29,12 +33,7 @@ function AddContentPage() {
   let onPushcontent = () => {
     setLoading(true);
     const formData = new FormData();
-    formData.append(
-      "comune",
-      countrySelected.comune
-        ? countrySelected.comune
-        : countrySelected.provincia
-    );
+    formData.append("comune", countrySelected.comune);
     formData.append("regione", countrySelected.regione);
     formData.append("descrizione", descriptionSelected);
     formData.append("image", selectedImage);
