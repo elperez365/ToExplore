@@ -22,7 +22,7 @@ function AddContentPage() {
     setCountrySelected({
       regione,
       provincia,
-      comune: comune ? comune : provincia,
+      comune,
     });
   };
 

@@ -8,7 +8,7 @@ import provinceWithSpec from "./province.json";
 function CountrySelector({ passaState }) {
   const [regione, setRegione] = useState("");
   const [provincia, setProvincia] = useState("");
-  const [comune, setComune] = useState("");
+  const [comune, setComune] = useState(provincia);
   const [loading, setLoading] = useState(false);
   const regioniRef = useRef();
   const provincieRef = useRef();
