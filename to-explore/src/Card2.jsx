@@ -75,7 +75,7 @@ export default function Card2({
         image={postImg}
         alt="img"
         className="p-1 bg-cardPrimary bg-blur bg-opacity-50"
-        style={{ height: 210 }}
+        style={{ height: 240 }}
       />
       <CardContent className="glass-effect bg-blur bg-opacity-50 bg-cardPrimary">
         <Typography variant="body2" color="text.secondary">

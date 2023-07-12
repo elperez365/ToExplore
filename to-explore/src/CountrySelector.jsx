@@ -20,7 +20,7 @@ function CountrySelector({ passaState }) {
       passaState({
         regione: regione.label,
         provincia: provincia.label,
-        comune: comune.label == undefined ? comune.label : provincia,
+        comune: provincia.label,
       });
     }
   }, [regione, provincia, comune, passaState]);
@@ -65,6 +65,7 @@ function CountrySelector({ passaState }) {
 
   const changeProvincia = (provincia) => {
     setProvincia(provincia);
+    setComune(provincia);
   };
 
   const changeComune = (comune) => {
@@ -101,7 +102,7 @@ function CountrySelector({ passaState }) {
             ref={comuniRef}
             className="w-full"
             options={comuniFiltrati}
-            value={comune}
+            // value={comune}
             onChange={changeComune}
             isDisabled={!provincia ? true : false}
           />

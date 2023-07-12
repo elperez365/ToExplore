@@ -7,7 +7,7 @@ export function Header() {
   const { username, avatar, avatarColor } = useContext(userLoggedContest);
   return (
     <div>
-      <header className="flex fixed top-0 z-30 glass-effect justify-between w-screen h-12 bg-primary bg-blur bg-opacity-70 px-4">
+      <header className="flex fixed top-0 z-30 glass-effect justify-between w-screen h-12 bg-primary bg-blur bg-opacity-70 px-3">
         <div className="headerLeft flex">
           <img src={birdLogo2} alt="logo" className="" />
         </div>

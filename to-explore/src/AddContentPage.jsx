@@ -41,7 +41,7 @@ function AddContentPage() {
     formData.append("avatarColor", avatarColor);
     formData.append("postUser", username);
 
-    console.log(formData);
+    console.log(countrySelected.comune);
 
     fetch("http://localhost:3001/uploadPost", {
       method: "POST",
