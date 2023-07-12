@@ -76,27 +76,27 @@ export function Register() {
     avatarName === "";
 
   const changeSvgIcon = () => {
-    if (showSvgRef.current.style.display === "none" && hideSvgRef.current.style.display === "block") {
-      showSvgRef.current.style.display = "block";
-      hideSvgRef.current.style.display = "none";
-      setShowPassword(true);
-    } else {
+    if (showSvgRef.current.style.display === "block" && hideSvgRef.current.style.display === "none") {
       showSvgRef.current.style.display = "none";
       hideSvgRef.current.style.display = "block";
       setShowPassword(false);
+    } else {
+      showSvgRef.current.style.display = "block";
+      hideSvgRef.current.style.display = "none";
+      setShowPassword(true);
     }
   };
 
 
   const changeSvgIcon2 = () => {
-    if (showSvgRef2.current.style.display === "none" && hideSvgRef2.current.style.display === "block") {
-      showSvgRef2.current.style.display = "block";
-      hideSvgRef2.current.style.display = "none";
-      setShowPassword2(true);
-    } else {
+    if (showSvgRef2.current.style.display === "block" && hideSvgRef2.current.style.display === "none") {
       showSvgRef2.current.style.display = "none";
       hideSvgRef2.current.style.display = "block";
       setShowPassword2(false);
+    } else {
+      showSvgRef2.current.style.display = "block";
+      hideSvgRef2.current.style.display = "none";
+      setShowPassword2(true);
     }
   };
 
@@ -130,7 +130,7 @@ export function Register() {
   return (
     <div class="h-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100">
       <div
-        class="h-screen flex flex-col items-center gap-6 justify-center pt-2
+        class="h-screen flex flex-col items-center gap-6 pt-2
             md:justify-start md:pt-8
             lg:gap-8 lg:pt-12"
       >
@@ -156,9 +156,9 @@ export function Register() {
           Become part of our community
         </p>
         <div
-          class="bg-white/90 w-80 h-5/6 rounded-lg flex flex-col items-center gap-4
-                md:w-4/6 md:h-3/6 md:flex md:flex-col md:gap-7
-                lg:w-2/5 lg:h-4/6 lg:rounded-[10%] lg:opacity-95 justify-center"
+          class="bg-white/90 w-80 h-2/5 rounded-lg flex flex-col items-center gap-4
+                md:w-4/6 md:h-1/2 md:flex md:flex-col md:gap-7
+                lg:w-2/5 lg:h-3/5 lg:rounded-3xl lg:opacity-95 justify-center"
         >
           <input
             class="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center 
@@ -406,7 +406,7 @@ export function Register() {
         <img
           src={Travel}
           alt=""
-          class="w-full
+          class="w-full h-56 fixed bottom-0
                 md:h-1/4 md:fixed md:bottom-0
                 lg:hidden"
         />
