@@ -1,15 +1,15 @@
 import { Navbar } from "./Navbar";
 import { useContext, useEffect, useState } from "react";
 import Card2 from "./Card2";
-import Modal from "@mui/material/Modal";
-import Backdrop from "@mui/material/Backdrop";
+// import Modal from "@mui/material/Modal";
+// import Backdrop from "@mui/material/Backdrop";
 import { useParams } from "react-router-dom";
 import userLoggedContest from "./UserLoggedContest";
 
 function BodyProfiloDesk(props) {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [filtered, setFiltered] = useState([]);
-  const [publication, setPublication] = useState({});
+  // const [publication, setPublication] = useState({});
   let regionSelected = useParams();
   const { username } = useContext(userLoggedContest);
   const arrayFetch = regionSelected.region
@@ -23,13 +23,13 @@ function BodyProfiloDesk(props) {
     props.passastate(filtered.length);
   }, [arrayFetch, props, filtered]);
 
-  const handleOpen = (evt) => {
-    const found = filtered.findIndex((el) => evt.target.id === el.id);
-    setPublication(found >= 0 && filtered[found]);
-    setOpen(true);
-  };
+  // const handleOpen = (evt) => {
+  //   const found = filtered.findIndex((el) => evt.target.id === el.id);
+  //   setPublication(found >= 0 && filtered[found]);
+  //   setOpen(true);
+  // };
 
-  const handleClose = () => setOpen(false);
+  // const handleClose = () => setOpen(false);
   return (
     <div className="bg-contrast bg-blur bg-opacity-40 h-screen">
       <Navbar />
@@ -62,7 +62,7 @@ function BodyProfiloDesk(props) {
         ))}
       </div>
 
-      <Modal
+      {/* <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -86,7 +86,7 @@ function BodyProfiloDesk(props) {
             avatarColor={publication.avatarColor}
           />
         </div>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }
