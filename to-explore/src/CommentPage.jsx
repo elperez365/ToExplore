@@ -8,6 +8,7 @@ function CommentPage({ postId }) {
   const [commentList, SetCommentList] = useState([]);
   const [sent, setSent] = useState(false);
   const { avatar, avatarColor, username } = useContext(userLoggedContest);
+  const [loading, setLoading] = useState(false);
 
   let riceviState = (text) => {
     setComment(text);

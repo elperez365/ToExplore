@@ -9,6 +9,7 @@ function CountrySelector({ passaState }) {
   const [regione, setRegione] = useState("");
   const [provincia, setProvincia] = useState("");
   const [comune, setComune] = useState("");
+  const [loading, setLoading] = useState(false);
   const regioniRef = useRef();
   const provincieRef = useRef();
   const comuniRef = useRef();
