@@ -25,8 +25,11 @@ export default function App() {
     avatar: "PI",
     avatarColor: "red",
   });
+  const [counterpost, setCounterPost] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  let ricevicounterpost = (number) => {
+    setCounterPost(number);
+  };
   useEffect(() => {
     console.log(userLogged);
   }, [userLogged]);
@@ -67,11 +70,16 @@ export default function App() {
               component={
                 <Profilo counterLuoghi={`luoghi visitati:`}>
                   <HeaderProfilo
+                    counterLuoghi={counterpost}
                     avatar={userLogged.avatar}
                     avatarColor={userLogged.avatarColor}
                     username={userLogged.username}
                   />
-                  {windowWidth >= 1024 ? <BodyProfiloDesk /> : <BodyProfilo />}
+                  {windowWidth >= 1024 ? (
+                    <BodyProfiloDesk passastate={ricevicounterpost} />
+                  ) : (
+                    <BodyProfilo passastate={ricevicounterpost} />
+                  )}
                 </Profilo>
               }
             />
@@ -83,8 +91,12 @@ export default function App() {
             <ProtectedRoute
               component={
                 <Profilo counterLuoghi={`numero post`}>
-                  <HeaderProfilo />
-                  {windowWidth >= 1024 ? <BodyProfiloDesk /> : <BodyProfilo />}
+                  <HeaderProfilo counterLuoghi={counterpost} />
+                  {windowWidth >= 1024 ? (
+                    <BodyProfiloDesk passastate={ricevicounterpost} />
+                  ) : (
+                    <BodyProfilo passastate={ricevicounterpost} />
+                  )}
                 </Profilo>
               }
             />

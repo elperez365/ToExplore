@@ -6,7 +6,7 @@ import Backdrop from "@mui/material/Backdrop";
 import { useParams } from "react-router-dom";
 import userLoggedContest from "./UserLoggedContest";
 
-function BodyProfilo() {
+function BodyProfilo(props) {
   const [open, setOpen] = useState(false);
   const [filtered, setFiltered] = useState([]);
   const [publication, setPublication] = useState({});
@@ -20,7 +20,8 @@ function BodyProfilo() {
     fetch(`http://localhost:3001/posts/${arrayFetch}`)
       .then((res) => res.json())
       .then((json) => setFiltered(json));
-  }, [arrayFetch]);
+    props.passastate(filtered.length);
+  }, [arrayFetch, props, filtered]);
 
   const handleOpen = (evt) => {
     const found = filtered.findIndex((el) => evt.target.id === el.id);
