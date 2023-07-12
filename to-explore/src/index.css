@@ -11,3 +11,24 @@
 body {
   font-family: "Roboto";
 }
+
+
+*{
+  ::-webkit-scrollbar-track {
+    background-color: #71D379;
+    border-radius: 25px;
+  }
+  
+::-webkit-scrollbar {
+    
+    
+    width:0.4rem
+    
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: #1D63DC;
+    border-radius: 25px;
+    
+  }
+}
