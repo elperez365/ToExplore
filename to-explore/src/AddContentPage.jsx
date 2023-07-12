@@ -29,7 +29,12 @@ function AddContentPage() {
   let onPushcontent = () => {
     setLoading(true);
     const formData = new FormData();
-    formData.append("comune", countrySelected.comune);
+    formData.append(
+      "comune",
+      countrySelected.comune
+        ? countrySelected.comune
+        : countrySelected.provincia
+    );
     formData.append("regione", countrySelected.regione);
     formData.append("descrizione", descriptionSelected);
     formData.append("image", selectedImage);
