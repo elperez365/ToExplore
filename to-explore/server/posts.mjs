@@ -3,9 +3,9 @@ import { pubblications } from "./pubblications.mjs";
 
 export const postsRouter = Express.Router();
 const posts = [...pubblications];
-
+const postReversed = posts.reverse();
 postsRouter.get(`/`, (req, res) => {
-  res.json(posts.reverse());
+  res.json(postReversed);
 });
 
 postsRouter.get(`/region/:region`, (req, res) => {
