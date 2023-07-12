@@ -43,10 +43,24 @@ function BodyProfilo() {
             id={el.id}
             src={el.img}
             alt="img"
-            className="w-1/3 h-40 cursor-pointer"
+            className="lg:hidden w-1/3 h-40 cursor-pointer"
             onClick={handleOpen}
           />
         ))}
+        {/* {filtered.map((el, i) => (
+          <div className="md:hidden sm:hidden">
+            <Card2
+              key={i}
+              postDescription={el.description}
+              postLocation={el.location}
+              postImg={el.img}
+              postDate={el.postData}
+              postAvatar={el.postAvatar}
+              avatarColor={el.avatarColor}
+              postId={el.id}
+            />
+          </div>
+        ))} */}
       </div>
 
       <Modal
