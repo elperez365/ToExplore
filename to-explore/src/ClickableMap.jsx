@@ -1,6 +1,8 @@
 import mappaItalia from "./images/610px-Italia_regioni_color.png";
+import { useState } from "react";
 
 function ClickableMap(props) {
+  const [loading, setLoading] = useState(false);
   let handleREgionClicked = (event) => {
     event.preventDefault();
     props.passRegionClicked(event.target.alt);

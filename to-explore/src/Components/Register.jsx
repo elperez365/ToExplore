@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/system";
 import birdlogo2 from "../images/birdLogo2.png";
 import { Link } from "react-router-dom";
+import { Loading } from "../Loading";
 
 export function Register() {
   const [email, setEmail] = useState("");
@@ -16,6 +17,7 @@ export function Register() {
   const [showPassword2, setShowPassword2] = useState(false);
   const [avatarName, setAvatarName] = useState("");
   const [avatarColor, setAvatarColor] = useState("#166534");
+  const [loading, setLoading] = useState(false);
   const showSvgRef = useRef(null);
   const hideSvgRef = useRef(null);
   const showSvgRef2 = useRef(null);
@@ -34,6 +36,7 @@ export function Register() {
   }, [email, username, password, avatarName, avatarColor]);
 
   const handleLogin = () => {
+    setLoading(true);
     if (
       email !== "" &&
       username !== "" &&
@@ -76,7 +79,10 @@ export function Register() {
     avatarName === "";
 
   const changeSvgIcon = () => {
-    if (showSvgRef.current.style.display === "none" && hideSvgRef.current.style.display === "block") {
+    if (
+      showSvgRef.current.style.display === "none" &&
+      hideSvgRef.current.style.display === "block"
+    ) {
       showSvgRef.current.style.display = "block";
       hideSvgRef.current.style.display = "none";
       setShowPassword(true);
@@ -87,9 +93,11 @@ export function Register() {
     }
   };
 
-
   const changeSvgIcon2 = () => {
-    if (showSvgRef2.current.style.display === "none" && hideSvgRef2.current.style.display === "block") {
+    if (
+      showSvgRef2.current.style.display === "none" &&
+      hideSvgRef2.current.style.display === "block"
+    ) {
       showSvgRef2.current.style.display = "block";
       hideSvgRef2.current.style.display = "none";
       setShowPassword2(true);
@@ -129,6 +137,7 @@ export function Register() {
 
   return (
     <div class="h-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100">
+      {loading && <Loading />}
       <div
         class="h-screen flex flex-col items-center gap-6 justify-center pt-2
             md:justify-start md:pt-8
