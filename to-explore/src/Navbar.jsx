@@ -14,7 +14,7 @@ export function Navbar() {
       <Link to="/homepage" className="flex self-center">
         <AiFillHome size={35} />
       </Link>
-      <Link to="/add-content">
+      <Link className="lg:hidden" to="/add-content">
         {" "}
         <button
           className="animate-pulse z-30 glass-effect bg-blur bg-opacity-60  rounded-full bg-contrast2"
@@ -28,6 +28,19 @@ export function Navbar() {
           <GrAddCircle size={65} />
         </button>
       </Link>
+
+      <button
+        className="hidden lg:block animate-pulse z-30 glass-effect bg-blur bg-opacity-60  rounded-full bg-contrast2"
+        style={{
+          position: "fixed",
+          bottom: 8,
+          left: "50%",
+          transform: "translate(-50%)",
+        }}
+      >
+        <GrAddCircle size={65} />
+      </button>
+
       <Link to="/map" className="flex self-center">
         <BiSolidArchiveIn size={35} />
       </Link>

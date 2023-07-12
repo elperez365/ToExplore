@@ -2,7 +2,7 @@ import { Avatar } from "@mui/material";
 import regionImgs from "./RegionImage";
 import { useParams } from "react-router-dom";
 function HeaderProfilo({
-  counterLuoghi = "luoghi: 20",
+  counterLuoghi = "luoghi:",
   avatar,
   avatarColor,
   username,
