@@ -8,7 +8,7 @@ import provinceWithSpec from "./province.json";
 function CountrySelector({ passaState }) {
   const [regione, setRegione] = useState("");
   const [provincia, setProvincia] = useState("");
-  const [comune, setComune] = useState(provincia);
+  const [comune, setComune] = useState("");
   const [loading, setLoading] = useState(false);
   const regioniRef = useRef();
   const provincieRef = useRef();
@@ -20,7 +20,7 @@ function CountrySelector({ passaState }) {
       passaState({
         regione: regione.label,
         provincia: provincia.label,
-        comune: comune.label,
+        comune: comune.label == undefined ? comune.label : provincia,
       });
     }
   }, [regione, provincia, comune, passaState]);
