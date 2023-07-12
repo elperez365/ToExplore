@@ -1,7 +1,5 @@
 export function Profilo(props) {
   return (
-    <div className="flex flex-col items-center">
-      {props.children && props.children}
-    </div>
+    <div className="flex flex-col">{props.children && props.children}</div>
   );
 }

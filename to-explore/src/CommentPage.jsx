@@ -53,10 +53,10 @@ function CommentPage({ postId }) {
   };
 
   return (
-    <div className="relative w-screen">
+    <div className="relative w-screen bg-white">
       <div className="flex flex-col gap-5 w-full min-h-12 max-h-52 overflow-x-scroll ">
         {commentList.map((el, i) => (
-          <div key={i} className="flex gap-5">
+          <div key={i} className="flex gap-5 bg-white">
             <Avatar
               sx={{ width: 40, height: 40, bgcolor: `${el.avatarColor}` }}
             >

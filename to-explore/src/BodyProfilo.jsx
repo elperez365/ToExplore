@@ -32,7 +32,7 @@ function BodyProfilo() {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-wrap w-screen h-screen">
+      <div className="flex flex-wrap w-full">
         {!filtered.length && (
           <h1 className="m-auto text-xl my-56">Non ci sono contenuti</h1>
         )}
@@ -43,7 +43,7 @@ function BodyProfilo() {
             id={el.id}
             src={el.img}
             alt="img"
-            className="w-3/6 cursor-pointer"
+            className="w-1/3 h-40 cursor-pointer"
             onClick={handleOpen}
           />
         ))}
