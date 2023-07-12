@@ -8,7 +8,7 @@ function CommentPage({ postId }) {
   const [commentList, SetCommentList] = useState([]);
   const [sent, setSent] = useState(false);
   const { avatar, avatarColor, username } = useContext(userLoggedContest);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   let riceviState = (text) => {
     setComment(text);
@@ -53,8 +53,8 @@ function CommentPage({ postId }) {
   };
 
   return (
-    <div className="relative w-screen bg-white">
-      <div className="flex flex-col gap-5 w-full min-h-12 max-h-52 overflow-x-scroll ">
+    <div className="relative w-full bg-white">
+      <div className="flex flex-col gap-5 w-full lg:h-48 min-h-12 max-h-52 overflow-y-scroll ">
         {commentList.map((el, i) => (
           <div key={i} className="flex gap-5 bg-white">
             <Avatar
@@ -66,13 +66,13 @@ function CommentPage({ postId }) {
           </div>
         ))}
       </div>
-      <div className=" w-screen flex flex-col">
+      <div className=" w-full">
         <TextAdd passaState={riceviState} sentComment={{ sent, setSent }} />
       </div>
 
       <button
         onClick={handlePostComment}
-        className=" bg-primary rounded-full w-screen h-10"
+        className=" bg-primary rounded-full w-full h-10"
       >
         Invia commento
       </button>
