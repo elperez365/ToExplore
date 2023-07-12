@@ -32,9 +32,9 @@ function BodyProfilo() {
   return (
     <div>
       <Navbar />
-      <div className="flex flex-wrap w-screen ">
+      <div className="flex flex-wrap w-screen h-screen">
         {!filtered.length && (
-          <h1 className="absolute top-64 right-64">Non ci sono contenuti</h1>
+          <h1 className="m-auto text-xl my-56">Non ci sono contenuti</h1>
         )}
 
         {filtered.map((el, i) => (
@@ -43,7 +43,7 @@ function BodyProfilo() {
             id={el.id}
             src={el.img}
             alt="img"
-            className="w-1/3 cursor-pointer"
+            className="w-3/6 cursor-pointer"
             onClick={handleOpen}
           />
         ))}

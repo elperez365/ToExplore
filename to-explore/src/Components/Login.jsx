@@ -3,18 +3,21 @@ import React, { useState, useEffect, useRef } from "react";
 import Travel from "./Travel.png";
 // import prova2 from "./prova2.jpg";
 import birdlogo2 from "../images/birdLogo2.png";
+import { Loading } from "../Loading";
 
 export function Login({ setUserlogged }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberUsername, setRememberUsername] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const showSvgRef = useRef(null);
   const hideSvgRef = useRef(null);
   const navigate = useNavigate();
 
   const handleLogin = () => {
     if (username !== "" && password !== "") {
+      setLoading(true);
       fetch("http://localhost:3001/login", {
         method: "POST",
         body: JSON.stringify({
@@ -52,7 +55,10 @@ export function Login({ setUserlogged }) {
   };
 
   const changeSvgIcon = () => {
-    if (showSvgRef.current.style.display === "none" && hideSvgRef.current.style.display === "block") {
+    if (
+      showSvgRef.current.style.display === "none" &&
+      hideSvgRef.current.style.display === "block"
+    ) {
       showSvgRef.current.style.display = "block";
       hideSvgRef.current.style.display = "none";
       setShowPassword(true);
@@ -85,6 +91,7 @@ export function Login({ setUserlogged }) {
       class="h-screen w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100
         lg:bg-white"
     >
+      {loading && <Loading />}
       <div
         class="h-screen flex flex-col items-center gap-6 justify-center pt-5
       md:justify-start md:pt-12

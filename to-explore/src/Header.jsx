@@ -13,7 +13,7 @@ export function Header() {
         </div>
 
         <div className="headerRight flex items-center gap-2">
-          <h1>{username}</h1>
+          <h1 className="text-lg font-semibold">{username}</h1>
           <Avatar sx={{ bgcolor: `${avatarColor}` }}>{avatar}</Avatar>
         </div>
       </header>
