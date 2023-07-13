@@ -15,6 +15,7 @@ import HeaderProfilo from "./HeaderProfilo";
 import BodyProfilo from "./BodyProfilo";
 import BodyProfiloDesk from "./BodyProfiloDesk";
 import { ProtectedRoute } from "./ProtectedRoute";
+import LanguageContext from "./LanguageContext";
 
 export default function App() {
   const [userLogged, setUserlogged] = useState({
@@ -25,6 +26,7 @@ export default function App() {
     avatar: "PI",
     avatarColor: "red",
   });
+  const [languageApp, SetLanguageApp] = useState("it");
   const [counterpost, setCounterPost] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   let ricevicounterpost = (number) => {
@@ -46,76 +48,85 @@ export default function App() {
   }, [handleWindowResize]);
 
   return (
-    <userLoggedContest.Provider value={userLogged}>
-      <Routes>
-        <Route path="" element={<Login setUserlogged={setUserlogged} />} />
-        <Route path="/*" element={<ErrorPage />} />
-        <Route path="/register" element={<Register />} />
-        <Route
-          path={"/homepage"}
-          element={<ProtectedRoute component={<Homepage />} />}
-        />
-        <Route
-          path="/add-content"
-          element={<ProtectedRoute component={<AddContentPage />} />}
-        />
-        <Route
-          path="/map"
-          element={<ProtectedRoute component={<RegionSelect />} />}
-        />
-        <Route
-          path="/profilo"
-          element={
-            <ProtectedRoute
-              component={
-                <Profilo counterLuoghi={`luoghi visitati:`}>
-                  <HeaderProfilo
-                    counterLuoghi={counterpost}
-                    avatar={userLogged.avatar}
-                    avatarColor={userLogged.avatarColor}
-                    username={userLogged.username}
-                  />
-                  {windowWidth >= 1024 ? (
-                    <BodyProfiloDesk passastate={ricevicounterpost} />
-                  ) : (
-                    <BodyProfilo passastate={ricevicounterpost} />
-                  )}
-                </Profilo>
-              }
-            />
-          }
-        />
-        <Route
-          path="/postRegion/:region"
-          element={
-            <ProtectedRoute
-              component={
-                <Profilo counterLuoghi={`numero post`}>
-                  <HeaderProfilo counterLuoghi={counterpost} />
-                  {windowWidth >= 1024 ? (
-                    <BodyProfiloDesk passastate={ricevicounterpost} />
-                  ) : (
-                    <BodyProfilo passastate={ricevicounterpost} />
-                  )}
-                </Profilo>
-              }
-            />
-          }
-        />
-        <Route
-          path="/settings"
-          element={
-            <ProtectedRoute
-              component={<ProtectedRoute component={<Settings />} />}
-            />
-          }
-        />
-        <Route
-          path="/changeAvatarColor"
-          element={<ProtectedRoute component={<ChangeAvatarColor />} />}
-        />
-        <Route path="/team" element={<ProtectedRoute component={<Team />} />} />
-      </Routes>
-    </userLoggedContest.Provider>
+    <LanguageContext.Provider value={{ languageApp, SetLanguageApp }}>
+      <userLoggedContest.Provider value={userLogged}>
+        <Routes>
+          <Route path="" element={<Login setUserlogged={setUserlogged} />} />
+          <Route path="/*" element={<ErrorPage />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path={"/home"}
+            element={<ProtectedRoute component={<Homepage />} />}
+          />
+          <Route
+            path={"/homepage"}
+            element={<ProtectedRoute component={<Homepage />} />}
+          />
+          <Route
+            path="/add-content"
+            element={<ProtectedRoute component={<AddContentPage />} />}
+          />
+          <Route
+            path="/map"
+            element={<ProtectedRoute component={<RegionSelect />} />}
+          />
+          <Route
+            path="/profilo"
+            element={
+              <ProtectedRoute
+                component={
+                  <Profilo counterLuoghi={`luoghi visitati:`}>
+                    <HeaderProfilo
+                      counterLuoghi={counterpost}
+                      avatar={userLogged.avatar}
+                      avatarColor={userLogged.avatarColor}
+                      username={userLogged.username}
+                    />
+                    {windowWidth >= 1024 ? (
+                      <BodyProfiloDesk passastate={ricevicounterpost} />
+                    ) : (
+                      <BodyProfilo passastate={ricevicounterpost} />
+                    )}
+                  </Profilo>
+                }
+              />
+            }
+          />
+          <Route
+            path="/postRegion/:region"
+            element={
+              <ProtectedRoute
+                component={
+                  <Profilo counterLuoghi={`numero post`}>
+                    <HeaderProfilo counterLuoghi={counterpost} />
+                    {windowWidth >= 1024 ? (
+                      <BodyProfiloDesk passastate={ricevicounterpost} />
+                    ) : (
+                      <BodyProfilo passastate={ricevicounterpost} />
+                    )}
+                  </Profilo>
+                }
+              />
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute
+                component={<ProtectedRoute component={<Settings />} />}
+              />
+            }
+          />
+          <Route
+            path="/changeAvatarColor"
+            element={<ProtectedRoute component={<ChangeAvatarColor />} />}
+          />
+          <Route
+            path="/team"
+            element={<ProtectedRoute component={<Team />} />}
+          />
+        </Routes>
+      </userLoggedContest.Provider>
+    </LanguageContext.Provider>
   );
 }

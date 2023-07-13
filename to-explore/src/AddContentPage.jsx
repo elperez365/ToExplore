@@ -9,14 +9,20 @@ import TextAdd from "./TextAdd";
 import { CustomButton } from "./CustomButton";
 import userLoggedContest from "./UserLoggedContest";
 import { Loading } from "./Loading";
+import LanguageContext from "./LanguageContext";
 
 function AddContentPage() {
   const navigate = useNavigate();
   const { avatar, avatarColor, username } = React.useContext(userLoggedContest);
+  const { languageApp } = React.useContext(LanguageContext);
   const [countrySelected, setCountrySelected] = React.useState({});
   const [descriptionSelected, setDescriptionSelected] = React.useState("");
   const [selectedImage, setSelectedImage] = React.useState(null);
   const [loading, setLoading] = useState(false);
+  const languages = {
+    description: languageApp === "it" ? "Descrizione" : "description",
+    pushPost: languageApp === "it" ? "Pubblica" : "Publish",
+  };
   let riceviStateCountry = (state) => {
     const { regione, provincia, comune } = state;
     setCountrySelected({
@@ -41,8 +47,6 @@ function AddContentPage() {
     formData.append("avatarColor", avatarColor);
     formData.append("postUser", username);
 
-    console.log(countrySelected.comune);
-
     fetch("http://localhost:3001/uploadPost", {
       method: "POST",
       body: formData,
@@ -51,13 +55,12 @@ function AddContentPage() {
       .then((json) => {
         alert(json.text);
         setLoading(false);
-        navigate(`/homepage`);
+        navigate(`/profilo`);
       })
       .catch((err) => "Error occured");
   };
 
   const onClickP = (event) => {
-    console.log(event.target.files[0]);
     setSelectedImage(event.target.files[0]);
   };
   return (
@@ -82,6 +85,7 @@ function AddContentPage() {
         </div>
         <CountrySelector passaState={riceviStateCountry} />
         <div className="flex flex-col items-center">
+          <h1>{languages.description}</h1>
           <TextAdd
             sentComment={{ sent: false }}
             passaState={riceviStateDescription}
@@ -90,7 +94,7 @@ function AddContentPage() {
 
         <div className="flex justify-center">
           <CustomButton
-            buttonText="Carica Immagine"
+            buttonText={languages.pushPost}
             onPushcontent={onPushcontent}
           />
         </div>

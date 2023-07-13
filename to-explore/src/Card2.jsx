@@ -9,13 +9,13 @@ import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CgComment } from "react-icons/cg";
 import CommentPage from "./CommentPage";
 import { AiFillHeart } from "react-icons/ai";
+import { Backdrop, Modal } from "@mui/material";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -37,8 +37,13 @@ export default function Card2({
   avatarColor,
   postId,
 }) {
+  const [open, setOpen] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
   const [liked, setLiked] = React.useState(false);
+
+  const handleClose = () => setOpen(false);
+
+  const handleOpen = () => setOpen(true);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -70,12 +75,13 @@ export default function Card2({
         subheader={postDate}
       />
       <CardMedia
+        onClick={handleOpen}
         component="img"
         // height="250"
         image={postImg}
         alt="img"
         className="p-1 bg-cardPrimary bg-blur bg-opacity-50"
-        style={{ height: 240 }}
+        style={{ height: 240, cursor: "pointer" }}
       />
       <CardContent className="glass-effect bg-blur bg-opacity-50 bg-cardPrimary">
         <Typography variant="body2" color="text.secondary">
@@ -109,6 +115,22 @@ export default function Card2({
           <CommentPage postId={postId} />
         </CardContent>
       </Collapse>
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+      >
+        <img src={postImg} alt="" />
+      </Modal>
     </Card>
   );
 }
