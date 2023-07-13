@@ -1,12 +1,20 @@
 import { Avatar } from "@mui/material";
 import regionImgs from "./RegionImage";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import LanguageContext from "./LanguageContext";
+
 function HeaderProfilo({
   counterLuoghi = "luoghi:",
   avatar,
   avatarColor,
   username,
 }) {
+  const { languageApp } = useContext(LanguageContext);
+  const languages = {
+    user: languageApp === "it" ? "utente:  " : "user:  ",
+    postNumber: languageApp === "it" ? "numero post:  " : "posts number:  ",
+  };
   let regionSelected = useParams();
   return (
     <div className="flex justify-around items-center h-28 w-full bg-contrast">
@@ -27,9 +35,11 @@ function HeaderProfilo({
         <h1 className="text-xl">
           {regionSelected.region
             ? regionSelected.region
-            : `utente:   ${username.toUpperCase()}`}
+            : `${languages.user}   ${username.toUpperCase()}`}
         </h1>
-        <p className="text-xl">numero post: {counterLuoghi}</p>
+        <p className="text-xl">
+          {languages.postNumber} {counterLuoghi}
+        </p>
       </div>
     </div>
   );
