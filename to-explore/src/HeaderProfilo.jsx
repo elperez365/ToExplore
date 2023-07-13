@@ -25,9 +25,11 @@ function HeaderProfilo({
       </div>
       <div>
         <h1 className="text-xl">
-          {regionSelected.region ? regionSelected.region : username}
+          {regionSelected.region
+            ? regionSelected.region
+            : `utente:   ${username.toUpperCase()}`}
         </h1>
-        <p className="text-xl">{counterLuoghi}</p>
+        <p className="text-xl">numero post: {counterLuoghi}</p>
       </div>
     </div>
   );

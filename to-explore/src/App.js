@@ -52,6 +52,10 @@ export default function App() {
         <Route path="/*" element={<ErrorPage />} />
         <Route path="/register" element={<Register />} />
         <Route
+          path={"/home"}
+          element={<ProtectedRoute component={<Homepage />} />}
+        />
+        <Route
           path={"/homepage"}
           element={<ProtectedRoute component={<Homepage />} />}
         />

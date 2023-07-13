@@ -41,8 +41,6 @@ function AddContentPage() {
     formData.append("avatarColor", avatarColor);
     formData.append("postUser", username);
 
-    console.log(countrySelected.comune);
-
     fetch("http://localhost:3001/uploadPost", {
       method: "POST",
       body: formData,
@@ -51,13 +49,12 @@ function AddContentPage() {
       .then((json) => {
         alert(json.text);
         setLoading(false);
-        navigate(`/homepage`);
+        navigate(`/profilo`);
       })
       .catch((err) => "Error occured");
   };
 
   const onClickP = (event) => {
-    console.log(event.target.files[0]);
     setSelectedImage(event.target.files[0]);
   };
   return (
