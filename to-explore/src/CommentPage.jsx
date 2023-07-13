@@ -58,8 +58,8 @@ function CommentPage({ postId }) {
   };
 
   return (
-    <div className="relative w-full bg-white">
-      <div className="flex flex-col gap-5 w-full lg:h-48 min-h-12 max-h-52 overflow-y-scroll ">
+    <div className="relative lg:rounded-2xl md:rounded-2xl w-full bg-white">
+      <div className="lg:rounded-2xl md:rounded-2xl flex flex-col gap-5 w-full lg:h-48 min-h-12 max-h-52 overflow-y-scroll ">
         {commentList.map((el, i) => (
           <div key={i} className="flex gap-5 bg-white">
             <Avatar

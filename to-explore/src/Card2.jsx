@@ -111,8 +111,8 @@ export default function Card2({
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent style={{ padding: "0" }}>
-          <CommentPage postId={postId} />
+        <CardContent className="p-0 lg:absolute md:absolute lg:z-40 lg:w-96 md:z-40 md:w-96"/*  style={{ padding: "0", position:'absolute', zIndex:'44', width:'50%'}} */>
+          <CommentPage className="" postId={postId} />
         </CardContent>
       </Collapse>
 
