@@ -55,17 +55,14 @@ export function Login({ setUserlogged }) {
   };
 
   const changeSvgIcon = () => {
-    if (
-      showSvgRef.current.style.display === "none" &&
-      hideSvgRef.current.style.display === "block"
-    ) {
-      showSvgRef.current.style.display = "block";
-      hideSvgRef.current.style.display = "none";
-      setShowPassword(true);
-    } else {
+    if (showSvgRef.current.style.display === "block" && hideSvgRef.current.style.display === "none") {
       showSvgRef.current.style.display = "none";
       hideSvgRef.current.style.display = "block";
       setShowPassword(false);
+    } else {
+      showSvgRef.current.style.display = "block";
+      hideSvgRef.current.style.display = "none";
+      setShowPassword(true);
     }
   };
 
@@ -93,8 +90,8 @@ export function Login({ setUserlogged }) {
     >
       {loading && <Loading />}
       <div
-        class="h-screen flex flex-col items-center gap-6 justify-center pt-5
-      md:justify-start md:pt-12
+        class="h-screen flex flex-col items-center gap-6 pt-5
+      md:pt-12
       lg:gap-12 lg:pt-16"
       >
         <img class="w-28" src={birdlogo2} alt="" />
@@ -107,7 +104,7 @@ export function Login({ setUserlogged }) {
         </h1>
         <h2
           class="text-2xl font-extrabold w-52 text-center
-                md:w-full md:text-center md:text-3xl 
+                md:w-full md:text-center md:text-3xl
                 lg:w-auto lg:text-2xl lg:text-black"
         >
           Life is a journey.
@@ -122,7 +119,7 @@ export function Login({ setUserlogged }) {
         <div
           class="bg-white/90 w-80 h-64 rounded-lg flex flex-col justify-center items-center gap-4
                 md:w-4/6 md:h-2/6 md:flex md:flex-col md:gap-9
-                lg:w-2/5 lg:h-3/6 lg:rounded-[20%] lg:opacity-95"
+                lg:w-2/5 lg:h-3/6 lg:rounded-3xl lg:opacity-95"
         >
           <input
             class="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
@@ -233,7 +230,7 @@ export function Login({ setUserlogged }) {
             <label>Remember username</label>
           </div>
           <button
-            class="bg-green-800 w-64 h-7 flex justify-center border border-green-800 text-white rounded-full 
+            class="bg-green-800 w-64 h-7 flex justify-center border border-green-800 text-white rounded-full
             md:w-5/6 md:h-14 md:text-4xl
             lg:w-4/5 lg:h-14 lg:text-4xl lg:rounded-full"
             disabled={isDisabled}
@@ -253,8 +250,8 @@ export function Login({ setUserlogged }) {
         <img
           src={Travel}
           alt=""
-          class="h-96 w-full
-                md:h-auto md:fixed md:bottom-0
+          class="h-72 w-full fixed bottom-0
+                md:h-2/5 md:fixed md:bottom-0
                 lg:hidden"
         />
       </div>
