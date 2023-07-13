@@ -15,7 +15,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CgComment } from "react-icons/cg";
 import CommentPage from "./CommentPage";
 import { AiFillHeart } from "react-icons/ai";
-import { Backdrop, Modal } from "@mui/material";
+import { Backdrop, Box, Modal } from "@mui/material";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -43,7 +43,7 @@ export default function Card2({
 
   const handleClose = () => setOpen(false);
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => window.innerWidth > 390 && setOpen(true);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -85,7 +85,7 @@ export default function Card2({
       />
       <CardContent className="glass-effect bg-blur bg-opacity-50 bg-cardPrimary">
         <Typography variant="body2" color="text.secondary">
-          <div className="lg:h-16 lg:overflow-y-hidden md:h-16 md:overflow-y-hidden">
+          <div className="lg:h-16 lg:overflow-y-hidden md:h-16 md:overflow-y-hidden w-full">
             {postDescription}
           </div>
         </Typography>
@@ -134,7 +134,21 @@ export default function Card2({
           },
         }}
       >
-        <img src={postImg} alt="" />
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 800,
+            // bgcolor: "background.paper",
+            border: "2px solid #000",
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          <img src={postImg} alt="" className="w-[50rem] max-h-[50rem]" />
+        </Box>
       </Modal>
     </Card>
   );
