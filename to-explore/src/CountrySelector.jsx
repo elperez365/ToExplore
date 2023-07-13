@@ -31,15 +31,15 @@ function CountrySelector({ passaState }) {
         : "Write or select the country",
   };
 
-  useEffect(() => {
-    if (regione && provincia && comune) {
-      passaState({
-        regione: regione.label,
-        provincia: provincia.label,
-        comune: provincia.label,
-      });
-    }
-  }, [regione, provincia, comune, passaState]);
+  // useEffect(() => {
+  //   if (regione && provincia && comune) {
+  //     passaState({
+  //       regione: regione.label,
+  //       provincia: provincia.label,
+  //       comune: provincia.label,
+  //     });
+  //   }
+  // }, [regione, provincia, comune, passaState]);
 
   const regioniItaliane = useMemo(
     () =>
@@ -81,11 +81,25 @@ function CountrySelector({ passaState }) {
 
   const changeProvincia = (provincia) => {
     setProvincia(provincia);
-    setComune(provincia);
+    setComune({ ...provincia });
+    if (regione && provincia) {
+      passaState({
+        regione: regione.label,
+        provincia: provincia.label,
+        comune: provincia.label,
+      });
+    }
   };
 
   const changeComune = (comune) => {
     setComune(comune);
+    if (regione && provincia && comune) {
+      passaState({
+        regione: regione.label,
+        provincia: provincia.label,
+        comune: comune.label,
+      });
+    }
   };
 
   return (
