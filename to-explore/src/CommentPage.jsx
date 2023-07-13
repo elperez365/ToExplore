@@ -2,12 +2,17 @@ import { useContext, useEffect, useState } from "react";
 import TextAdd from "./TextAdd";
 import { Avatar } from "@mui/material";
 import userLoggedContest from "./UserLoggedContest";
+import LanguageContext from "./LanguageContext";
 
 function CommentPage({ postId }) {
+  const { languageApp } = useContext(LanguageContext);
   const [comment, setComment] = useState("");
   const [commentList, SetCommentList] = useState([]);
   const [sent, setSent] = useState(false);
   const { avatar, avatarColor, username } = useContext(userLoggedContest);
+  const languages = {
+    pushComment: languageApp === "it" ? "Invia commento" : "Submit comment",
+  };
   // const [loading, setLoading] = useState(false);
 
   let riceviState = (text) => {
@@ -74,7 +79,7 @@ function CommentPage({ postId }) {
         onClick={handlePostComment}
         className=" bg-primary rounded-full w-full h-10"
       >
-        Invia commento
+        {languages.pushComment.toUpperCase()}
       </button>
     </div>
   );

@@ -2,10 +2,17 @@ import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
 import Textarea from "@mui/joy/Textarea";
 import Typography from "@mui/joy/Typography";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import LanguageContext from "./LanguageContext";
 
 export default function TextareaDecorators(props) {
+  const { languageApp } = useContext(LanguageContext);
   const [text, setText] = useState("");
+  const languages = {
+    characters: languageApp === "it" ? "caratteri" : "character(s)",
+    inText:
+      languageApp === "it" ? "inserisci il testo qui" : "insert text here....",
+  };
   const addEmoji = (emoji) => () => setText(`${text}${emoji}`);
 
   let handleInputChange = (event) => {
@@ -25,7 +32,7 @@ export default function TextareaDecorators(props) {
 
   return (
     <Textarea
-      placeholder="Insert description...."
+      placeholder={languages.inText}
       value={text}
       onChange={handleInputChange}
       minRows={2}
@@ -57,7 +64,7 @@ export default function TextareaDecorators(props) {
       }
       endDecorator={
         <Typography level="body3" sx={{ ml: "auto" }}>
-          {text.length}/200 character(s)
+          {text.length}/200 {languages.characters}
         </Typography>
       }
       sx={{ minWidth: 300 }}

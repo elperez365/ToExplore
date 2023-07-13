@@ -1,11 +1,13 @@
-import React, { useState, useMemo, useRef, useEffect } from "react";
+import React, { useState, useMemo, useRef, useEffect, useContext } from "react";
 import Select from "react-select";
 // import countryList from "react-select-country-list";
 import comuniWithSpec from "./comuni.json";
 import regioniWithSpec from "./regioni.json";
 import provinceWithSpec from "./province.json";
+import LanguageContext from "./LanguageContext";
 
 function CountrySelector({ passaState }) {
+  const { languageApp } = useContext(LanguageContext);
   const [regione, setRegione] = useState("");
   const [provincia, setProvincia] = useState("");
   const [comune, setComune] = useState("");
@@ -14,6 +16,20 @@ function CountrySelector({ passaState }) {
   const provincieRef = useRef();
   const comuniRef = useRef();
   // const stati = useMemo(() => countryList().getData(), []);
+  const languages = {
+    region:
+      languageApp === "it"
+        ? "Scrivi o seleziona la Regione"
+        : "Write or select the region",
+    province:
+      languageApp === "it"
+        ? "Scrivi o seleziona la Provincia"
+        : "Write or select the country's province",
+    country:
+      languageApp === "it"
+        ? "Scrivi o seleziona il comune"
+        : "Write or select the country",
+  };
 
   useEffect(() => {
     if (regione && provincia && comune) {
@@ -75,7 +91,8 @@ function CountrySelector({ passaState }) {
   return (
     <div className="w-full flex flex-col gap-3">
       <Select
-        placeholder="Scrivi o seleziona la regione"
+        required
+        placeholder={languages.region}
         ref={regioniRef}
         className="w-full"
         options={regioniItaliane}
@@ -85,7 +102,8 @@ function CountrySelector({ passaState }) {
       {regione && (
         <div>
           <Select
-            placeholder="scrivi o seleziona la provincia"
+            required
+            placeholder={languages.province}
             ref={provincieRef}
             className="w-full"
             options={provincieFiltrate}
@@ -98,7 +116,7 @@ function CountrySelector({ passaState }) {
       {provincia && (
         <div>
           <Select
-            placeholder="scrivi o seleziona il comune"
+            placeholder={languages.country}
             ref={comuniRef}
             className="w-full"
             options={comuniFiltrati}
