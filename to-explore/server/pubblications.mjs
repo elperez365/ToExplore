@@ -306,16 +306,4 @@ export const pubblications = [
       { user: "vascone2", avatar: "OE", avatarColor: "#ad6eb9", text: "ciao" },
     ],
   },
-  {
-    id: "5ca01f80-2976-4330-9d7a-0e37e54b22c8",
-    location: "Latina",
-    region: "Lazio",
-    postData: "Thu Jul 13 2023",
-    postUser: "vascone2",
-    postAvatar: "OE",
-    avatarColor: "#ad6eb9",
-    img: "http://localhost:3001/static/sermoneta-notte-2.jpg",
-    description: "Sermoneta di notte",
-    comments: [],
-  },
 ];
