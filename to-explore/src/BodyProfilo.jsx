@@ -46,7 +46,7 @@ function BodyProfilo(props) {
             id={el.id}
             src={el.img}
             alt="img"
-            className="w-1/3 h-40 cursor-pointer"
+            className="w-1/3 h-40 cursor-pointer object-cover"
             onClick={handleOpen}
           />
         ))}
@@ -77,7 +77,7 @@ function BodyProfilo(props) {
           },
         }}
       >
-        <div>
+        <div className="w-screen h-screen flex justify-center items-center">
           <Card2
             postDescription={publication.description}
             postImg={publication.img}

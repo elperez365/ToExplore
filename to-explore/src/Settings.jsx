@@ -29,7 +29,7 @@ export function Settings({ setUserlogged }) {
       <Link to="/homepage">
         <ButtonPrev />
       </Link>
-      <div className="flex flex-wrap h-4/5 justify-center items-center">
+      <div className="flex flex-col h-4/5 justify-around items-center">
         <label
           className="justify-center text-3xl flex flex-wrap w-full 
                 md:text-5xl"
