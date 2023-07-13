@@ -33,7 +33,7 @@ function BodyProfiloDesk(props) {
   return (
     <div className="bg-contrast bg-blur bg-opacity-40 h-screen">
       <Navbar />
-      <div className="flex flex-wrap w-full  ">
+      <div className="flex flex-wrap justify-center p-6 gap-4">
         {!filtered.length && (
           <h1 className="m-auto text-xl my-56">Non ci sono contenuti</h1>
         )}

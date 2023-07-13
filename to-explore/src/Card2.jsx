@@ -79,7 +79,9 @@ export default function Card2({
       />
       <CardContent className="glass-effect bg-blur bg-opacity-50 bg-cardPrimary">
         <Typography variant="body2" color="text.secondary">
-          {postDescription}
+          <div className="lg:h-16 lg:overflow-y-hidden md:h-16 md:overflow-y-hidden">
+            {postDescription}
+          </div>
         </Typography>
       </CardContent>
       <CardActions

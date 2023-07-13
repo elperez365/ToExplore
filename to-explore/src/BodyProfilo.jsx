@@ -64,7 +64,7 @@ function BodyProfilo(props) {
         ))} */}
       </div>
 
-      <Modal
+      <Modal className="flex justify-center items-center p-3"
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
