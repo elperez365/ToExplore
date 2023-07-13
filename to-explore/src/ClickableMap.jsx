@@ -9,7 +9,7 @@ function ClickableMap(props) {
   };
 
   return (
-    <div>
+    <div className="md:bg-primary md:p-32 lg:p-8 md:rounded-2xl md:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] ">
       <div id="mappaItalia">
         <img
           src={mappaItalia}

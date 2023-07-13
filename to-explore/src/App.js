@@ -113,7 +113,11 @@ export default function App() {
             path="/settings"
             element={
               <ProtectedRoute
-                component={<ProtectedRoute component={<Settings />} />}
+                component={
+                  <ProtectedRoute
+                    component={<Settings setUserlogged={setUserlogged} />}
+                  />
+                }
               />
             }
           />

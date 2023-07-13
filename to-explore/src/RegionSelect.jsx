@@ -3,6 +3,7 @@ import ClickableMap from "./ClickableMap";
 import { Navbar } from "./Navbar";
 import { Link } from "react-router-dom";
 import LanguageContext from "./LanguageContext";
+import { Button } from "@material-tailwind/react";
 
 function RegionSelect() {
   const [regionClicked, setRegionClicked] = useState("");
@@ -21,9 +22,9 @@ function RegionSelect() {
     setRegionClicked(value);
   };
   return (
-    <div className="flex flex-col items-center bg-contrast h-screen w-screen">
+    <div className="flex flex-col items-center bg-contrast bg-blur bg-opacity-50 h-screen w-screen">
       {/* <h1 className="bg-cardPrimary w-full text-center">{languages.archive}</h1> */}
-      <h1 className="bg-cardPrimary w-full h-10 text-center text-3xl">
+      <h1 className="bg-cardPrimary bg-opacity-80 w-full h-10 text-center text-3xl">
         {languages.clickRegion.toUpperCase()}
       </h1>
       <div className="flex flex-col justify-center items-center md:gap-14 h-full">
@@ -36,11 +37,12 @@ function RegionSelect() {
         )}
 
         {regionClicked && (
-          <div className="flex justify-center  items-center bg-cardPrimary rounded-full w-36 h-12 text-2xl">
+          <div className="flex justify-center  items-center bg-cardPrimary bg-opacity-70 rounded-full w-36 h-12 text-2xl shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
             <Link to={`/postRegion/${regionClicked}`}>Show Posts</Link>
           </div>
         )}
       </div>
+
       <Navbar />
     </div>
   );

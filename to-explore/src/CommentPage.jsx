@@ -58,20 +58,20 @@ function CommentPage({ postId }) {
   };
 
   return (
-    <div className="relative lg:rounded-2xl md:rounded-2xl w-full bg-white">
-      <div className="lg:rounded-2xl md:rounded-2xl flex flex-col gap-5 w-full lg:h-48 min-h-12 max-h-52 overflow-y-scroll ">
+    <div className="relative lg:rounded-2xl md:rounded-2xl w-full ">
+      <div className="lg:rounded-2xl md:rounded-2xl flex flex-col gap-5 w-full lg:h-48 min-h-12 max-h-52 overflow-y-scroll md:pb-0 pb-3 bg-white bg-opacity-80">
         {commentList.map((el, i) => (
-          <div key={i} className="flex gap-5 bg-white">
+          <div key={i} className="flex gap-5">
             <Avatar
               sx={{ width: 40, height: 40, bgcolor: `${el.avatarColor}` }}
             >
               {el.avatar}
             </Avatar>
-            <p className="bg-secondary rounded-xl ">{el.text}</p>
+            <p className="bg-secondary rounded-xl">{el.text}</p>
           </div>
         ))}
       </div>
-      <div className=" w-full">
+      <div className="w-full">
         <TextAdd passaState={riceviState} sentComment={{ sent, setSent }} />
       </div>
 
