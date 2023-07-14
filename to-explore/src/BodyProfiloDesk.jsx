@@ -31,7 +31,7 @@ function BodyProfiloDesk(props) {
 
   // const handleClose = () => setOpen(false);
   return (
-    <div className="bg-contrast bg-blur bg-opacity-40 h-full">
+    <div className="bg-contrast bg-blur bg-opacity-40 h-screen">
       <Navbar />
       <div className="flex flex-wrap justify-center p-6 gap-4">
         {!filtered.length && (
