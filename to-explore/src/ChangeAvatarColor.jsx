@@ -4,9 +4,15 @@ import React, { useContext, useState } from "react";
 import { Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 import userLoggedContest from "./UserLoggedContest";
+import LanguageContext from "./LanguageContext";
 
 export function ChangeAvatarColor({ setUserlogged }) {
   const user = useContext(userLoggedContest);
+  const { languageApp } = useContext(LanguageContext);
+  const languages = {
+    saveColor: languageApp === "it" ? "SALVA" : "SAVE",
+    shade: languageApp === "it" ? "TONALITA'" : "SHADE",
+  };
   const [avatarColor, setAvatarColor] = useState(user.avatarColor);
 
   const handleButtonClick = (color) => {
@@ -40,12 +46,12 @@ export function ChangeAvatarColor({ setUserlogged }) {
   };
 
   return (
-    <div class="h-screen w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100">
+    <div class="h-screen w-screen bg-gradient-to-b from-green-100 via-green-400 to-green-700">
       <Link to="/settings">
         <ButtonPrev />
       </Link>
-      <div class="flex flex-wrap items-center justify-center h-5/6 gap-4 ">
-        <Stack class="w-full justify-center flex flex-col items-center gap-8">
+      <div class="flex flex-wrap items-center justify-center h-5/6 gap-6 ">
+        <Stack class="w-full justify-center flex flex-col items-center gap-7">
           <Avatar
             sx={{
               fontSize: [50],
@@ -60,7 +66,7 @@ export function ChangeAvatarColor({ setUserlogged }) {
             className="bg-green-700 rounded-xl w-28 h-12"
             onClick={avatarUpdate}
           >
-            SALVA
+            {languages.saveColor}
           </button>
         </Stack>
         <div
@@ -388,7 +394,7 @@ export function ChangeAvatarColor({ setUserlogged }) {
             </div>
           </div>
         </div>
-        <h1>SHADE</h1>
+        <h1>{languages.shade}</h1>
         <input
           class="w-3/6 h-1/6"
           type="color"

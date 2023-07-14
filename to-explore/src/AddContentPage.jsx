@@ -60,9 +60,9 @@ function AddContentPage() {
       .catch((err) => "Error occured");
   };
 
-  React.useEffect(() => {
-    console.log(countrySelected);
-  }, [countrySelected]);
+  // React.useEffect(() => {
+  //   console.log(countrySelected);
+  // }, [countrySelected]);
 
   const onClickP = (event) => {
     setSelectedImage(event.target.files[0]);

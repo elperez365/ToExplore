@@ -25,7 +25,7 @@ export function Settings({ setUserlogged }) {
   //     console.log(languageApp);
   //   }, [languageApp]);
   return (
-    <div className="h-screen w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100">
+    <div className="h-screen w-screen bg-gradient-to-b from-green-100 via-green-400 to-green-700">
       <Link to="/homepage">
         <ButtonPrev />
       </Link>
