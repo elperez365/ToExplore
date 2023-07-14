@@ -3,6 +3,7 @@ import ButtonPrev from "./ButtonPrev";
 import Peppe from "./images/Peppe.jpg";
 import Marco from "./images/Marco.png";
 import Vasco from "./images/Vasco.JPG";
+import Andre from "./images/Andre.JPG";
 
 
 export function Team() {
@@ -74,7 +75,7 @@ export function Team() {
                     </div>
                     <div class="w-36 h-36 
                     md:w-56 md:h-56">
-                        <img class="rounded-full object-cover w-full h-full" src={Marco} alt="" />
+                        <img class="rounded-full object-cover w-full h-full" src={Andre} alt="" />
                     </div>
                 </div>
             </div>
