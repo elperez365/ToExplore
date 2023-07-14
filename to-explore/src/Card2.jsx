@@ -15,7 +15,21 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CgComment } from "react-icons/cg";
 import CommentPage from "./CommentPage";
 import { AiFillHeart } from "react-icons/ai";
-import { Backdrop, Box, Modal } from "@mui/material";
+import { Backdrop, Box, Grow, Modal } from "@mui/material";
+import { TiSocialInstagramCircular } from "react-icons/ti";
+
+import {
+  EmailShareButton,
+  EmailIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  InstapaperShareButton,
+  InstapaperIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from "react-share";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -40,6 +54,7 @@ export default function Card2({
   const [open, setOpen] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
   const [liked, setLiked] = React.useState(false);
+  const [wannaShare, setWannaShare] = React.useState(false);
 
   const handleClose = () => setOpen(false);
 
@@ -97,9 +112,68 @@ export default function Card2({
         <IconButton aria-label="add to favorites" onClick={handleLike}>
           {liked ? <AiFillHeart color="red" /> : <AiFillHeart />}
         </IconButton>
-        <IconButton aria-label="share">
+        <IconButton
+          aria-label="share"
+          onClick={() => setWannaShare(wannaShare === false ? true : false)}
+        >
           <ShareIcon />
         </IconButton>
+
+        {wannaShare && (
+          <Box className="flex gap-2 mx-2">
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              className="shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-full"
+              in={wannaShare}
+              onChange={() =>
+                setWannaShare(wannaShare === false ? true : false)
+              }
+            >
+              <TwitterShareButton
+                url={"https://www.example.com"}
+                quote={"Download now the app!"}
+                hashtag="#muo"
+              >
+                <TwitterIcon size={32} round />
+              </TwitterShareButton>
+            </Grow>
+
+            <Grow
+              style={{ transformOrigin: "8 0 2" }}
+              in={wannaShare}
+              className="shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-full"
+              onChange={() =>
+                setWannaShare(wannaShare === false ? true : false)
+              }
+            >
+              <FacebookShareButton
+                url={"https://www.example.com"}
+                quote={"Download now the app!"}
+                hashtag="#muo"
+              >
+                <FacebookIcon size={32} round />
+              </FacebookShareButton>
+            </Grow>
+
+            <Grow
+              style={{ transformOrigin: "0 0 0" }}
+              className="shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-full"
+              in={wannaShare}
+              onChange={() =>
+                setWannaShare(wannaShare === false ? true : false)
+              }
+            >
+              <EmailShareButton
+                url={"https://www.example.com"}
+                quote={"Download now the app!"}
+                hashtag="#muo"
+              >
+                <EmailIcon size={32} round />
+              </EmailShareButton>
+            </Grow>
+          </Box>
+        )}
+
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
