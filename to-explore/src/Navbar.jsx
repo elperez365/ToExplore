@@ -7,6 +7,7 @@ import Backdrop from "@mui/material/Backdrop";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import AddContentPage from "./AddContentPage.jsx";
+import { Box } from "@mui/material";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -69,9 +70,25 @@ export function Navbar() {
           },
         }}
       >
-        <div className="w-80">
-          <AddContentPage />
-        </div>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "48%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 600,
+            height: "85%",
+
+            // bgcolor: "background.paper",
+            // border: "2px solid #000",
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          <div className="h-full">
+            <AddContentPage />
+          </div>
+        </Box>
       </Modal>
     </nav>
   );
