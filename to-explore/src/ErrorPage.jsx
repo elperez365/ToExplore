@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import unlogged from "./images/R.png";
+import { useEffect } from "react";
 
 export function ErrorPage() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center gap-20 p-10 bg-primary bg-opacity-50 h-screen w-screen">
       {/* <h1 className="text-2xl text-center">
