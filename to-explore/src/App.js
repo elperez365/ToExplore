@@ -123,7 +123,11 @@ export default function App() {
           />
           <Route
             path="/changeAvatarColor"
-            element={<ProtectedRoute component={<ChangeAvatarColor />} />}
+            element={
+              <ProtectedRoute
+                component={<ChangeAvatarColor setUserlogged={setUserlogged} />}
+              />
+            }
           />
           <Route
             path="/team"

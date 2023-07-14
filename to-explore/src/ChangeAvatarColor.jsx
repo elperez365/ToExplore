@@ -5,7 +5,7 @@ import { Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 import userLoggedContest from "./UserLoggedContest";
 
-export function ChangeAvatarColor() {
+export function ChangeAvatarColor({ setUserlogged }) {
   const user = useContext(userLoggedContest);
   const [avatarColor, setAvatarColor] = useState(user.avatarColor);
 
@@ -18,16 +18,50 @@ export function ChangeAvatarColor() {
     setAvatarColor(color);
   };
 
+  const avatarUpdate = () => {
+    fetch("http://localhost:3001/login/put", {
+      method: "PUT",
+      body: JSON.stringify({
+        username: user.username,
+        color: avatarColor,
+      }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((res) => res.json())
+      .then((json) => alert(json.text));
+    setUserlogged({
+      logged: true,
+      userID: user.userID,
+      username: user.username,
+      mail: user.mail,
+      avatar: user.avatar,
+      avatarColor: avatarColor,
+    });
+  };
+
   return (
     <div class="h-screen w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100">
       <Link to="/settings">
         <ButtonPrev />
       </Link>
-      <div class="flex flex-wrap items-center justify-center h-5/6 gap-8 ">
-        <Stack class="w-full justify-center flex">
-          <Avatar sx={{ bgcolor: [avatarColor], width: [100], height: [100] }}>
-            AA
+      <div class="flex flex-wrap items-center justify-center h-5/6 gap-4 ">
+        <Stack class="w-full justify-center flex flex-col items-center gap-8">
+          <Avatar
+            sx={{
+              fontSize: [50],
+              bgcolor: [avatarColor],
+              width: [100],
+              height: [100],
+            }}
+          >
+            {user.avatar}
           </Avatar>
+          <button
+            className="bg-green-700 rounded-xl w-28 h-12"
+            onClick={avatarUpdate}
+          >
+            SALVA
+          </button>
         </Stack>
         <div
           class="w-full h-2/5 flex flex-wrap justify-center 
@@ -354,6 +388,7 @@ export function ChangeAvatarColor() {
             </div>
           </div>
         </div>
+        <h1>SHADE</h1>
         <input
           class="w-3/6 h-1/6"
           type="color"
