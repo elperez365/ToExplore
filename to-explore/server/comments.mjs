@@ -79,3 +79,37 @@ commentsRouter.post(`/commentpush`, (req, res) => {
 //     "success": true,
 //     "text": "commento pubblicato"
 // }
+
+commentsRouter.delete(`/delete`, (req, res) => {
+  const { commentId } = req.body;
+  const commentIdArr = [];
+  posts.forEach((post) =>
+    post.comments.forEach((comment) => commentIdArr.push(comment.commentId))
+  );
+  const commentFound = commentIdArr.find((el) => el === commentId);
+  if (commentFound) {
+    const newPosts = posts.map(function (post) {
+      return {
+        id: post.id,
+        location: post.location,
+        region: post.region,
+        postData: post.postData,
+        postUser: post.postUser,
+        postAvatar: post.postAvatar,
+        avatarColor: post.avatarColor,
+        img: post.img,
+        description: post.description,
+        comments: post.comments.filter(
+          (comment) => comment.commentId !== commentId
+        ),
+      };
+    });
+    res
+      .status(200)
+      .json({ success: true, text: "il tuo commento è stato cancellato" });
+    writeFileSync(
+      "./pubblications.mjs",
+      `export const pubblications= ${JSON.stringify(newPosts)}`
+    );
+  } else res.status(500).json({ success: false, text: "commento non trovato" });
+});

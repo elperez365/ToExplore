@@ -134,12 +134,20 @@ localhost:3001/comments/commentpush ------>post
 
 ------------------------------------------------------------------
 -localhost:3001/posts/delete    ---------> DELETE
-ESEMPIO DI BODY CHE ARRIVA
 
- {"id":"1"}
+//ESEMPIO DI BODY CHE ARRIVA
+//
+// {"id":"1"}
 
- CANCELLA IL POST CON QUESTO ID
+ CANCELLA IL POST CON ID INVIATO DAL CLIENT
 ------------------------------------------------------------------
------------------API WORK IN PROGRESS-----------------------------
 
 -localhost:3001/comments/delete ---------> DELETE
+//ESEMPIO DI BODY CHE ARRIVA
+//
+//{"commentId":"971f7651-b204-46a5-a0c8-7559807644cf"}
+
+CANCELLA IL COMMENTO CON ID INVIATO DAL CLIENT
+
+
+

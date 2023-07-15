@@ -11,30 +11,40 @@ export const pubblications = [
     description: "bel posto",
     comments: [
       {
+        commentId: "1",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "giggio",
         avatar: "GG",
         avatarColor: "blue",
         text: "Ci sono stato anche io!",
       },
       {
+        commentId: "2",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "albertino",
         avatar: "AA",
         avatarColor: "red",
         text: "come sei stato?",
       },
       {
+        commentId: "3",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "giggiolone",
         avatar: "GI",
         avatarColor: "green",
         text: "grandissimo!",
       },
       {
+        commentId: "4",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pippo",
         avatar: "PI",
         avatarColor: "red",
         text: "è andata bene?",
       },
       {
+        commentId: "5",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "oleole",
         avatar: "OL",
         avatarColor: "#166534",
@@ -68,14 +78,25 @@ export const pubblications = [
     img: "https://free4kwallpapers.com/uploads/originals/2015/10/02/nice-place.jpg",
     description: "La porchetta è buona",
     comments: [
-      { user: "giggio", avatar: "GG", avatarColor: "blue", text: "Si è vero!" },
       {
+        commentId: "6",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
+        user: "giggio",
+        avatar: "GG",
+        avatarColor: "blue",
+        text: "Si è vero!",
+      },
+      {
+        commentId: "7",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "albertino",
         avatar: "AA",
         avatarColor: "red",
         text: "No non è vero",
       },
       {
+        commentId: "8",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pippo",
         avatar: "PI",
         avatarColor: "red",
@@ -95,13 +116,24 @@ export const pubblications = [
     description: "bel posto",
     comments: [
       {
+        commentId: "9",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pippo",
         avatar: "PI",
         avatarColor: "red",
         text: "fiume freddo?😍!",
       },
-      { user: "pippo", avatar: "PI", avatarColor: "red", text: "ciaooo!!👍1" },
       {
+        commentId: "10",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
+        user: "pippo",
+        avatar: "PI",
+        avatarColor: "red",
+        text: "ciaooo!!👍1",
+      },
+      {
+        commentId: "11",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pino",
         avatar: "PN",
         avatarColor: "#d340dd",
@@ -121,12 +153,16 @@ export const pubblications = [
     description: "bel posto",
     comments: [
       {
+        commentId: "12",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pippo",
         avatar: "PI",
         avatarColor: "red",
         text: "si volaa!!!!🏖🏖!!",
       },
       {
+        commentId: "13",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pippo12",
         avatar: "PX",
         avatarColor: "#10258e",
@@ -146,21 +182,41 @@ export const pubblications = [
     description: "bel posto",
     comments: [
       {
+        commentId: "14",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pippo",
         avatar: "PI",
         avatarColor: "red",
         text: "Vai co maggiolinoo!!",
       },
-      { user: "pippo", avatar: "PI", avatarColor: "red", text: "ascasc" },
+      {
+        commentId: "15",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
+        user: "pippo",
+        avatar: "PI",
+        avatarColor: "red",
+        text: "ascasc",
+      },
       { user: "pippo12", avatar: "PX", avatarColor: "#10258e", text: "asdasd" },
       {
+        commentId: "16",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "ciaoone",
         avatar: "CC",
         avatarColor: "#5f1664",
         text: "ciaooneee",
       },
-      { user: "vascone", avatar: "VA", avatarColor: "#d9e70d", text: "ok" },
       {
+        commentId: "17",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
+        user: "vascone",
+        avatar: "VA",
+        avatarColor: "#d9e70d",
+        text: "ok",
+      },
+      {
+        commentId: "18",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "oleole",
         avatar: "OL",
         avatarColor: "#166534",
@@ -191,8 +247,17 @@ export const pubblications = [
     img: "http://localhost:3001/static/san-vito-lo-capo-thumbnail.jpg",
     description: "saluti da san vito lo capo",
     comments: [
-      { user: "vascone", avatar: "VA", avatarColor: "#d9e70d", text: "ciaoo" },
       {
+        commentId: "19",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
+        user: "vascone",
+        avatar: "VA",
+        avatarColor: "#d9e70d",
+        text: "ciaoo",
+      },
+      {
+        commentId: "20",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pippoct",
         avatar: "CT",
         avatarColor: "#1558f4",
@@ -212,6 +277,8 @@ export const pubblications = [
     description: "un tramonto a San felice circeo",
     comments: [
       {
+        commentId: "21",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pippoct",
         avatar: "CT",
         avatarColor: "#1558f4",
@@ -294,12 +361,16 @@ export const pubblications = [
       "La cattedrale di Acireale, caratterizzata dal suo stile neogotico, è uno dei più importanti centri culturali di Acireale e del circondario. ",
     comments: [
       {
+        commentId: "22",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pino",
         avatar: "PN",
         avatarColor: "#d340dd",
         text: "Bellissima",
       },
       {
+        commentId: "23",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "pino",
         avatar: "PN",
         avatarColor: "#ff0000",
@@ -319,6 +390,8 @@ export const pubblications = [
     description: "colosseo vista drone😍!",
     comments: [
       {
+        commentId: "24",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
         user: "vascone2",
         avatar: "OE",
         avatarColor: "#ad6eb9",
@@ -337,8 +410,22 @@ export const pubblications = [
     img: "http://localhost:3001/static/sermoneta-notte-2.jpg",
     description: "Sermoneta di notte!",
     comments: [
-      { user: "pino", avatar: "PN", avatarColor: "#d340dd", text: "ciao" },
-      { user: "vascone2", avatar: "OE", avatarColor: "#ad6eb9", text: "ciao" },
+      {
+        commentId: "25",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
+        user: "pino",
+        avatar: "PN",
+        avatarColor: "#d340dd",
+        text: "ciao",
+      },
+      {
+        commentId: "26",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
+        user: "vascone2",
+        avatar: "OE",
+        avatarColor: "#ad6eb9",
+        text: "ciao",
+      },
     ],
   },
   {
