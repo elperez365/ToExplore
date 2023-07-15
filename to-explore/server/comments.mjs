@@ -1,6 +1,7 @@
 import Express from "express";
 import { pubblications } from "./pubblications.mjs";
 import { writeFileSync } from "fs";
+import { uuid } from "uuidv4";
 
 export const commentsRouter = Express.Router();
 const posts = [...pubblications];
@@ -44,9 +45,16 @@ commentsRouter.post(`/commentlist`, (req, res) => {
 
 commentsRouter.post(`/commentpush`, (req, res) => {
   const { postId, user, avatar, avatarColor, text } = req.body;
+  const commentId = uuid();
   const postPosition = posts.findIndex((post) => post.id === postId);
   if (postPosition >= 0) {
-    posts[postPosition].comments.push({ user, avatar, avatarColor, text });
+    posts[postPosition].comments.push({
+      commentId,
+      user,
+      avatar,
+      avatarColor,
+      text,
+    });
     res.status(200).json({ success: true, text: `commento pubblicato` });
     writeFileSync(
       "./pubblications.mjs",
