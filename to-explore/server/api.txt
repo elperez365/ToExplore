@@ -133,7 +133,13 @@ localhost:3001/comments/commentpush ------>post
 
 
 ------------------------------------------------------------------
+-localhost:3001/posts/delete    ---------> DELETE
+ESEMPIO DI BODY CHE ARRIVA
+
+ {"id":"1"}
+
+ CANCELLA IL POST CON QUESTO ID
 ------------------------------------------------------------------
 -----------------API WORK IN PROGRESS-----------------------------
--localhost:3001/posts/delete    ---------> DELETE
+
 -localhost:3001/comments/delete ---------> DELETE
