@@ -46,10 +46,12 @@ commentsRouter.post(`/commentlist`, (req, res) => {
 commentsRouter.post(`/commentpush`, (req, res) => {
   const { postId, user, avatar, avatarColor, text } = req.body;
   const commentId = uuid();
+  const commentData = new Date().toUTCString();
   const postPosition = posts.findIndex((post) => post.id === postId);
   if (postPosition >= 0) {
     posts[postPosition].comments.push({
       commentId,
+      commentData,
       user,
       avatar,
       avatarColor,

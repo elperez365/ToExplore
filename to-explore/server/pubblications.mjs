@@ -40,6 +40,21 @@ export const pubblications = [
         avatarColor: "#166534",
         text: "Sisi, mi hanno derubato e minacciato di morte, peró lo consiglio!😍😍!",
       },
+      {
+        commentId: "971f7651-b204-46a5-a0c8-7559807644cf",
+        user: "vascone2",
+        avatar: "OE",
+        avatarColor: "rgb(185 28 28);",
+        text: "ok",
+      },
+      {
+        commentId: "1249caa5-27fe-4459-a4fd-5e73e370ccf0",
+        commentData: "Sat, 15 Jul 2023 15:54:14 GMT",
+        user: "vascone2",
+        avatar: "OE",
+        avatarColor: "rgb(185 28 28);",
+        text: "what?",
+      },
     ],
   },
   {
