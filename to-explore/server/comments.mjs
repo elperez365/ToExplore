@@ -111,5 +111,9 @@ commentsRouter.delete(`/delete`, (req, res) => {
       "./pubblications.mjs",
       `export const pubblications= ${JSON.stringify(newPosts)}`
     );
-  } else res.status(500).json({ success: false, text: "commento non trovato" });
+  } else
+    res.status(500).json({
+      success: false,
+      text: "commento non trovato nel server, se hai appena pubblicato il commento attendi 3 secondi prima di cancellarlo",
+    });
 });
