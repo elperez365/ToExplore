@@ -12,9 +12,14 @@ function BodyProfiloDesk(props) {
   // const [publication, setPublication] = useState({});
   let regionSelected = useParams();
   const { username } = useContext(userLoggedContest);
-  const arrayFetch = regionSelected.region
-    ? `region/${regionSelected.region}`
-    : `username/${username}`;
+  let arrayFetch;
+  if (regionSelected.region) {
+    arrayFetch = `region/${regionSelected.region}`;
+  } else if (props.username) {
+    arrayFetch = `username/${props.username}`;
+  } else {
+    arrayFetch = `username/${username}`;
+  }
 
   useEffect(() => {
     fetch(`http://localhost:3001/posts/${arrayFetch}`)
@@ -31,7 +36,7 @@ function BodyProfiloDesk(props) {
 
   // const handleClose = () => setOpen(false);
   return (
-    <div className="bg-contrast bg-blur bg-opacity-40 min-h-screen h-full">
+    <div className="bg-contrast bg-blur bg-opacity-40 min-h-[950px] h-full">
       <Navbar />
       <div className="flex flex-wrap justify-center p-6 gap-4">
         {!filtered.length && (
@@ -58,6 +63,7 @@ function BodyProfiloDesk(props) {
             postAvatar={el.postAvatar}
             avatarColor={el.avatarColor}
             postId={el.id}
+            postUser={el.postUser}
           />
         ))}
       </div>

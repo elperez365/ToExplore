@@ -98,6 +98,7 @@ export default function Card2({
         className="glass-effect bg-blur bg-opacity-50 bg-cardPrimary rounded-t-3xl capitalize"
         avatar={
           <Avatar
+            className="cursor-pointer"
             sx={{ bgcolor: `${avatarColor}` }}
             aria-label="recipe"
             onClick={() => {

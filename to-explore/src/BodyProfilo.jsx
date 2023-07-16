@@ -36,7 +36,7 @@ function BodyProfilo(props) {
 
   const handleClose = () => setOpen(false);
   return (
-    <div className="bg-contrast bg-blur bg-opacity-40 h-screen">
+    <div className="bg-contrast bg-blur bg-opacity-40 min-h-[720px] h-full">
       <Navbar />
       <div className="flex flex-wrap w-full">
         {!filtered.length && (
@@ -91,6 +91,7 @@ function BodyProfilo(props) {
             postDate={publication.postData}
             postLocation={publication.location}
             avatarColor={publication.avatarColor}
+            postUser={publication.postUser}
           />
         </div>
       </Modal>

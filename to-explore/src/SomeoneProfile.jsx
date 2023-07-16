@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import BodyProfilo from "./BodyProfilo";
 import HeaderProfilo from "./HeaderProfilo";
 import { useParams } from "react-router-dom";
+import BodyProfiloDesk from "./BodyProfiloDesk";
 
 export function SomeoneProfile() {
   const [counterPost, setCounterPost] = useState();
   const [avatar, setAvatar] = useState({});
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   let ricevicounterpost = (number) => {
     setCounterPost(number);
   };
@@ -17,8 +19,17 @@ export function SomeoneProfile() {
       headers: { "Content-type": "application/json; charset=UTF-8" },
     })
       .then((res) => res.json())
-      .then(console.log);
+      .then((json) => setAvatar(json));
   }, []);
+  const handleWindowResize = useCallback((event) => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [handleWindowResize]);
   return (
     <div>
       <HeaderProfilo
@@ -27,7 +38,11 @@ export function SomeoneProfile() {
         avatarColor={avatar.color}
         username={user}
       />
-      <BodyProfilo username={user} passastate={ricevicounterpost} />
+      {windowWidth >= 1024 ? (
+        <BodyProfiloDesk username={user} passastate={ricevicounterpost} />
+      ) : (
+        <BodyProfilo username={user} passastate={ricevicounterpost} />
+      )}
     </div>
   );
 }

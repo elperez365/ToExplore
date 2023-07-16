@@ -14,9 +14,9 @@ loginRouter.post(`/`, (req, res) => {
     const userFiltered = usersArray.filter(
       (user) => user.username === username
     );
-    res.json(userFiltered);
+    res.status(200).json(userFiltered);
   } else {
-    res.json("I dati inseriti non sono");
+    res.sendStatus(500).json("I dati inseriti non sono");
   }
 });
 
@@ -90,8 +90,8 @@ loginRouter.post(`/avatar`, (req, res) => {
       (user) => user.username === username
     );
     res.status(200).json({
-      avatar: userFiltered.avatar,
-      color: userFiltered.color,
+      avatar: userFiltered[0].avatar,
+      color: userFiltered[0].color,
     });
   } else {
     res.status(500).json("I dati inseriti non sono");
