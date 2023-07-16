@@ -38,6 +38,9 @@ function AddContentPage() {
 
   let onPushcontent = () => {
     setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     const formData = new FormData();
     formData.append("comune", countrySelected.comune);
     formData.append("regione", countrySelected.regione);
@@ -55,7 +58,7 @@ function AddContentPage() {
       .then((json) => {
         alert(json.text);
         setLoading(false);
-        navigate(`/profilo`);
+        navigate(`/redirect`);
       })
       .catch((err) => "Error occured");
   };

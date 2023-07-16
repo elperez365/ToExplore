@@ -15,7 +15,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CgComment } from "react-icons/cg";
 import CommentPage from "./CommentPage";
 import { AiFillHeart } from "react-icons/ai";
-import { Backdrop, Box, Grow, Modal } from "@mui/material";
+import { Backdrop, Box, Grow, Modal, useScrollTrigger } from "@mui/material";
 import { TiSocialInstagramCircular } from "react-icons/ti";
 
 import {
@@ -30,6 +30,9 @@ import {
   TwitterShareButton,
   TwitterIcon,
 } from "react-share";
+import { CiCircleRemove } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
+import userLoggedContest from "./UserLoggedContest";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -50,11 +53,15 @@ export default function Card2({
   postDescription,
   avatarColor,
   postId,
+  postUser,
 }) {
   const [open, setOpen] = React.useState(false);
   const [expanded, setExpanded] = React.useState(false);
   const [liked, setLiked] = React.useState(false);
   const [wannaShare, setWannaShare] = React.useState(false);
+  const [wannaDelete, setWannaDelete] = React.useState(false);
+  const { username } = React.useContext(userLoggedContest);
+  const navigate = useNavigate();
 
   const handleClose = () => setOpen(false);
 
@@ -68,6 +75,19 @@ export default function Card2({
     setLiked(liked === false ? true : false);
   };
 
+  const deletePost = (id) => {
+    fetch("http://localhost:3001/posts/delete", {
+      method: "DELETE",
+      body: JSON.stringify({
+        id: id,
+      }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((res) => res.json())
+      .then((json) => alert(json.text))
+      .then(() => navigate("/redirect"));
+  };
+
   return (
     <Card
       style={{ borderRadius: "1.5rem", marginBottom: "0.75rem" }}
@@ -77,12 +97,26 @@ export default function Card2({
       <CardHeader
         className="glass-effect bg-blur bg-opacity-50 bg-cardPrimary rounded-t-3xl capitalize"
         avatar={
-          <Avatar sx={{ bgcolor: `${avatarColor}` }} aria-label="recipe">
+          <Avatar
+            sx={{ bgcolor: `${avatarColor}` }}
+            aria-label="recipe"
+            onClick={() => {
+              navigate(`/user/${postUser}`);
+            }}
+          >
             {postAvatar}
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
+          <IconButton
+            aria-label="settings"
+            onClick={() => setWannaDelete(wannaDelete === false ? true : false)}
+          >
+            {wannaDelete && postUser === username && (
+              <button onClick={() => deletePost(postId)} className="mr-10">
+                <CiCircleRemove className="bg-complement rounded-full h-7 w-7" />
+              </button>
+            )}
             <MoreVertIcon />
           </IconButton>
         }

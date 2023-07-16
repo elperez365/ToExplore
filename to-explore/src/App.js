@@ -16,6 +16,8 @@ import BodyProfilo from "./BodyProfilo";
 import BodyProfiloDesk from "./BodyProfiloDesk";
 import { ProtectedRoute } from "./ProtectedRoute";
 import LanguageContext from "./LanguageContext";
+import { RedirectHomePage } from "./RedirectHomePage";
+import { SomeoneProfile } from "./SomeoneProfile";
 
 export default function App() {
   const [userLogged, setUserlogged] = useState({
@@ -32,9 +34,6 @@ export default function App() {
   let ricevicounterpost = (number) => {
     setCounterPost(number);
   };
-  useEffect(() => {
-    console.log(userLogged);
-  }, [userLogged]);
 
   const handleWindowResize = useCallback((event) => {
     setWindowWidth(window.innerWidth);
@@ -53,7 +52,9 @@ export default function App() {
         <Routes>
           <Route path="" element={<Login setUserlogged={setUserlogged} />} />
           <Route path="/*" element={<ErrorPage />} />
+          <Route path="/redirect" element={<RedirectHomePage />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/user/:user" element={<SomeoneProfile />} />
           <Route
             path={"/home"}
             element={<ProtectedRoute component={<Homepage />} />}

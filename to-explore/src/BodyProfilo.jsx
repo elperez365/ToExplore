@@ -11,10 +11,15 @@ function BodyProfilo(props) {
   const [filtered, setFiltered] = useState([]);
   const [publication, setPublication] = useState({});
   let regionSelected = useParams();
-  const { username } = useContext(userLoggedContest);
-  const arrayFetch = regionSelected.region
-    ? `region/${regionSelected.region}`
-    : `username/${username}`;
+  let { username } = useContext(userLoggedContest);
+  let arrayFetch;
+  if (regionSelected.region) {
+    arrayFetch = `region/${regionSelected.region}`;
+  } else if (props.username) {
+    arrayFetch = `username/${props.username}`;
+  } else {
+    arrayFetch = `username/${username}`;
+  }
 
   useEffect(() => {
     fetch(`http://localhost:3001/posts/${arrayFetch}`)

@@ -1,9 +1,3 @@
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  PinterestShareButton,
-  TwitterShareButton,
-} from "react-share";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Switch from "@mui/material/Switch";

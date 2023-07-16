@@ -80,3 +80,20 @@ loginRouter.put(`/put`, (req, res) => {
 //   "username": "string",
 //   "color": "string",
 // }
+
+loginRouter.post(`/avatar`, (req, res) => {
+  const { username } = req.body;
+  const findUser = usersArray.find((user) => user.username === username);
+
+  if (findUser) {
+    const userFiltered = usersArray.filter(
+      (user) => user.username === username
+    );
+    res.status(200).json({
+      avatar: userFiltered.avatar,
+      color: userFiltered.color,
+    });
+  } else {
+    res.status(500).json("I dati inseriti non sono");
+  }
+});

@@ -35,6 +35,7 @@ export function Homepage() {
             postAvatar={el.postAvatar}
             avatarColor={el.avatarColor}
             postId={el.id}
+            postUser={el.postUser}
           />
         ))}
       </div>

@@ -35,7 +35,7 @@ function HeaderProfilo({
         <h1 className="text-xl">
           {regionSelected.region
             ? regionSelected.region
-            : `${languages.user}   ${username.toUpperCase()}`}
+            : `${languages.user}   ${username}`}
         </h1>
         <p className="text-xl">
           {languages.postNumber} {counterLuoghi}
