@@ -17,6 +17,8 @@ import CommentPage from "./CommentPage";
 import { AiFillHeart } from "react-icons/ai";
 import { Backdrop, Box, Grow, Modal, useScrollTrigger } from "@mui/material";
 import { TiSocialInstagramCircular } from "react-icons/ti";
+import booking from "./images/booking.png";
+import tripadvisor from "./images/tripadvisor.png";
 
 import {
   EmailShareButton,
@@ -62,7 +64,8 @@ export default function Card2({
   const [wannaDelete, setWannaDelete] = React.useState(false);
   const { username } = React.useContext(userLoggedContest);
   const navigate = useNavigate();
-
+  const linkBooking = `https://www.booking.com/searchresults.it.html?ss=${postLocation}`;
+  const linkTripAdvisor = `https://www.tripadvisor.it/Search?q=${postLocation}`;
   const handleClose = () => setOpen(false);
 
   const handleOpen = () => window.innerWidth > 390 && setOpen(true);
@@ -147,6 +150,7 @@ export default function Card2({
         <IconButton aria-label="add to favorites" onClick={handleLike}>
           {liked ? <AiFillHeart color="red" /> : <AiFillHeart />}
         </IconButton>
+
         <IconButton
           aria-label="share"
           onClick={() => setWannaShare(wannaShare === false ? true : false)}
@@ -208,6 +212,12 @@ export default function Card2({
             </Grow>
           </Box>
         )}
+        <IconButton href={linkBooking} target="_blank">
+          <img className="w-9 h-9" src={booking} alt="" />
+        </IconButton>
+        <IconButton href={linkTripAdvisor} target="_blank">
+          <img className="w-9 h-9" src={tripadvisor} alt="" />
+        </IconButton>
 
         <ExpandMore
           expand={expanded}
