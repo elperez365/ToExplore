@@ -213,10 +213,10 @@ export default function Card2({
           </Box>
         )}
         <IconButton href={linkBooking} target="_blank">
-          <img className="w-9 h-9" src={booking} alt="" />
+          <img className="w-8 h-8" src={booking} alt="" />
         </IconButton>
         <IconButton href={linkTripAdvisor} target="_blank">
-          <img className="w-9 h-9" src={tripadvisor} alt="" />
+          <img className="w-8 h-8" src={tripadvisor} alt="" />
         </IconButton>
 
         <ExpandMore
