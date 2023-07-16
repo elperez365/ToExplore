@@ -117,8 +117,9 @@ export default function Card2({
             onClick={() => setWannaDelete(wannaDelete === false ? true : false)}
           >
             {wannaDelete && postUser === username && (
-              <button onClick={() => deletePost(postId)} className="mr-10">
+              <button onClick={() => deletePost(postId)} className="mr-10 flex">
                 <CiCircleRemove className="bg-complement rounded-full h-7 w-7" />
+                {/* <span>Elimina post</span> */}
               </button>
             )}
             <MoreVertIcon />

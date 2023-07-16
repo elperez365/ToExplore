@@ -75,7 +75,7 @@ function AddContentPage() {
       {loading && <Loading />}
       <div className="p-4 flex flex-col justify-around bg-primary h-screen lg:h-full">
         <div className="flex justify-between items-center">
-          <Link to="/homepage">
+          <Link to="/redirect">
             <ButtonPrev />
           </Link>
 
