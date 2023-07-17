@@ -28,18 +28,28 @@ function CommentPage({ postId }) {
     })
       .then((res) => res.json())
 
-      .then((json) => alert(json.text));
+      .then((json) => alert(json.text))
+      .then(() =>
+        fetch("http://localhost:3001/comments/commentlist", {
+          method: "POST",
+          body: JSON.stringify({ postId: `${postId}` }),
+          headers: { "Content-type": "application/json; charset=UTF-8" },
+        })
+      )
+      .then((res) => res.json())
 
-    setTimeout(() => {
-      fetch("http://localhost:3001/comments/commentlist", {
-        method: "POST",
-        body: JSON.stringify({ postId: `${postId}` }),
-        headers: { "Content-type": "application/json; charset=UTF-8" },
-      })
-        .then((res) => res.json())
+      .then((json) => SetCommentList(json.commentPost));
 
-        .then((json) => SetCommentList(json.commentPost));
-    }, 1000);
+    // setTimeout(() => {
+    //   fetch("http://localhost:3001/comments/commentlist", {
+    //     method: "POST",
+    //     body: JSON.stringify({ postId: `${postId}` }),
+    //     headers: { "Content-type": "application/json; charset=UTF-8" },
+    //   })
+    //     .then((res) => res.json())
+
+    //     .then((json) => SetCommentList(json.commentPost));
+    // }, 1000);
   };
 
   useEffect(() => {
@@ -54,18 +64,6 @@ function CommentPage({ postId }) {
   }, [postId]);
 
   let handlePostComment = () => {
-    setTimeout(() => {
-      SetCommentList([
-        ...commentList,
-        {
-          user: username,
-          avatar: avatar,
-          avatarColor: avatarColor,
-          text: comment,
-        },
-      ]);
-    }, 700);
-
     setComment("");
     setSent(true);
     fetch("http://localhost:3001/comments/commentpush", {
@@ -80,7 +78,17 @@ function CommentPage({ postId }) {
       headers: { "Content-type": "application/json; charset=UTF-8" },
     })
       .then((res) => res.json())
-      .then(console.log);
+      // .then(console.log);
+      .then(() =>
+        fetch("http://localhost:3001/comments/commentlist", {
+          method: "POST",
+          body: JSON.stringify({ postId: `${postId}` }),
+          headers: { "Content-type": "application/json; charset=UTF-8" },
+        })
+      )
+      .then((res) => res.json())
+
+      .then((json) => SetCommentList(json.commentPost));
   };
 
   return (

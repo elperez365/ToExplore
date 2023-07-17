@@ -27,6 +27,9 @@ export function Login({ setUserlogged }) {
   const handleLogin = () => {
     if (username !== "" && password !== "") {
       setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
       fetch("http://localhost:3001/login", {
         method: "POST",
         body: JSON.stringify({
@@ -50,6 +53,7 @@ export function Login({ setUserlogged }) {
               navigate("/homepage");
             }, 1000);
           } else {
+            setLoading(false);
             alert("I dati inseriti non sono corretti");
             window.location.href = "/";
           }
@@ -97,7 +101,7 @@ export function Login({ setUserlogged }) {
   return (
     <div
       // style={{ backgroundImage: `url(${prova2})` }}
-      className="h-screen  w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100
+      className="h-screen w-full bg-gradient-to-b from-green-700 via-green-400 to-green-100
         lg:bg-white"
     >
       {loading && <Loading />}

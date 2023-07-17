@@ -48,6 +48,9 @@ export function Register() {
 
   const handleLogin = () => {
     setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     if (
       email !== "" &&
       username !== "" &&
@@ -90,7 +93,10 @@ export function Register() {
     avatarName === "";
 
   const changeSvgIcon = () => {
-    if (showSvgRef.current.style.display === "block" && hideSvgRef.current.style.display === "none") {
+    if (
+      showSvgRef.current.style.display === "block" &&
+      hideSvgRef.current.style.display === "none"
+    ) {
       showSvgRef.current.style.display = "none";
       hideSvgRef.current.style.display = "block";
       setShowPassword(false);
@@ -102,7 +108,10 @@ export function Register() {
   };
 
   const changeSvgIcon2 = () => {
-    if (showSvgRef2.current.style.display === "block" && hideSvgRef2.current.style.display === "none") {
+    if (
+      showSvgRef2.current.style.display === "block" &&
+      hideSvgRef2.current.style.display === "none"
+    ) {
       showSvgRef2.current.style.display = "none";
       hideSvgRef2.current.style.display = "block";
       setShowPassword2(false);
@@ -141,7 +150,7 @@ export function Register() {
   }));
 
   return (
-    <div className="h-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100">
+    <div className="h-screen w-full bg-gradient-to-b from-green-700 via-green-400 to-green-100">
       {loading && <Loading />}
       <div
         className="z-20 flex flex-col items-center gap-6 pt-2
@@ -176,7 +185,7 @@ export function Register() {
         <div
           className="z-10 bg-white/90 w-80 h-2/5 rounded-lg flex flex-col items-center gap-3 min-h-[282px] min-w-[320px] max-w-[320px]
                 md:w-4/6 md:h-1/2 md:min-h-[438px] md:min-w-[678px] md:flex md:flex-col md:gap-5
-                lg:w-2/5 lg:h-3/5 lg:rounded-lg lg:opacity-95 lg:min-w-[745px] lg:max-w-[745px] justify-center"
+                lg:w-2/5 lg:h-3/5 lg:rounded-3xl lg:opacity-95 lg:min-w-[745px] lg:max-w-[745px] justify-center"
         >
           <input
             className="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
