@@ -27,6 +27,9 @@ export function Login({ setUserlogged }) {
   const handleLogin = () => {
     if (username !== "" && password !== "") {
       setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
       fetch("http://localhost:3001/login", {
         method: "POST",
         body: JSON.stringify({

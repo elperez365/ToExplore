@@ -37,6 +37,9 @@ export function Register() {
 
   const handleLogin = () => {
     setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
     if (
       email !== "" &&
       username !== "" &&
@@ -79,7 +82,10 @@ export function Register() {
     avatarName === "";
 
   const changeSvgIcon = () => {
-    if (showSvgRef.current.style.display === "block" && hideSvgRef.current.style.display === "none") {
+    if (
+      showSvgRef.current.style.display === "block" &&
+      hideSvgRef.current.style.display === "none"
+    ) {
       showSvgRef.current.style.display = "none";
       hideSvgRef.current.style.display = "block";
       setShowPassword(false);
@@ -91,7 +97,10 @@ export function Register() {
   };
 
   const changeSvgIcon2 = () => {
-    if (showSvgRef2.current.style.display === "block" && hideSvgRef2.current.style.display === "none") {
+    if (
+      showSvgRef2.current.style.display === "block" &&
+      hideSvgRef2.current.style.display === "none"
+    ) {
       showSvgRef2.current.style.display = "none";
       hideSvgRef2.current.style.display = "block";
       setShowPassword2(false);
