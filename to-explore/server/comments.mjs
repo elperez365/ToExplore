@@ -82,26 +82,21 @@ commentsRouter.post(`/commentpush`, (req, res) => {
 
 commentsRouter.delete(`/delete`, (req, res) => {
   const { commentId } = req.body;
-  const commentIdArr = [];
-  posts.forEach((post) =>
-    post.comments.forEach((comment) => commentIdArr.push(comment.commentId))
-  );
-  const commentFound = commentIdArr.find((el) => el === commentId);
+  // const commentIdArr = [];
+  const postComments = posts.map((post) => post.comments);
+  const flatten = postComments.flat();
+  // posts.forEach((post) =>
+  //   post.comments.forEach((comment) => commentIdArr.push(comment.commentId))
+  // );
+  const commentFound = flatten.find((el) => el.commentId === commentId);
   if (commentFound) {
     const newPosts = posts.map(function (post) {
+      const comments = post.comments.filter(
+        (comment) => comment.commentId !== commentId
+      );
       return {
-        id: post.id,
-        location: post.location,
-        region: post.region,
-        postData: post.postData,
-        postUser: post.postUser,
-        postAvatar: post.postAvatar,
-        avatarColor: post.avatarColor,
-        img: post.img,
-        description: post.description,
-        comments: post.comments.filter(
-          (comment) => comment.commentId !== commentId
-        ),
+        ...post,
+        comments,
       };
     });
     res
