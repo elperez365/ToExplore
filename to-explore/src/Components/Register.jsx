@@ -150,14 +150,14 @@ export function Register() {
   }));
 
   return (
-    <div className="h-screen w-full bg-gradient-to-b from-green-700 via-green-400 to-green-100">
+    <div className="min-h-screen h-full w-full bg-primary bg-opacity-70">
       {loading && <Loading />}
       <div
         className="z-20 flex flex-col items-center gap-6 pt-2
             md:justify-start md:pt-8
             lg:gap-8 lg:pt-12"
       > {windowHeight > 550 && (
-        <div className="flex flex-col jusify-center items-center 
+        <div className="flex flex-col jusify-center items-center
         md:gap-8">
           <img className="w-28" src={birdlogo2} alt="" />
           <h1
@@ -296,7 +296,7 @@ export function Register() {
             <input
               className="bg-transparent"
               type={showPassword2 ? "text" : "password"}
-              placeholder="Repete Password"
+              placeholder="Repeat Password"
               value={rptPassword}
               onChange={(e) => setRptPassword(e.target.value)}
             />
@@ -396,7 +396,7 @@ export function Register() {
             />
             <input
               className="
-                            md:w-20 
+                            md:w-20
                             lg:h-10"
               type="color"
               value={avatarColor}

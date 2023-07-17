@@ -101,8 +101,7 @@ export function Login({ setUserlogged }) {
   return (
     <div
       // style={{ backgroundImage: `url(${prova2})` }}
-      className="h-screen w-full bg-gradient-to-b from-green-700 via-green-400 to-green-100
-        lg:bg-white"
+      className="min-h-screen h-full w-full bg-primary bg-opacity-70"
     >
       {loading && <Loading />}
       <div
