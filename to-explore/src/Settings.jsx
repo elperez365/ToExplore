@@ -51,13 +51,13 @@ export function Settings({ setUserlogged }) {
         </label>
         <Link to="/changeAvatarColor" className="md:w-full">
           <p
-            class="text-center text-3xl w-full 
+            className="text-center text-3xl w-full 
                     md:text-5xl"
           >
             {languages.changeColor}
           </p>
         </Link>
-        <Link to="/team" class="md:w-full">
+        <Link to="/team" className="md:w-full">
           <p
             className="text-center text-3xl w-full 
                     md:text-5xl"

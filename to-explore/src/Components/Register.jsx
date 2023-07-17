@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Travel from "./Travel.png";
 // import prova1 from './prova1.jpg'
 import Avatar from "@mui/material/Avatar";
@@ -22,6 +22,17 @@ export function Register() {
   const hideSvgRef = useRef(null);
   const showSvgRef2 = useRef(null);
   const hideSvgRef2 = useRef(null);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  const handleWindowResize = useCallback(() => {
+    setWindowHeight(window.innerHeight);
+  }, []);
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [handleWindowResize]);
 
   const notMatchPass = document.getElementById("notMatchPass");
 
@@ -130,41 +141,45 @@ export function Register() {
   }));
 
   return (
-    <div class="h-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100">
+    <div className="h-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100">
       {loading && <Loading />}
       <div
-        class="h-screen flex flex-col items-center gap-6 pt-2
+        className="z-20 flex flex-col items-center gap-6 pt-2
             md:justify-start md:pt-8
             lg:gap-8 lg:pt-12"
-      >
-        <img class="w-28" src={birdlogo2} alt="" />
-        <h1
-          class="text-white text-center font-bold
+      > {windowHeight > 550 && (
+        <div className="flex flex-col jusify-center items-center 
+        md:gap-8">
+          <img className="w-28" src={birdlogo2} alt="" />
+          <h1
+            className="text-white text-center font-bold
                 md:text-2xl md:font-bold
                 lg:text-6xl lg:font-extrabold lg:text-white"
-        >
-          ToExplore
-        </h1>
-        <h2
-          class="text-2xl font-extrabold w-52 text-center
+          >
+            ToExplore
+          </h1>
+          <h2
+            className="text-2xl font-extrabold w-52 text-center
                 md:w-full md:text-center md:text-3xl lg:w-auto lg:text-2xl lg:text-black"
-        >
-          Register here!
-        </h2>
-        <p
-          class="text-xs w-80 text-center
+          >
+            Register here!
+          </h2>
+          <p
+            className="text-xs w-80 text-center
                 md:w-full md:text-center md:text-base
                  lg:w-auto lg:text-base lg:text-black "
-        >
-          Become part of our community
-        </p>
+          >
+            Become part of our community
+          </p>
+        </div>
+      )}
         <div
-          class="bg-white/90 w-80 h-2/5 rounded-lg flex flex-col items-center gap-4
-                md:w-4/6 md:h-1/2 md:flex md:flex-col md:gap-7
-                lg:w-2/5 lg:h-3/5 lg:rounded-3xl lg:opacity-95 justify-center"
+          className="z-10 bg-white/90 w-80 h-2/5 rounded-lg flex flex-col items-center gap-3 min-h-[282px] min-w-[320px] max-w-[320px]
+                md:w-4/6 md:h-1/2 md:min-h-[438px] md:min-w-[678px] md:flex md:flex-col md:gap-5
+                lg:w-2/5 lg:h-3/5 lg:rounded-lg lg:opacity-95 lg:min-w-[745px] lg:max-w-[745px] justify-center"
         >
           <input
-            class="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
+            className="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
                         md:text-2xl md:w-5/6
                         lg:w-4/5 lg:text-2xl lg:h-12"
             type="text"
@@ -173,7 +188,7 @@ export function Register() {
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
-            class="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
+            className="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
                         md:text-2xl md:w-5/6
                         lg:w-4/5 lg:text-2xl lg:h-12"
             type="text"
@@ -182,13 +197,12 @@ export function Register() {
             onChange={(e) => setEmail(e.target.value)}
           />
           <div
-            class="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
-                    md:w-5/6 md:text-2xl  md:justify-start md:gap-36
-                    lg:w-4/5 lg:text-2xl lg:h-12  lg:justify-start lg:gap-72"
+            className="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent flex justify-center w-64 justify-between
+                    md:w-5/6 md:text-2xl  md:justify-start md:justify-between
+                    lg:w-4/5 lg:text-2xl lg:h-12  lg:justify-start lg:justify-between"
           >
             <input
-              class="bg-transparent w-64
-                            "
+              className="bg-transparent"
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
@@ -197,13 +211,13 @@ export function Register() {
             <button
               ref={hideSvgRef}
               id="hideSvg"
-              class="
+              className="
                     md:w-14 md:h-8
                     lg:w-14 lg:h-8"
               onClick={changeSvgIcon}
             >
               <svg
-                class="md:w-14 md:h-8
+                className="md:w-14 md:h-8
                             lg:w-14 lg:h-8"
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
@@ -236,13 +250,13 @@ export function Register() {
             <button
               ref={showSvgRef}
               id="showSvg"
-              class="hidden
+              className="hidden
                     md:w-14 md:h-8 md:hidden
                     lg:w-14 lg:h-8 lg:hidden"
               onClick={changeSvgIcon}
             >
               <svg
-                class="md:w-14 md:h-8
+                className="md:w-14 md:h-8
                          lg:w-14 lg:h-8"
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
@@ -251,14 +265,14 @@ export function Register() {
                 fill="none"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9ZM11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z"
                   fill="#000000"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M21.83 11.2807C19.542 7.15186 15.8122 5 12 5C8.18777 5 4.45796 7.15186 2.17003 11.2807C1.94637 11.6844 1.94361 12.1821 2.16029 12.5876C4.41183 16.8013 8.1628 19 12 19C15.8372 19 19.5882 16.8013 21.8397 12.5876C22.0564 12.1821 22.0536 11.6844 21.83 11.2807ZM12 17C9.06097 17 6.04052 15.3724 4.09173 11.9487C6.06862 8.59614 9.07319 7 12 7C14.9268 7 17.9314 8.59614 19.9083 11.9487C17.9595 15.3724 14.939 17 12 17Z"
                   fill="#000000"
                 />
@@ -266,12 +280,12 @@ export function Register() {
             </button>
           </div>
           <div
-            class="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
-                    md:w-5/6 md:text-2xl md:items-center md:gap-36
-                    lg:w-4/5 lg:text-2xl lg:h-12  lg:justify-start lg:gap-72 "
+            className="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent flex justify-center w-64 justify-between
+                    md:w-5/6 md:text-2xl md:items-center md:justify-between
+                    lg:w-4/5 lg:text-2xl lg:h-12  lg:justify-start lg:justify-between "
           >
             <input
-              class="bg-transparent w-64"
+              className="bg-transparent"
               type={showPassword2 ? "text" : "password"}
               placeholder="Repete Password"
               value={rptPassword}
@@ -280,13 +294,13 @@ export function Register() {
             <button
               ref={hideSvgRef2}
               id="hideSvg2"
-              class="
+              className="
                     md:w-14 md:h-8
                     lg:w-14 lg:h-8"
               onClick={changeSvgIcon2}
             >
               <svg
-                class="md:w-14 md:h-8
+                className="md:w-14 md:h-8
                          lg:w-14 lg:h-8"
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
@@ -319,13 +333,13 @@ export function Register() {
             <button
               ref={showSvgRef2}
               id="showSvg2"
-              class="hidden
+              className="hidden
                     md:w-14 md:h-8 md:hidden
                     lg:w-14 lg:h-8 lg:hidden"
               onClick={changeSvgIcon2}
             >
               <svg
-                class="md:w-14 md:h-8
+                className="md:w-14 md:h-8
                          lg:w-14 lg:h-8"
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
@@ -334,14 +348,14 @@ export function Register() {
                 fill="none"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9ZM11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z"
                   fill="#000000"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M21.83 11.2807C19.542 7.15186 15.8122 5 12 5C8.18777 5 4.45796 7.15186 2.17003 11.2807C1.94637 11.6844 1.94361 12.1821 2.16029 12.5876C4.41183 16.8013 8.1628 19 12 19C15.8372 19 19.5882 16.8013 21.8397 12.5876C22.0564 12.1821 22.0536 11.6844 21.83 11.2807ZM12 17C9.06097 17 6.04052 15.3724 4.09173 11.9487C6.06862 8.59614 9.07319 7 12 7C14.9268 7 17.9314 8.59614 19.9083 11.9487C17.9595 15.3724 14.939 17 12 17Z"
                   fill="#000000"
                 />
@@ -350,20 +364,20 @@ export function Register() {
           </div>
           <p
             id="notMatchPass"
-            class="text-red-500 text-xs w-64 hidden
+            className="text-red-500 text-xs w-64 hidden
                     md:text-base md:w-5/6
                     lg:text-base lg:w-4/5"
           >
             Password does not match
           </p>
           <div
-            class="flex items-center justify-center w-[90%] gap-9
-                    md:flex md:w-5/6 md:gap-24
-                    lg:flex lg:w-5/6 lg:gap-36"
+            className="flex items-center justify-center w-64 justify-between
+                    md:flex md:w-5/6 md:justify-between
+                    lg:flex lg:w-4/5 lg:justify-between"
           >
             <input
-              class="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800  bg-transparent w-24 flex
-                            md:w-2/6 md:text-2xl
+              className="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800  bg-transparent w-24 flex
+                            md:w-1/4 md:text-2xl
                             lg:w-36
                             "
               type="text"
@@ -372,24 +386,24 @@ export function Register() {
               onChange={handleNameChange}
             />
             <input
-              class="
-                            md:w-20
-                            "
+              className="
+                            md:w-20 
+                            lg:h-10"
               type="color"
               value={avatarColor}
               onChange={handleColorChange}
             />
             <Stack
-              class="
+              className="
                         "
             >
-              <ResponsiveAvatar sx={{ bgcolor: [avatarColor] }}>
+              <ResponsiveAvatar sx={{ bgcolor: [avatarColor], width: 40, height: 40 }}>
                 {avatarName}
               </ResponsiveAvatar>
             </Stack>
           </div>
           <button
-            class="bg-green-800 w-64 h-7 flex justify-center border border-green-800 text-white rounded-full
+            className="bg-green-800 w-64 h-7 flex justify-center border border-green-800 text-white rounded-full
                         md:w-5/6 md:h-12 md:text-4xl
                         lg:w-4/5 lg:h-14 lg:text-4xl lg:rounded-full lg:cursor-pointer"
             disabled={isDisabled}
@@ -399,7 +413,7 @@ export function Register() {
           </button>
           <Link
             to="/"
-            class="flex text-xs w-72 justify-center
+            className="flex text-xs w-72 justify-center
                         md:text-xl md:w-5/6 md:text-center
                         lg:w-4/5 lg:h-12 lg:text-2xl"
           >
@@ -409,8 +423,8 @@ export function Register() {
         <img
           src={Travel}
           alt=""
-          class="w-full h-56 fixed bottom-0
-                md:h-1/4 md:fixed md:bottom-0
+          className="w-80 max-w-[320px] h-56 fixed bottom-0
+                md:h-1/4 md:fixed md:bottom-0 md:w-4/6 md:min-w-[678px]
                 lg:hidden"
         />
       </div>

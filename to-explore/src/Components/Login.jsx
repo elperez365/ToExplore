@@ -15,7 +15,7 @@ export function Login({ setUserlogged }) {
   const hideSvgRef = useRef(null);
   const navigate = useNavigate();
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
-  const handleWindowResize = useCallback((event) => {
+  const handleWindowResize = useCallback(() => {
     setWindowHeight(window.innerHeight);
   }, []);
   useEffect(() => {
@@ -97,34 +97,34 @@ export function Login({ setUserlogged }) {
   return (
     <div
       // style={{ backgroundImage: `url(${prova2})` }}
-      class="h-screen  w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100
+      className="h-screen  w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100
         lg:bg-white"
     >
       {loading && <Loading />}
       <div
-        class="z-20 flex flex-col items-center gap-6 pt-5
+        className="z-20 flex flex-col items-center gap-6 pt-5
       md:pt-12
       lg:gap-12 lg:pt-16"
       >
         {windowHeight > 550 && (
           <div className="flex flex-col jusify-center items-center md:gap-8">
-            <img class="w-28" src={birdlogo2} alt="" />
+            <img className="w-28" src={birdlogo2} alt="" />
             <h1
-              class="text-white text-center font-bold text-center
+              className="text-white text-center font-bold text-center
               md:text-2xl md:font-bold
               lg:text-6xl lg:font-extrabold lg:text-white"
             >
               ToExplore
             </h1>
             <h2
-              class="z-10 text-2xl font-extrabold w-52 text-center
+              className="z-10 text-2xl font-extrabold w-52 text-center
               md:w-full md:text-center md:text-3xl
               lg:w-auto lg:text-2xl lg:text-black"
             >
               Life is a journey.
             </h2>
             <p
-              class="z-10 text-xs w-80 text-center
+              className="z-10 text-xs w-80 text-center
               md:w-full md:text-center md:text-base
               lg:w-auto lg:text-base lg:text-black"
             >
@@ -132,14 +132,13 @@ export function Login({ setUserlogged }) {
             </p>
           </div>
         )}
-
         <div
-          class="z-10 md:gap-8 bg-white/90 w-80 h-64 rounded-lg flex flex-col justify-center items-center gap-4
-           md:min-h-[400px] max-h-[367px max-w-[510px] md:w-4/6 md:h-2/6 md:flex md:flex-col md:gap-1
+          className="z-10 bg-white/90 w-80 h-64 rounded-lg flex flex-col justify-center items-center gap-4
+           md:min-h-[400px] max-h-[367px max-w-[510px] md:w-4/6 md:h-2/6 md:flex md:flex-col md:gap-8
                 lg:w-2/5 lg:h-3/6 lg:rounded-3xl lg:opacity-95 lg:mih-h-[424px]"
         >
           <input
-            class="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
+            className="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
                          md:w-5/6 md:text-2xl
                         lg:w-4/5 lg:text-2xl lg:h-12"
             type="text"
@@ -148,12 +147,12 @@ export function Login({ setUserlogged }) {
             onChange={(e) => setUsername(e.target.value)}
           />
           <div
-            class="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
+            className="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
           md:w-5/6
           lg:w-4/5 lg:items-center "
           >
             <input
-              class="bg-transparent w-64
+              className="bg-transparent w-64
               md:w-full md:text-2xl
               lg:text-2xl lg:h-12"
               type={showPassword ? "text" : "password"}
@@ -164,13 +163,13 @@ export function Login({ setUserlogged }) {
             <button
               ref={hideSvgRef}
               id="hideSvg"
-              class="
+              className="
               md:w-14 md:h-8
                     lg:w-14 lg:h-8"
               onClick={changeSvgIcon}
             >
               <svg
-                class="md:w-14 md:h-8
+                className="md:w-14 md:h-8
                         lg:w-14 lg:h-8"
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
@@ -203,13 +202,13 @@ export function Login({ setUserlogged }) {
             <button
               ref={showSvgRef}
               id="showSvg"
-              class=" hidden
+              className=" hidden
                     md:hidden md:w-14 md:h-8
                     lg:w-14 lg:h-8 lg:hidden"
               onClick={changeSvgIcon}
             >
               <svg
-                class="md:w-14 md:h-8
+                className="md:w-14 md:h-8
                 lg:w-14 lg:h-8 lg:z-10"
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
@@ -218,14 +217,14 @@ export function Login({ setUserlogged }) {
                 fill="none"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9ZM11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z"
                   fill="#000000"
                 />
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M21.83 11.2807C19.542 7.15186 15.8122 5 12 5C8.18777 5 4.45796 7.15186 2.17003 11.2807C1.94637 11.6844 1.94361 12.1821 2.16029 12.5876C4.41183 16.8013 8.1628 19 12 19C15.8372 19 19.5882 16.8013 21.8397 12.5876C22.0564 12.1821 22.0536 11.6844 21.83 11.2807ZM12 17C9.06097 17 6.04052 15.3724 4.09173 11.9487C6.06862 8.59614 9.07319 7 12 7C14.9268 7 17.9314 8.59614 19.9083 11.9487C17.9595 15.3724 14.939 17 12 17Z"
                   fill="#000000"
                 />
@@ -233,12 +232,12 @@ export function Login({ setUserlogged }) {
             </button>
           </div>
           <div
-            class="flex items-center w-64 text-xs gap-2
+            className="flex items-center w-64 text-xs gap-2
                     md:w-5/6 md:text-base
                     lg:text-xl lg:w-4/5"
           >
             <input
-              class="
+              className="
               lg:w-5 lg:h-12"
               type="checkbox"
               checked={rememberUsername}
@@ -247,7 +246,7 @@ export function Login({ setUserlogged }) {
             <label>Remember username</label>
           </div>
           <button
-            class="bg-green-800 w-64 h-7 flex justify-center border border-green-800 text-white rounded-full
+            className="bg-green-800 w-64 h-7 flex justify-center border border-green-800 text-white rounded-full
             md:w-5/6 md:h-14 md:text-4xl
             lg:w-4/5 lg:h-14 lg:text-4xl lg:rounded-full"
             disabled={isDisabled}
@@ -257,7 +256,7 @@ export function Login({ setUserlogged }) {
           </button>
           <Link
             to="/register"
-            class="flex text-xs w-72 justify-center
+            className="flex text-xs w-72 justify-center
                         md:text-xl md:w-5/6 md:text-center
                         lg:w-4/5 lg:h-12 lg:text-2xl"
           >
@@ -267,7 +266,7 @@ export function Login({ setUserlogged }) {
         <img
           src={Travel}
           alt=""
-          class="h-72 w-full fixed bottom-0
+          className="h-72 w-full fixed bottom-0
                 md:h-2/5 md:fixed md:bottom-0
                 lg:hidden z-0"
         />
