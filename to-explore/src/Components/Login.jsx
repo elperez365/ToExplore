@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Travel from "./Travel.png";
 // import prova2 from "./prova2.jpg";
 import birdlogo2 from "../images/birdLogo2.png";
@@ -14,7 +14,16 @@ export function Login({ setUserlogged }) {
   const showSvgRef = useRef(null);
   const hideSvgRef = useRef(null);
   const navigate = useNavigate();
-
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const handleWindowResize = useCallback((event) => {
+    setWindowHeight(window.innerHeight);
+  }, []);
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [handleWindowResize]);
   const handleLogin = () => {
     if (username !== "" && password !== "") {
       setLoading(true);
@@ -55,7 +64,10 @@ export function Login({ setUserlogged }) {
   };
 
   const changeSvgIcon = () => {
-    if (showSvgRef.current.style.display === "block" && hideSvgRef.current.style.display === "none") {
+    if (
+      showSvgRef.current.style.display === "block" &&
+      hideSvgRef.current.style.display === "none"
+    ) {
       showSvgRef.current.style.display = "none";
       hideSvgRef.current.style.display = "block";
       setShowPassword(false);
@@ -85,45 +97,50 @@ export function Login({ setUserlogged }) {
   return (
     <div
       // style={{ backgroundImage: `url(${prova2})` }}
-      class="h-screen w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100
+      class="h-screen  w-screen bg-gradient-to-b from-green-700 via-green-400 to-green-100
         lg:bg-white"
     >
       {loading && <Loading />}
       <div
-        class="h-screen flex flex-col items-center gap-6 pt-5
+        class="z-20 flex flex-col items-center gap-6 pt-5
       md:pt-12
       lg:gap-12 lg:pt-16"
       >
-        <img class="w-28" src={birdlogo2} alt="" />
-        <h1
-          class="text-white text-center font-bold text-center
-                md:text-2xl md:font-bold
-                lg:text-6xl lg:font-extrabold lg:text-white"
-        >
-          ToExplore
-        </h1>
-        <h2
-          class="text-2xl font-extrabold w-52 text-center
-                md:w-full md:text-center md:text-3xl
-                lg:w-auto lg:text-2xl lg:text-black"
-        >
-          Life is a journey.
-        </h2>
-        <p
-          class="text-xs w-80 text-center
-                md:w-full md:text-center md:text-base
-                lg:w-auto lg:text-base lg:text-black"
-        >
-          Get ready to share your experiences with the world!
-        </p>
+        {windowHeight > 550 && (
+          <div className="flex flex-col jusify-center items-center md:gap-8">
+            <img class="w-28" src={birdlogo2} alt="" />
+            <h1
+              class="text-white text-center font-bold text-center
+              md:text-2xl md:font-bold
+              lg:text-6xl lg:font-extrabold lg:text-white"
+            >
+              ToExplore
+            </h1>
+            <h2
+              class="z-10 text-2xl font-extrabold w-52 text-center
+              md:w-full md:text-center md:text-3xl
+              lg:w-auto lg:text-2xl lg:text-black"
+            >
+              Life is a journey.
+            </h2>
+            <p
+              class="z-10 text-xs w-80 text-center
+              md:w-full md:text-center md:text-base
+              lg:w-auto lg:text-base lg:text-black"
+            >
+              Get ready to share your experiences with the world!
+            </p>
+          </div>
+        )}
+
         <div
-          class="bg-white/90 w-80 h-64 rounded-lg flex flex-col justify-center items-center gap-4
-                md:w-4/6 md:h-2/6 md:flex md:flex-col md:gap-9
-                lg:w-2/5 lg:h-3/6 lg:rounded-3xl lg:opacity-95"
+          class="z-10 md:gap-8 bg-white/90 w-80 h-64 rounded-lg flex flex-col justify-center items-center gap-4
+           md:min-h-[400px] max-h-[367px max-w-[510px] md:w-4/6 md:h-2/6 md:flex md:flex-col md:gap-1
+                lg:w-2/5 lg:h-3/6 lg:rounded-3xl lg:opacity-95 lg:mih-h-[424px]"
         >
           <input
             class="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
-                        md:w-5/6 md:text-2xl
+                         md:w-5/6 md:text-2xl
                         lg:w-4/5 lg:text-2xl lg:h-12"
             type="text"
             placeholder="Username"
@@ -252,7 +269,7 @@ export function Login({ setUserlogged }) {
           alt=""
           class="h-72 w-full fixed bottom-0
                 md:h-2/5 md:fixed md:bottom-0
-                lg:hidden"
+                lg:hidden z-0"
         />
       </div>
     </div>
