@@ -7,11 +7,11 @@ import Andre from "./images/Andre.JPG";
 
 export function Team() {
   return (
-    <div className="h-screen w-screen bg-primary bg-opacity-75">
+    <div className="h-full min-h-screen w-full bg-primary bg-opacity-75">
       <Link to="/settings">
         <ButtonPrev />
       </Link>
-      <div className="flex flex-wrap h-4/5 gap-8">
+      <div className="flex flex-wrap  h-4/5 gap-8">
         <div className="flex w-full justify-center items-center gap-8">
           <div
             className="w-36 h-36
