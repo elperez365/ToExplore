@@ -122,7 +122,7 @@ export function Login({ setUserlogged }) {
       lg:gap-12 lg:pt-16"
       >
         {windowHeight > 550 && (
-          <div className="flex flex-col jusify-center items-center md:gap-8">
+          <div className="flex flex-col jusify-center items-center md:gap-4 gap-6 ">
             <img className="w-28" src={birdlogo2} alt="" />
             <h1
               className="text-white text-center font-bold text-center
@@ -150,7 +150,7 @@ export function Login({ setUserlogged }) {
         <div
           className="z-10 bg-white/90 w-80 h-64 rounded-lg flex flex-col justify-center items-center gap-4
            md:min-h-[400px] max-h-[367px max-w-[510px] md:w-4/6 md:h-2/6 md:flex md:flex-col md:gap-8
-                lg:w-2/5 lg:h-3/6 lg:rounded-3xl lg:opacity-95 lg:mih-h-[424px]"
+                lg:w-2/5 lg:h-3/6 lg:rounded-3xl lg:opacity-95 lg:mih-h-[424px] shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]"
         >
           <input
             className="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
@@ -261,7 +261,7 @@ export function Login({ setUserlogged }) {
             <label>Remember username</label>
           </div>
           <button
-            className="bg-green-800 w-64 h-7 flex justify-center border border-green-800 text-white rounded-full
+            className="bg-green-800 w-64 h-7 flex justify-center items-center border border-green-800 text-white rounded-full
             md:w-5/6 md:h-14 md:text-4xl
             lg:w-4/5 lg:h-14 lg:text-4xl lg:rounded-full"
             disabled={isDisabled}
@@ -269,14 +269,18 @@ export function Login({ setUserlogged }) {
           >
             Login
           </button>
-          <Link
-            to="/register"
+          <div
             className="flex text-xs w-72 justify-center
                         md:text-xl md:w-5/6 md:text-center
                         lg:w-4/5 lg:h-12 lg:text-2xl"
           >
-            <p>Do not have an account? Sign in!</p>
-          </Link>
+            <p>
+              Do not have an account?{" "}
+              <Link className="text-green-700 font-bold" to="/register">
+                Sign in!
+              </Link>
+            </p>
+          </div>
         </div>
         <img
           src={Travel}

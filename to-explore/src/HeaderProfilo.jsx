@@ -17,7 +17,7 @@ function HeaderProfilo({
   };
   let regionSelected = useParams();
   return (
-    <div className="flex justify-around items-center h-28 w-full bg-contrast">
+    <div className="flex justify-around items-center h-28 w-full bg-contrast glass-effect bg-opacity-70">
       <div className="flex items-center gap-2">
         {regionSelected.region ? (
           <img

@@ -156,36 +156,40 @@ export function Register() {
         className="z-20 flex flex-col items-center gap-6 pt-2
             md:justify-start md:pt-8
             lg:gap-8 lg:pt-12"
-      > {windowHeight > 550 && (
-        <div className="flex flex-col jusify-center items-center
-        md:gap-8">
-          <img className="w-28" src={birdlogo2} alt="" />
-          <h1
-            className="text-white text-center font-bold
+      >
+        {" "}
+        {windowHeight > 550 && (
+          <div
+            className="flex flex-col jusify-center items-center
+        md:gap-8 gap-"
+          >
+            <img className="w-28" src={birdlogo2} alt="" />
+            <h1
+              className="text-white text-center font-bold
                 md:text-2xl md:font-bold
                 lg:text-6xl lg:font-extrabold lg:text-white"
-          >
-            ToExplore
-          </h1>
-          <h2
-            className="text-2xl font-extrabold w-52 text-center
+            >
+              ToExplore
+            </h1>
+            <h2
+              className="text-2xl font-extrabold w-52 text-center
                 md:w-full md:text-center md:text-3xl lg:w-auto lg:text-2xl lg:text-black"
-          >
-            Register here!
-          </h2>
-          <p
-            className="text-xs w-80 text-center
+            >
+              Register here!
+            </h2>
+            <p
+              className="text-xs w-80 text-center
                 md:w-full md:text-center md:text-base
                  lg:w-auto lg:text-base lg:text-black "
-          >
-            Become part of our community
-          </p>
-        </div>
-      )}
+            >
+              Become part of our community
+            </p>
+          </div>
+        )}
         <div
           className="z-10 bg-white/90 w-80 h-2/5 rounded-lg flex flex-col items-center gap-3 min-h-[282px] min-w-[320px] max-w-[320px]
-                md:w-4/6 md:h-1/2 md:min-h-[438px] md:min-w-[678px] md:flex md:flex-col md:gap-5
-                lg:w-2/5 lg:h-3/5 lg:rounded-3xl lg:opacity-95 lg:min-w-[745px] lg:max-w-[745px] justify-center"
+                md:w-4/6 md:h-1/2 md:min-h-[438px] md:min-w-[678px] md:flex md:flex-col md:gap-5 
+                lg:w-2/5 lg:h-3/5 lg:rounded-3xl lg:opacity-95 lg:min-w-[745px] lg:max-w-[745px] justify-center shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]"
         >
           <input
             className="border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
@@ -406,7 +410,9 @@ export function Register() {
               className="
                         "
             >
-              <ResponsiveAvatar sx={{ bgcolor: [avatarColor], width: 40, height: 40 }}>
+              <ResponsiveAvatar
+                sx={{ bgcolor: [avatarColor], width: 40, height: 40 }}
+              >
                 {avatarName}
               </ResponsiveAvatar>
             </Stack>
@@ -420,14 +426,15 @@ export function Register() {
           >
             Register
           </button>
-          <Link
-            to="/"
-            className="flex text-xs w-72 justify-center
-                        md:text-xl md:w-5/6 md:text-center
-                        lg:w-4/5 lg:h-12 lg:text-2xl"
+          <div
+            className="flex text-xs w-72 justify-center md:text-xl md:w-5/6
+          md:text-center lg:w-4/5 lg:h-12 lg:text-2xl"
           >
-            <p>Do you already have an account? Login!</p>
-          </Link>
+            <p>Do you already have an account? </p>
+            <Link to="/" className="text-green-600 font-bold ml-1">
+              Login!
+            </Link>
+          </div>
         </div>
         <img
           src={Travel}
