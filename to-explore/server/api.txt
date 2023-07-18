@@ -151,3 +151,45 @@ CANCELLA IL COMMENTO CON ID INVIATO DAL CLIENT
 
 
 
+------------------------------------------------------------
+
+_:_:_:_:::_:_:_work in progress:_:_:_:::_:_
+
+like API
+  array esempio per gestione like
+{
+username1:[idcard1,idcard2,idcard3],
+username2:[idcard2,idcard4,idcard6],
+username3:[idcard5,idcard8,idcard10],
+username4:[idcard9,idcard17,idcard12],
+}
+
+-prima api memorizza il like al click --->>TIPO POST-----
+riceve dal body:
+{
+ username : userCheHaMessoLike, 
+ post : idDelPostCheHaMessoLike,
+}
+
+
+-seconda api cancella il like al click --->>TIPO DELETE----
+riceve dal body:
+{
+ username : userCheHaToltoLike, 
+ post : idDelPostCheHaToltoLike,
+}
+
+-terza api serve alla card al didmount per sapere
+ se l'utente loggato ha
+  messo like su quel post --->>tipo GET con body
+riceve dal body:
+{
+  username: userLoggato
+  post : idDelPost
+}
+e
+invia come risposta un booleano
+
+
+
+
