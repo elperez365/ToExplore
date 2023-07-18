@@ -21,12 +21,12 @@ import { SomeoneProfile } from "./SomeoneProfile";
 
 export default function App() {
   const [userLogged, setUserlogged] = useState({
-    logged: false,
-    userID: "2",
-    username: "pippo",
-    mail: "pippo.pappa@gmail.com",
-    avatar: "PI",
-    avatarColor: "red",
+    logged: sessionStorage.logged ? sessionStorage.logged : false,
+    userID: sessionStorage.userID ? sessionStorage.userID : null,
+    username: sessionStorage.username ? sessionStorage.username : null,
+    mail: sessionStorage.mail ? sessionStorage.mail : null,
+    avatar: sessionStorage.avatar ? sessionStorage.avatar : null,
+    avatarColor: sessionStorage.avatarColor ? sessionStorage.avatarColor : null,
   });
   const [languageApp, SetLanguageApp] = useState("it");
   const [counterpost, setCounterPost] = useState(0);

@@ -49,6 +49,12 @@ export function Login({ setUserlogged }) {
               avatar: json[0].avatar,
               avatarColor: json[0].color,
             });
+            sessionStorage.setItem("logged", true);
+            sessionStorage.setItem("userID", json[0].id);
+            sessionStorage.setItem("username", json[0].username);
+            sessionStorage.setItem("mail", json[0].mail);
+            sessionStorage.setItem("avatar", json[0].avatar);
+            sessionStorage.setItem("avatarColor", json[0].color);
             setTimeout(() => {
               navigate("/homepage");
             }, 1000);
