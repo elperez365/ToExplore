@@ -34,7 +34,7 @@ export default function App() {
   const [languageApp, SetLanguageApp] = useState("it");
   const [counterpost, setCounterPost] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  console.log(userParsed);
+
   let ricevicounterpost = (number) => {
     setCounterPost(number);
   };
