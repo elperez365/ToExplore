@@ -65,8 +65,9 @@ export function Login({ setUserlogged }) {
               navigate("/homepage");
             }, 1000);
           } else {
-            setLoading(false);
             alert("I dati inseriti non sono corretti");
+            setLoading(false);
+
             window.location.href = "/";
           }
         });
