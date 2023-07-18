@@ -66,6 +66,17 @@ export default function Card2({
   const navigate = useNavigate();
   const linkBooking = `https://www.booking.com/searchresults.it.html?ss=${postLocation}`;
   const linkTripAdvisor = `https://www.tripadvisor.it/Search?q=${postLocation}`;
+  const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
+  const handleWindowResize = React.useCallback((event) => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+  React.useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [handleWindowResize]);
   const handleClose = () => setOpen(false);
 
   const handleOpen = () => window.innerWidth > 390 && setOpen(true);
@@ -213,10 +224,13 @@ export default function Card2({
             </Grow>
           </Box>
         )}
-        <IconButton href={linkBooking} target="_blank">
+        <IconButton href={linkBooking} target={windowWidth >= 1024 && "_blank"}>
           <img className="w-8 h-8" src={booking} alt="" />
         </IconButton>
-        <IconButton href={linkTripAdvisor} target="_blank">
+        <IconButton
+          href={linkTripAdvisor}
+          target={windowWidth >= 1024 && "_blank"}
+        >
           <img className="w-8 h-8" src={tripadvisor} alt="" />
         </IconButton>
 
