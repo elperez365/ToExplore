@@ -18,19 +18,23 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import LanguageContext from "./LanguageContext";
 import { RedirectHomePage } from "./RedirectHomePage";
 import { SomeoneProfile } from "./SomeoneProfile";
+import SilentLogin from "./SilentLogin";
 
 export default function App() {
+  const userParsed = sessionStorage.User && JSON.parse(sessionStorage.User);
+
   const [userLogged, setUserlogged] = useState({
-    logged: sessionStorage.logged ? sessionStorage.logged : false,
-    userID: sessionStorage.userID ? sessionStorage.userID : null,
-    username: sessionStorage.username ? sessionStorage.username : null,
-    mail: sessionStorage.mail ? sessionStorage.mail : null,
-    avatar: sessionStorage.avatar ? sessionStorage.avatar : null,
-    avatarColor: sessionStorage.avatarColor ? sessionStorage.avatarColor : null,
+    logged: userParsed?.logged ? userParsed.logged : false,
+    userID: userParsed?.userID ? userParsed.userID : null,
+    username: userParsed?.username ? userParsed.username : null,
+    mail: userParsed?.mail ? userParsed.mail : null,
+    avatar: userParsed?.avatar ? userParsed.avatar : null,
+    avatarColor: userParsed?.avatarColor ? userParsed.avatarColor : null,
   });
   const [languageApp, SetLanguageApp] = useState("it");
   const [counterpost, setCounterPost] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  console.log(userParsed);
   let ricevicounterpost = (number) => {
     setCounterPost(number);
   };
@@ -50,7 +54,14 @@ export default function App() {
     <LanguageContext.Provider value={{ languageApp, SetLanguageApp }}>
       <userLoggedContest.Provider value={userLogged}>
         <Routes>
-          <Route path="" element={<Login setUserlogged={setUserlogged} />} />
+          <Route
+            path=""
+            element={
+              <SilentLogin
+                component={<Login setUserlogged={setUserlogged} />}
+              />
+            }
+          />
           <Route path="/*" element={<ErrorPage />} />
           <Route path="/redirect" element={<RedirectHomePage />} />
           <Route path="/register" element={<Register />} />

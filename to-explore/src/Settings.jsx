@@ -64,7 +64,7 @@ export function Settings({ setUserlogged }) {
         </Link>
         <button
           onClick={() => {
-            sessionStorage.removeItem("logged");
+            sessionStorage.removeItem("User");
             setUserlogged({ logged: false });
           }}
           className="text-center text-3xl w-full
