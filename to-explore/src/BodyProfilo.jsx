@@ -36,7 +36,7 @@ function BodyProfilo(props) {
 
   const handleClose = () => setOpen(false);
   return (
-    <div className="bg-contrast bg-blur bg-opacity-40 min-h-[720px] h-full">
+    <div className="bg-contrast bg-blur bg-opacity-40 min-h-[720px] h-full md:min-h-[1050px]">
       <Navbar />
       <div className="flex flex-wrap w-full">
         {!filtered.length && (
