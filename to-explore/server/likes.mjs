@@ -1,0 +1,1 @@
+export const likesDB = {"username":["1"],"pino":["2"],"pippo":["3"],"andre":["3","5"]}

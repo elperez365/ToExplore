@@ -23,7 +23,7 @@ RICHIESTA:
 RISPOSTA: se tutto ok
 {
   success: true,
-  text: "Registrazione completata con successo" 
+  text: "Registrazione completata con successo"
 }
 
 RISPOSTA: se non va
@@ -44,13 +44,13 @@ RICHIESTA:
 // }
 
 RISPOSTA: se tutto ok
-{ 
+{
     success: true,
     text: "The avatar color is changed!"
 }
 
 RISPOSTA: se utente non trovato
-{ 
+{
     success: false,
     text: "username not found"
 }
@@ -167,10 +167,10 @@ username4:[idcard9,idcard17,idcard12],
 - 1 prima api memorizza il like al click --->>TIPO POST-----
 riceve dal body:
 {
- username : userCheHaMessoLike, 
+ username : userCheHaMessoLike,
  post : idDelPostCheHaMessoLike,
 }
-il server controlla se esiste l'user nell'oggetto, 
+il server controlla se esiste l'user nell'oggetto,
 se non esiste lo crea con array vuoto,
 dopodichè fa il push del nuovo postID.
 se esiste gia fa solo il push del postID
@@ -179,7 +179,7 @@ se esiste gia fa solo il push del postID
 - 2 seconda api cancella il like al click --->>TIPO DELETE----
 riceve dal body:
 {
- username : userCheHaToltoLike, 
+ username : userCheHaToltoLike,
  post : idDelPostCheHaToltoLike,
 }
 
