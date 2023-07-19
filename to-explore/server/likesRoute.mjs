@@ -69,8 +69,8 @@ likesRouter.get("/getCounter", (req, res) => {
     const totalLikes = Object.values(likes);
     const flatTotalLikes = totalLikes.flat();
 
-    const mapTotalLikes = flatTotalLikes.filter((el) => el === postId);
-    const counter = mapTotalLikes.length;
+    const filterTotalLikes = flatTotalLikes.filter((el) => el === postId);
+    const counter = filterTotalLikes.length;
 
     res.status(200).json({
         success: true,
