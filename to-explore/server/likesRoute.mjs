@@ -45,7 +45,7 @@ likesRouter.delete("/delete", (req, res) => {
     }
 });
 
-likesRouter.get("/getLike", (req, res) => {
+likesRouter.post("/getLike", (req, res) => {
     const { username, postId } = req.body;
 
     const foundLikedPost = likes[username].find((el) => el === postId);
@@ -56,14 +56,14 @@ likesRouter.get("/getLike", (req, res) => {
             text: "il like è presente",
         });
     } else {
-        res.status(500).json({
+        res.status(200).json({
             succes: false,
             text: "il like non è presente",
         });
     }
 });
 
-likesRouter.get("/getCounter", (req, res) => {
+likesRouter.post("/getCounter", (req, res) => {
     const { postId } = req.body;
 
     const totalLikes = Object.values(likes);
