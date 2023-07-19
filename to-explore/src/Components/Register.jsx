@@ -215,7 +215,8 @@ export function Register() {
                     lg:w-4/5 lg:text-2xl lg:h-12  lg:justify-start lg:justify-between"
           >
             <input
-              className="bg-transparent"
+              className="bg-transparent w-11/12
+              md:w-11/12"
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
@@ -298,7 +299,8 @@ export function Register() {
                     lg:w-4/5 lg:text-2xl lg:h-12  lg:justify-start lg:justify-between "
           >
             <input
-              className="bg-transparent"
+              className="bg-transparent w-11/12
+              md:w-11/12"
               type={showPassword2 ? "text" : "password"}
               placeholder="Repeat Password"
               value={rptPassword}

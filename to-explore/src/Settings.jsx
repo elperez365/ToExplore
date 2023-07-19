@@ -31,7 +31,7 @@ export function Settings({ setUserlogged }) {
         <div className="flex flex-col justify-center items-center gap-2">
           <label
             className="justify-center text-3xl flex flex-wrap w-full
-                md:text-3xl gap-3"
+                md:text-5xl gap-3"
             for="language"
           >
             {languages.selectLanguages}
