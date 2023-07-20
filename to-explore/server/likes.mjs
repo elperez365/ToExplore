@@ -15,4 +15,11 @@ export const likesDB = {
     "c2264d69-4051-4aa3-9b59-ac597490ac97",
     "1e58b30c-21fa-49af-8866-b81f566cae66",
   ],
+  pippoct: [
+    "c2264d69-4051-4aa3-9b59-ac597490ac97",
+    "b635a470-2b1f-49ec-afc8-fa9854afc5a2",
+    "57f80ee3-1af4-42a4-aae1-20fa52e927e5",
+    "b162d835-f442-4304-a953-4dec5fc07847",
+    "1e58b30c-21fa-49af-8866-b81f566cae66",
+  ],
 };
