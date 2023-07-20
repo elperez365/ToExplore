@@ -181,7 +181,7 @@ riceve dal body:
  postId : idDelPostCheHaToltoLike,
 }
 
-- 3 localhost:3001/likes/getLike --->>tipo GET con body
+- 3 localhost:3001/likes/getLike ----->> tipo POST
 riceve dal body:
 {
   username: userLoggato
@@ -190,11 +190,26 @@ riceve dal body:
 e
 invia come risposta un booleano
 
-- 4 localhost:3001/likes/getCounter --->tipo GET con body
+- 4 localhost:3001/likes/getCounter ----->> tipo POST
 riceve dal body:
 {
   postId: idDelPost
 }
 risponde con il counter del numero di mi piace
 
+
+-5  localhost:3001/likes/userLikeIt ----->> tipo POST
+riceve dal body:
+{
+  postId: idDelPost
+}
+
+risponde con un array di username che hanno messo like a quel post
+{
+    "success": true,
+    "usersLikeIt": [
+        "pino",
+        "vascone"
+    ]
+}
 
