@@ -19,7 +19,7 @@ import { Backdrop, Box, Grow, Modal, useScrollTrigger } from "@mui/material";
 import { TiSocialInstagramCircular } from "react-icons/ti";
 import booking from "./images/booking.png";
 import tripadvisor from "./images/tripadvisor.png";
-import LikedList from "./LikedList";
+import { LikedList } from "./LikedList";
 
 import {
   EmailShareButton,
@@ -65,7 +65,8 @@ export default function Card2({
   const [wannaDelete, setWannaDelete] = React.useState(false);
   const { username } = React.useContext(userLoggedContest);
   const [counterLike, setCounterLike] = React.useState("");
-  const [likedUserList, showLikedUserList] = React.useState(false);
+  const [likedUserList, setLikedUserList] = React.useState([]);
+  const [toggleUserList, setToggleUserList] = React.useState(false);
   const [avatarPost, setAvatarPost] = React.useState({});
   const navigate = useNavigate();
   const linkBooking = `https://www.booking.com/searchresults.it.html?ss=${postLocation}`;
@@ -84,6 +85,18 @@ export default function Card2({
     })
       .then((res) => res.json())
       .then((json) => setAvatarPost(json));
+  }, []);
+
+  React.useEffect(() => {
+    fetch("http://localhost:3001/likes/userLikeIt", {
+      method: "POST",
+      body: JSON.stringify({
+        postId: postId,
+      }),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((res) => res.json())
+      .then((json) => setLikedUserList(json.usersLikeIt));
   }, []);
 
   React.useEffect(() => {
@@ -278,8 +291,17 @@ export default function Card2({
         </IconButton>
 
         {counterLike !== 0 && (
-          <span className="cursor-pointer hover:underline">{counterLike}</span>
+          <span
+            className="cursor-pointer hover:underline"
+            onClick={() => {
+              setToggleUserList(toggleUserList === false ? true : false);
+            }}
+          >
+            {counterLike}
+          </span>
         )}
+
+        {toggleUserList && <LikedList likedUserList={likedUserList} />}
 
         <IconButton
           aria-label="share"
