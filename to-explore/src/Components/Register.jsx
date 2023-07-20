@@ -215,7 +215,7 @@ export function Register() {
                     lg:w-4/5 lg:text-2xl lg:h-12  lg:justify-start lg:justify-between"
           >
             <input
-              className="bg-transparent"
+              className="bg-transparent w-11/12"
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
@@ -294,11 +294,11 @@ export function Register() {
           </div>
           <div
             className="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent flex justify-center w-64 justify-between
-                    md:w-5/6 md:text-2xl md:items-center md:justify-between
-                    lg:w-4/5 lg:text-2xl lg:h-12  lg:justify-start lg:justify-between "
+                    md:w-5/6 md:text-2xl  md:justify-start md:justify-between
+                    lg:w-4/5 lg:text-2xl lg:h-12  lg:justify-start lg:justify-between"
           >
             <input
-              className="bg-transparent"
+              className="bg-transparent w-11/12"
               type={showPassword2 ? "text" : "password"}
               placeholder="Repeat Password"
               value={rptPassword}
@@ -306,7 +306,7 @@ export function Register() {
             />
             <button
               ref={hideSvgRef2}
-              id="hideSvg2"
+              id="hideSvg"
               className="
                     md:w-14 md:h-8
                     lg:w-14 lg:h-8"
@@ -314,7 +314,7 @@ export function Register() {
             >
               <svg
                 className="md:w-14 md:h-8
-                         lg:w-14 lg:h-8"
+                            lg:w-14 lg:h-8"
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
                 height="20"
@@ -345,7 +345,7 @@ export function Register() {
             </button>
             <button
               ref={showSvgRef2}
-              id="showSvg2"
+              id="showSvg"
               className="hidden
                     md:w-14 md:h-8 md:hidden
                     lg:w-14 lg:h-8 lg:hidden"

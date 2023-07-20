@@ -19,6 +19,7 @@ import LanguageContext from "./LanguageContext";
 import { RedirectHomePage } from "./RedirectHomePage";
 import { SomeoneProfile } from "./SomeoneProfile";
 import SilentLogin from "./SilentLogin";
+import { ChangePassword } from "./ChangePassword";
 
 export default function App() {
   const userParsed = sessionStorage.User && JSON.parse(sessionStorage.User);
@@ -130,6 +131,14 @@ export default function App() {
                     component={<Settings setUserlogged={setUserlogged} />}
                   />
                 }
+              />
+            }
+          />
+          <Route
+            path="/changePassword"
+            element={
+              <ProtectedRoute
+                component={<ChangePassword setUserlogged={setUserlogged} />}
               />
             }
           />

@@ -15,6 +15,10 @@ export function Settings({ setUserlogged }) {
       languageApp === "it"
         ? "Scegli il colore dell'avatar"
         : "Change avatar Color",
+        changePassword:
+      languageApp === "it"
+        ? "Modifica Password"
+        : "Change Password",
     team: languageApp === "it" ? "Il nostro Team" : "Our Team",
     logout: languageApp === "it" ? "Esci" : "Logout",
   };
@@ -31,7 +35,7 @@ export function Settings({ setUserlogged }) {
         <div className="flex flex-col justify-center items-center gap-2">
           <label
             className="justify-center text-3xl flex flex-wrap w-full
-                md:text-3xl gap-3"
+                md:text-5xl gap-3"
             for="language"
           >
             {languages.selectLanguages}
@@ -41,13 +45,20 @@ export function Settings({ setUserlogged }) {
             onChange={selectLanguage}
             className="bg-primary border border-gray-300 text-gray-900 text-3xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-48 p-2.5 "
             id="language"
-            // name="language"
+          // name="language"
           >
             <option value="it">Italiano</option>
             <option value="en">English</option>
           </select>
         </div>
-
+        <Link to="/changePassword" className="md:w-full">
+          <p
+            className="text-center text-3xl w-full
+                    md:text-5xl"
+          >
+            {languages.changePassword}
+          </p>
+        </Link>
         <Link to="/changeAvatarColor" className="md:w-full">
           <p
             className="text-center text-3xl w-full
