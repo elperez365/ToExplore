@@ -19,6 +19,7 @@ import { Backdrop, Box, Grow, Modal, useScrollTrigger } from "@mui/material";
 import { TiSocialInstagramCircular } from "react-icons/ti";
 import booking from "./images/booking.png";
 import tripadvisor from "./images/tripadvisor.png";
+import LikedList from "./LikedList";
 
 import {
   EmailShareButton,
@@ -64,6 +65,7 @@ export default function Card2({
   const [wannaDelete, setWannaDelete] = React.useState(false);
   const { username } = React.useContext(userLoggedContest);
   const [counterLike, setCounterLike] = React.useState("");
+  const [likedUserList, showLikedUserList] = React.useState(false);
   const [avatarPost, setAvatarPost] = React.useState({});
   const navigate = useNavigate();
   const linkBooking = `https://www.booking.com/searchresults.it.html?ss=${postLocation}`;
@@ -275,7 +277,9 @@ export default function Card2({
           {liked ? <AiFillHeart color="red" /> : <AiFillHeart />}
         </IconButton>
 
-        {counterLike !== 0 && <span>{counterLike}</span>}
+        {counterLike !== 0 && (
+          <span className="cursor-pointer hover:underline">{counterLike}</span>
+        )}
 
         <IconButton
           aria-label="share"
