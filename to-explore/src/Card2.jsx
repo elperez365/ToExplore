@@ -108,20 +108,21 @@ export default function Card2({
       headers: { "Content-type": "application/json; charset=UTF-8" },
     })
       .then((res) => res.json())
-      .then((json) => setLiked(json.success))
-      .then(() => {
-        fetch("http://localhost:3001/likes/getCounter", {
-          method: "POST",
-          body: JSON.stringify({
-            postId: postId,
-          }),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        })
-          .then((res) => res.json())
-          .then((json) => setCounterLike(json.counter));
-      });
+      .then((json) => setLiked(json.success));
+  }, []);
+
+  React.useEffect(() => {
+    fetch("http://localhost:3001/likes/getCounter", {
+      method: "POST",
+      body: JSON.stringify({
+        postId: postId,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => setCounterLike(json.counter));
   }, []);
 
   const handleLike = () => {
