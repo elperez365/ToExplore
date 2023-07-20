@@ -16,7 +16,7 @@ loginRouter.post(`/`, (req, res) => {
     );
     res.status(200).json(userFiltered);
   } else {
-    res.sendStatus(500).json("I dati inseriti non sono");
+    res.json("I dati inseriti non sono");
   }
 });
 
