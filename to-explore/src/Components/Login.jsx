@@ -11,6 +11,7 @@ export function Login({ setUserlogged }) {
   const [rememberUsername, setRememberUsername] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [noMatch, setNoMatch] = useState(null);
   const showSvgRef = useRef(null);
   const hideSvgRef = useRef(null);
   const navigate = useNavigate();
@@ -65,10 +66,11 @@ export function Login({ setUserlogged }) {
               navigate("/homepage");
             }, 1000);
           } else {
-            alert("I dati inseriti non sono corretti");
-            setLoading(false);
+            setNoMatch("I dati inseriti non sono corretti");
 
-            window.location.href = "/";
+            // alert("I dati inseriti non sono corretti");
+
+            // window.location.href = "/";
           }
         });
     }
@@ -162,6 +164,7 @@ export function Login({ setUserlogged }) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          {/* {noMatch && <h1 className="text-red-500">{noMatch}</h1>} */}
           <div
             className="flex border-2 border-t-0 border-x-0 border-b-lime-400 focus:outline-none focus:border-b-lime-800 bg-transparent w-64 flex justify-center
           md:w-5/6
@@ -176,6 +179,7 @@ export function Login({ setUserlogged }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {/* {noMatch && <h1 className="text-red-500">{noMatch}</h1>} */}
             <button
               ref={hideSvgRef}
               id="hideSvg"
@@ -184,6 +188,8 @@ export function Login({ setUserlogged }) {
                     lg:w-14 lg:h-8"
               onClick={changeSvgIcon}
             >
+              {/* {noMatch && <h1 className="text-red-500">{noMatch}</h1>} */}
+
               <svg
                 className="md:w-14 md:h-8
                         lg:w-14 lg:h-8"
@@ -215,6 +221,8 @@ export function Login({ setUserlogged }) {
                 />
               </svg>
             </button>
+            {/* {noMatch && <h1 className="text-red-500">{noMatch}</h1>} */}
+
             <button
               ref={showSvgRef}
               id="showSvg"
@@ -259,7 +267,9 @@ export function Login({ setUserlogged }) {
               checked={rememberUsername}
               onChange={toggleRememberUsername}
             />
+
             <label>Remember username</label>
+            {noMatch && <h1 className="text-red-500">{noMatch}</h1>}
           </div>
           <button
             className="bg-green-800 w-64 h-7 flex justify-center items-center border border-green-800 text-white rounded-full

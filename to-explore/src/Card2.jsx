@@ -175,7 +175,20 @@ export default function Card2({
               },
             })
               .then((res) => res.json())
-              .then((json) => setCounterLike(json.counter));
+              .then((json) => setCounterLike(json.counter))
+              .then(() =>
+                fetch("http://localhost:3001/likes/userLikeIt", {
+                  method: "POST",
+                  body: JSON.stringify({
+                    postId: postId,
+                  }),
+                  headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                  },
+                })
+                  .then((res) => res.json())
+                  .then((json) => setLikedUserList(json.usersLikeIt))
+              );
           });
       });
     } else {
@@ -210,7 +223,20 @@ export default function Card2({
               },
             })
               .then((res) => res.json())
-              .then((json) => setCounterLike(json.counter));
+              .then((json) => setCounterLike(json.counter))
+              .then(() =>
+                fetch("http://localhost:3001/likes/userLikeIt", {
+                  method: "POST",
+                  body: JSON.stringify({
+                    postId: postId,
+                  }),
+                  headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                  },
+                })
+                  .then((res) => res.json())
+                  .then((json) => setLikedUserList(json.usersLikeIt))
+              );
           });
       });
     }
@@ -292,7 +318,7 @@ export default function Card2({
 
         {counterLike !== 0 && (
           <span
-            className="cursor-pointer hover:underline"
+            className="text-xl min-w-[1rem] text-center cursor-pointer hover:underline"
             onClick={() => {
               setToggleUserList(toggleUserList === false ? true : false);
             }}
