@@ -27,7 +27,7 @@ uploadPostRouter.post(`/`, upload.array("image"), (req, res) => {
     postUser: req.body.postUser,
     postAvatar: req.body.avatar,
     avatarColor: req.body.avatarColor,
-    img: `http://localhost:3001/static/${req.files[0].filename}`,
+    img: `http://192.168.0.194:3001/static/${req.files[0].filename}`,
     description: req.body.descrizione,
   };
   const {

@@ -21,7 +21,7 @@ function CommentPage({ postId }) {
   };
 
   let deleteComment = (commentId) => {
-    fetch("http://localhost:3001/comments/delete", {
+    fetch("http://192.168.0.194:3001/comments/delete", {
       method: "DELETE",
       body: JSON.stringify({ commentId: commentId }),
       headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -30,7 +30,7 @@ function CommentPage({ postId }) {
 
       .then((json) => alert(json.text))
       .then(() =>
-        fetch("http://localhost:3001/comments/commentlist", {
+        fetch("http://192.168.0.194:3001/comments/commentlist", {
           method: "POST",
           body: JSON.stringify({ postId: `${postId}` }),
           headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -53,7 +53,7 @@ function CommentPage({ postId }) {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3001/comments/commentlist", {
+    fetch("http://192.168.0.194:3001/comments/commentlist", {
       method: "POST",
       body: JSON.stringify({ postId: `${postId}` }),
       headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -66,7 +66,7 @@ function CommentPage({ postId }) {
   let handlePostComment = () => {
     setComment("");
     setSent(true);
-    fetch("http://localhost:3001/comments/commentpush", {
+    fetch("http://192.168.0.194:3001/comments/commentpush", {
       method: "POST",
       body: JSON.stringify({
         postId: `${postId}`,
@@ -80,7 +80,7 @@ function CommentPage({ postId }) {
       .then((res) => res.json())
       // .then(console.log);
       .then(() =>
-        fetch("http://localhost:3001/comments/commentlist", {
+        fetch("http://192.168.0.194:3001/comments/commentlist", {
           method: "POST",
           body: JSON.stringify({ postId: `${postId}` }),
           headers: { "Content-type": "application/json; charset=UTF-8" },

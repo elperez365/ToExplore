@@ -25,7 +25,7 @@ export function ChangeAvatarColor({ setUserlogged }) {
   };
 
   const avatarUpdate = () => {
-    fetch("http://localhost:3001/login/put", {
+    fetch("http://192.168.0.194:3001/login/put", {
       method: "PUT",
       body: JSON.stringify({
         username: user.username,

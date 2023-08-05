@@ -22,7 +22,7 @@ function BodyProfiloDesk(props) {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3001/posts/${arrayFetch}`)
+    fetch(`http://192.168.0.194:3001/posts/${arrayFetch}`)
       .then((res) => res.json())
       .then((json) => setFiltered(json));
     props.passastate(filtered.length);

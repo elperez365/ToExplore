@@ -12,7 +12,7 @@ export function Homepage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3001/posts")
+    fetch("http://192.168.0.194:3001/posts")
       .then((res) => res.json())
       .then((json) => setPosts(json));
   }, []);

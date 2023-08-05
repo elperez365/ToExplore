@@ -78,7 +78,7 @@ export default function Card2({
   //   console.log(postUser);
   //   console.log(avatarPost);
   React.useEffect(() => {
-    fetch("http://localhost:3001/login/avatar", {
+    fetch("http://192.168.0.194:3001/login/avatar", {
       method: "POST",
       body: JSON.stringify({ username: postUser }),
       headers: { "Content-type": "application/json; charset=UTF-8" },
@@ -88,7 +88,7 @@ export default function Card2({
   }, []);
 
   React.useEffect(() => {
-    fetch("http://localhost:3001/likes/userLikeIt", {
+    fetch("http://192.168.0.194:3001/likes/userLikeIt", {
       method: "POST",
       body: JSON.stringify({
         postId: postId,
@@ -114,7 +114,7 @@ export default function Card2({
   };
 
   React.useEffect(() => {
-    fetch("http://localhost:3001/likes/getLike", {
+    fetch("http://192.168.0.194:3001/likes/getLike", {
       method: "POST",
       body: JSON.stringify({
         username: username,
@@ -127,7 +127,7 @@ export default function Card2({
   }, []);
 
   React.useEffect(() => {
-    fetch("http://localhost:3001/likes/getCounter", {
+    fetch("http://192.168.0.194:3001/likes/getCounter", {
       method: "POST",
       body: JSON.stringify({
         postId: postId,
@@ -144,7 +144,7 @@ export default function Card2({
     // setLiked(liked === false ? true : false);
 
     if (liked) {
-      fetch("http://localhost:3001/likes/delete", {
+      fetch("http://192.168.0.194:3001/likes/delete", {
         method: "DELETE",
         body: JSON.stringify({
           username: username,
@@ -152,7 +152,7 @@ export default function Card2({
         }),
         headers: { "Content-type": "application/json; charset=UTF-8" },
       }).then(() => {
-        fetch("http://localhost:3001/likes/getLike", {
+        fetch("http://192.168.0.194:3001/likes/getLike", {
           method: "POST",
           body: JSON.stringify({
             username: username,
@@ -165,7 +165,7 @@ export default function Card2({
           .then((res) => res.json())
           .then((json) => setLiked(json.success))
           .then(() => {
-            fetch("http://localhost:3001/likes/getCounter", {
+            fetch("http://192.168.0.194:3001/likes/getCounter", {
               method: "POST",
               body: JSON.stringify({
                 postId: postId,
@@ -177,7 +177,7 @@ export default function Card2({
               .then((res) => res.json())
               .then((json) => setCounterLike(json.counter))
               .then(() =>
-                fetch("http://localhost:3001/likes/userLikeIt", {
+                fetch("http://192.168.0.194:3001/likes/userLikeIt", {
                   method: "POST",
                   body: JSON.stringify({
                     postId: postId,
@@ -192,7 +192,7 @@ export default function Card2({
           });
       });
     } else {
-      fetch("http://localhost:3001/likes/post", {
+      fetch("http://192.168.0.194:3001/likes/post", {
         method: "POST",
         body: JSON.stringify({
           username: username,
@@ -200,7 +200,7 @@ export default function Card2({
         }),
         headers: { "Content-type": "application/json; charset=UTF-8" },
       }).then(() => {
-        fetch("http://localhost:3001/likes/getLike", {
+        fetch("http://192.168.0.194:3001/likes/getLike", {
           method: "POST",
           body: JSON.stringify({
             username: username,
@@ -213,7 +213,7 @@ export default function Card2({
           .then((res) => res.json())
           .then((json) => setLiked(json.success))
           .then(() => {
-            fetch("http://localhost:3001/likes/getCounter", {
+            fetch("http://192.168.0.194:3001/likes/getCounter", {
               method: "POST",
               body: JSON.stringify({
                 postId: postId,
@@ -225,7 +225,7 @@ export default function Card2({
               .then((res) => res.json())
               .then((json) => setCounterLike(json.counter))
               .then(() =>
-                fetch("http://localhost:3001/likes/userLikeIt", {
+                fetch("http://192.168.0.194:3001/likes/userLikeIt", {
                   method: "POST",
                   body: JSON.stringify({
                     postId: postId,
@@ -243,7 +243,7 @@ export default function Card2({
   };
 
   const deletePost = (id) => {
-    fetch("http://localhost:3001/posts/delete", {
+    fetch("http://192.168.0.194:3001/posts/delete", {
       method: "DELETE",
       body: JSON.stringify({
         id: id,

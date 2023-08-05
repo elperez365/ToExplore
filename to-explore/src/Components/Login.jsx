@@ -31,7 +31,7 @@ export function Login({ setUserlogged }) {
       setTimeout(() => {
         setLoading(false);
       }, 2000);
-      fetch("http://localhost:3001/login", {
+      fetch("http://192.168.0.194:3001/login", {
         method: "POST",
         body: JSON.stringify({
           username: username,

@@ -50,7 +50,7 @@ function AddContentPage() {
     formData.append("avatarColor", avatarColor);
     formData.append("postUser", username);
 
-    fetch("http://localhost:3001/uploadPost", {
+    fetch("http://192.168.0.194:3001/uploadPost", {
       method: "POST",
       body: formData,
     })

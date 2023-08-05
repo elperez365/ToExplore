@@ -13,7 +13,7 @@ export function SomeoneProfile() {
   };
   const { user } = useParams();
   useEffect(() => {
-    fetch("http://localhost:3001/login/avatar", {
+    fetch("http://192.168.0.194:3001/login/avatar", {
       method: "POST",
       body: JSON.stringify({ username: user }),
       headers: { "Content-type": "application/json; charset=UTF-8" },

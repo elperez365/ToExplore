@@ -7,6 +7,7 @@ import { uploadPostRouter } from "./uploadPost.mjs";
 import { likesRouter } from "./likesRoute.mjs";
 const app = Express();
 const port = 3001;
+const hostname = "192.168.0.194";
 app.use(cors());
 app.use(Express.json());
 app.use("/static", Express.static("uploads"));
@@ -17,6 +18,6 @@ app.use(`/comments`, commentsRouter);
 app.use(`/uploadPost`, uploadPostRouter);
 app.use(`/likes`, likesRouter);
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}`);
 });

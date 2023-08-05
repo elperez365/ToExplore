@@ -231,7 +231,7 @@ export const pubblications = [
     postUser: "vascone",
     postAvatar: "VA",
     avatarColor: "#d9e70d",
-    img: "http://localhost:3001/static/Green-Oasis-fritto-misto-768x866.jpg",
+    img: "http://192.168.0.194:3001/static/Green-Oasis-fritto-misto-768x866.jpg",
     description: "fritturina",
     comments: [],
   },
@@ -243,7 +243,7 @@ export const pubblications = [
     postUser: "vascone",
     postAvatar: "VA",
     avatarColor: "#d9e70d",
-    img: "http://localhost:3001/static/san-vito-lo-capo-thumbnail.jpg",
+    img: "http://192.168.0.194:3001/static/san-vito-lo-capo-thumbnail.jpg",
     description: "saluti da san vito lo capo",
     comments: [
       {
@@ -272,7 +272,7 @@ export const pubblications = [
     postUser: "vascone",
     postAvatar: "VA",
     avatarColor: "#d9e70d",
-    img: "http://localhost:3001/static/circeo7.jpg",
+    img: "http://192.168.0.194:3001/static/circeo7.jpg",
     description: "un tramonto a San felice circeo",
     comments: [
       {
@@ -293,7 +293,7 @@ export const pubblications = [
     postUser: "pino",
     postAvatar: "PN",
     avatarColor: "#d340dd",
-    img: "http://localhost:3001/static/immagine_2023-07-12_124355901.png",
+    img: "http://192.168.0.194:3001/static/immagine_2023-07-12_124355901.png",
     description: "La famosa fontanella! Che tutti ci invidiano! ",
     comments: [],
   },
@@ -305,7 +305,7 @@ export const pubblications = [
     postUser: "pippoct",
     postAvatar: "CT",
     avatarColor: "#1558f4",
-    img: "http://localhost:3001/static/giganti.jpg",
+    img: "http://192.168.0.194:3001/static/giganti.jpg",
     description: "La tomba dei giganti! Luogo suggestivo",
     comments: [],
   },
