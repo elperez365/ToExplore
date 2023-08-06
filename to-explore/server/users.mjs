@@ -93,7 +93,7 @@ export const users = [
     mail: "vas.vas@vas.com",
     password: "vascone",
     avatar: "VA",
-    color: "rgb(234 179 8);",
+    color: "rgb(249 115 22);",
   },
   {
     id: "3799f85b-dc17-4d1b-a98b-7199d24604a4",
@@ -166,5 +166,13 @@ export const users = [
     password: "andre",
     avatar: "AN",
     color: "rgb(7 89 133)",
+  },
+  {
+    id: "ac30fc32-a3e1-419c-9f0c-e122e986621c",
+    username: "Aaaa",
+    mail: "A123@1.1",
+    password: "a123",
+    avatar: "JJ",
+    color: "#166534",
   },
 ];

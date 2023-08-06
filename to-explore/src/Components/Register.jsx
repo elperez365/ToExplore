@@ -61,7 +61,7 @@ export function Register() {
       if (rptPassword !== password) {
         notMatchPass.style.display = "block";
       } else {
-        fetch("http://localhost:3001/login/post", {
+        fetch("http://192.168.0.194:3001/login/post", {
           method: "POST",
           body: JSON.stringify({
             username: username,
