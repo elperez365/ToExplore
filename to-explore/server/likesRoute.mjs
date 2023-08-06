@@ -18,7 +18,7 @@ likesRouter.post("/post", (req, res) => {
 
   res.status(200).json({ success: true, text: "il like è stato aggiunto" });
   writeFileSync(
-    "./likes.mjs",
+    "./server/likes.mjs",
     `export const likesDB = ${JSON.stringify(likes)}`
   );
 });
@@ -34,7 +34,7 @@ likesRouter.delete("/delete", (req, res) => {
       text: "il like è stato eliminato",
     });
     writeFileSync(
-      "./likes.mjs",
+      "./server/likes.mjs",
       `export const likesDB = ${JSON.stringify(likes)}`
     );
   } else {
