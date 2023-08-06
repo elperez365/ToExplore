@@ -1,12 +1,13 @@
 import Express from "express";
 import { pubblications } from "./pubblications.mjs";
-import { uuid } from "uuidv4";
+import { randomUUID } from "crypto";
+
 import { writeFileSync } from "fs";
 import multer from "multer";
 export const uploadPostRouter = Express.Router();
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, `./uploads`);
+    cb(null, `./server/uploads`);
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -18,7 +19,7 @@ const posts = [...pubblications];
 const upload = multer({ storage: storage });
 
 uploadPostRouter.post(`/`, upload.array("image"), (req, res) => {
-  const id = uuid();
+  const id = randomUUID();
   const comments = [];
   const publication = {
     location: req.body.comune,

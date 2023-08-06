@@ -317,7 +317,7 @@ export const pubblications = [
     postUser: "pino",
     postAvatar: "PN",
     avatarColor: "#d340dd",
-    img: "http://localhost:3001/static/Casa-di-Verga-4.jpg",
+    img: "http://192.168.0.194:3001/static/Casa-di-Verga-4.jpg",
     description:
       "La bellissima casa museo dello scrittore Giovanni Verga. Un posto da visitare per tutti gli amanti della letteratura. ",
     comments: [],
@@ -330,7 +330,7 @@ export const pubblications = [
     postUser: "pino",
     postAvatar: "PN",
     avatarColor: "#d340dd",
-    img: "http://localhost:3001/static/Teatro-di-Taormina.jpg",
+    img: "http://192.168.0.194:3001/static/Teatro-di-Taormina.jpg",
     description:
       "Il meraviglioso teatro greco di Taormina vi conquisterà con la sua atmosfera ricca di storia e curiosità. È un'attrazione turistica per chiunque si trovi a passare per queste zone. 🏖 ",
     comments: [],
@@ -343,7 +343,7 @@ export const pubblications = [
     postUser: "pino",
     postAvatar: "PN",
     avatarColor: "#d340dd",
-    img: "http://localhost:3001/static/Cattedrale_di_Palermo._-_panoramio.jpg",
+    img: "http://192.168.0.194:3001/static/Cattedrale_di_Palermo._-_panoramio.jpg",
     description: "La meravigliosa cattedrale di Palermo. ",
     comments: [],
   },
@@ -355,7 +355,7 @@ export const pubblications = [
     postUser: "pino",
     postAvatar: "PN",
     avatarColor: "#d340dd",
-    img: "http://localhost:3001/static/3365-min.jpg",
+    img: "http://192.168.0.194:3001/static/3365-min.jpg",
     description:
       "La cattedrale di Acireale, caratterizzata dal suo stile neogotico, è uno dei più importanti centri culturali di Acireale e del circondario. ",
     comments: [
@@ -385,7 +385,7 @@ export const pubblications = [
     postUser: "vascone2",
     postAvatar: "OE",
     avatarColor: "#ad6eb9",
-    img: "http://localhost:3001/static/Area-del-Colosseo.jpg",
+    img: "http://192.168.0.194:3001/static/Area-del-Colosseo.jpg",
     description: "colosseo vista drone😍!",
     comments: [
       {
@@ -414,7 +414,7 @@ export const pubblications = [
     postUser: "vascone2",
     postAvatar: "OE",
     avatarColor: "#ad6eb9",
-    img: "http://localhost:3001/static/sermoneta-notte-2.jpg",
+    img: "http://192.168.0.194:3001/static/sermoneta-notte-2.jpg",
     description: "Sermoneta di notte!",
     comments: [
       {
@@ -443,7 +443,7 @@ export const pubblications = [
     postUser: "pino",
     postAvatar: "PN",
     avatarColor: "#d340dd",
-    img: "http://localhost:3001/static/3365-min.jpg",
+    img: "http://192.168.0.194:3001/static/3365-min.jpg",
     description: "La bella cattedrale di acireale",
     comments: [],
   },
@@ -455,7 +455,7 @@ export const pubblications = [
     postUser: "pino1",
     postAvatar: "PN",
     avatarColor: "#2eff7e",
-    img: "http://localhost:3001/static/trezza.jpg",
+    img: "http://192.168.0.194:3001/static/trezza.jpg",
     description: "La vista dell'Etna dal mare di Aci Castello.",
     comments: [],
   },
@@ -467,7 +467,7 @@ export const pubblications = [
     postUser: "pino1",
     postAvatar: "PN",
     avatarColor: "#2eff7e",
-    img: "http://localhost:3001/static/vallee-des-temples-Agrigente-840x467.jpg",
+    img: "http://192.168.0.194:3001/static/vallee-des-temples-Agrigente-840x467.jpg",
     description: "La valle dei templi ad Agrigento",
     comments: [],
   },
@@ -479,7 +479,7 @@ export const pubblications = [
     postUser: "pino1",
     postAvatar: "PN",
     avatarColor: "#2eff7e",
-    img: "http://localhost:3001/static/scala-dei-turchi-840x495.jpg",
+    img: "http://192.168.0.194:3001/static/scala-dei-turchi-840x495.jpg",
     description: "La scala dei turchi. ",
     comments: [],
   },
@@ -491,7 +491,7 @@ export const pubblications = [
     postUser: "pino1",
     postAvatar: "PN",
     avatarColor: "#2eff7e",
-    img: "http://localhost:3001/static/Erice-840x474.jpg",
+    img: "http://192.168.0.194:3001/static/Erice-840x474.jpg",
     description: "Il borgo medievale di Erice. ",
     comments: [],
   },
@@ -503,7 +503,7 @@ export const pubblications = [
     postUser: "pino1",
     postAvatar: "PN",
     avatarColor: "#2eff7e",
-    img: "http://localhost:3001/static/iles-eoliennes-840x525.jpg",
+    img: "http://192.168.0.194:3001/static/iles-eoliennes-840x525.jpg",
     description: "Le isole Eolie.",
     comments: [
       {
@@ -524,7 +524,7 @@ export const pubblications = [
     postUser: "pippoInCalabria",
     postAvatar: "PC",
     avatarColor: "#055222",
-    img: "http://localhost:3001/static/0d6974e8-ffc6-43da-a7dc-1e1d1a3ee0d1.jpeg",
+    img: "http://192.168.0.194:3001/static/0d6974e8-ffc6-43da-a7dc-1e1d1a3ee0d1.jpeg",
     description: "I bellissimi paesaggi di Crotone.",
     comments: [],
   },
@@ -536,7 +536,7 @@ export const pubblications = [
     postUser: "pippoInCalabria",
     postAvatar: "PC",
     avatarColor: "#055222",
-    img: "http://localhost:3001/static/Schermata-2022-07-20-alle-14.14.15.png",
+    img: "http://192.168.0.194:3001/static/Schermata-2022-07-20-alle-14.14.15.png",
     description:
       "I famosi Bronzi di Riace, tenuti presso. il museo nazionale della Magna Grecia",
     comments: [],
@@ -549,7 +549,7 @@ export const pubblications = [
     postUser: "pippoInCalabria",
     postAvatar: "PC",
     avatarColor: "#055222",
-    img: "http://localhost:3001/static/2023192105-Pentedattilo.jpg",
+    img: "http://192.168.0.194:3001/static/2023192105-Pentedattilo.jpg",
     description:
       "Il pittoresco villaggio di Pentedattio in Melito di Porto Salvo",
     comments: [],
@@ -562,7 +562,7 @@ export const pubblications = [
     postUser: "vascone",
     postAvatar: "VA",
     avatarColor: "#d9e70d",
-    img: "http://localhost:3001/static/cover-sito-1024x854.jpg",
+    img: "http://192.168.0.194:3001/static/cover-sito-1024x854.jpg",
     description: "I bellissimi Giardini di ninfa",
     comments: [
       {
@@ -583,7 +583,7 @@ export const pubblications = [
     postUser: "vascone",
     postAvatar: "VA",
     avatarColor: "#d9e70d",
-    img: "http://localhost:3001/static/posta fibreno-2.jpg",
+    img: "http://192.168.0.194:3001/static/posta fibreno-2.jpg",
     description:
       "La meravigliosa riserva naturale del lago di Posta Fibreno 😍!",
     comments: [
@@ -605,7 +605,7 @@ export const pubblications = [
     postUser: "andre",
     postAvatar: "AN",
     avatarColor: "rgb(153 27 27);",
-    img: "http://localhost:3001/static/Copia di _DSC1293.jpg",
+    img: "http://192.168.0.194:3001/static/Copia di _DSC1293.jpg",
     description: "",
     comments: [],
   },
