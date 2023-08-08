@@ -44,7 +44,7 @@ loginRouter.post(`/post`, (req, res) => {
       .status(200)
       .json({ success: true, text: "Registrazione completata con successo" });
     writeFileSync(
-      "./users.mjs",
+      "./server/users.mjs",
       `export const users = ${JSON.stringify(usersArray)}`
     ); // gestire errore writefilesync
   } else
@@ -74,7 +74,7 @@ loginRouter.put(`/put`, (req, res) => {
       .status(200)
       .json({ success: true, text: "The avatar color is changed!" });
     writeFileSync(
-      "./users.mjs",
+      "./server/users.mjs",
       `export const users = ${JSON.stringify(usersArray)}`
     );
   } else res.json({ success: false, text: "username not found" });

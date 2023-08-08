@@ -66,7 +66,7 @@ uploadPostRouter.post(`/`, upload.array("image"), (req, res) => {
       .status(200)
       .json({ success: true, text: "il tuo post è stato pubblicato" });
     writeFileSync(
-      "./pubblications.mjs",
+      "./server/pubblications.mjs",
       `export const pubblications= ${JSON.stringify(posts)}`
     );
   } else

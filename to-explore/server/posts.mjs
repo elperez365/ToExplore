@@ -32,7 +32,7 @@ postsRouter.delete(`/delete`, (req, res) => {
       .json({ success: true, text: "il tuo post è stato cancellato" });
 
     writeFileSync(
-      "./pubblications.mjs",
+      "./server/pubblications.mjs",
       `export const pubblications= ${JSON.stringify(newPosts.reverse())}`
     );
   } else {
