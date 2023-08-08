@@ -59,7 +59,7 @@ commentsRouter.post(`/commentpush`, (req, res) => {
     });
     res.status(200).json({ success: true, text: `commento pubblicato` });
     writeFileSync(
-      "./pubblications.mjs",
+      "./server/pubblications.mjs",
       `export const pubblications= ${JSON.stringify(posts)}`
     );
   } else res.status(500).json({ success: false, text: "qualcosa non va" });
@@ -103,7 +103,7 @@ commentsRouter.delete(`/delete`, (req, res) => {
       .status(200)
       .json({ success: true, text: "il tuo commento è stato cancellato" });
     writeFileSync(
-      "./pubblications.mjs",
+      "./server/pubblications.mjs",
       `export const pubblications= ${JSON.stringify(newPosts)}`
     );
   } else

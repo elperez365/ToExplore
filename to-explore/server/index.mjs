@@ -17,6 +17,19 @@ app.use(`/comments`, commentsRouter);
 app.use(`/uploadPost`, uploadPostRouter);
 app.use(`/likes`, likesRouter);
 
+app.get(`/static/:image`, (req, res) => {
+  const { image } = req.params;
+  const options = {
+    root: `./server/uploads`,
+  };
+  res.sendFile(image, options, function (err) {
+    if (err) {
+      console.log(err);
+      res.send("error");
+    }
+  });
+});
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
