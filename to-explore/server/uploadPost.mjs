@@ -3,10 +3,13 @@ import { pubblications } from "./pubblications.mjs";
 import { uuid } from "uuidv4";
 import { writeFileSync } from "fs";
 import multer from "multer";
+import { mkdir } from "fs";
 export const uploadPostRouter = Express.Router();
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, `./uploads`);
+    mkdir("./uploads/", (err) => {
+      cb(null, "./server/uploads/");
+    });
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
